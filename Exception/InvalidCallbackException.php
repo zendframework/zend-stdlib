@@ -21,7 +21,10 @@
 /**
  * @namespace
  */
-namespace Zend\Stdlib;
+namespace Zend\Stdlib\Exception;
+
+use Zend\Stdlib\Exception,
+    DomainException;
 
 /**
  * Invalid callback exception
@@ -34,7 +37,7 @@ namespace Zend\Stdlib;
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class InvalidCallbackException
-    extends \Exception
+    extends DomainException
     implements Exception
 {
 }
