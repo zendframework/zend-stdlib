@@ -14,14 +14,17 @@
  *
  * @category   Zend
  * @package    Zend_Stdlib
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
 /**
  * @namespace
  */
-namespace Zend\Stdlib;
+namespace Zend\Stdlib\Exception;
+
+use Zend\Stdlib\Exception,
+    DomainException;
 
 /**
  * Invalid callback exception
@@ -30,11 +33,11 @@ namespace Zend\Stdlib;
  * @uses       Zend\Stdlib\Exception
  * @category   Zend
  * @package    Zend_Stdlib
- * @copyright  Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 class InvalidCallbackException
-    extends \Exception
+    extends DomainException
     implements Exception
 {
 }
