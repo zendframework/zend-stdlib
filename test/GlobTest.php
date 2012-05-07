@@ -14,22 +14,28 @@
  *
  * @category   Zend
  * @package    Zend_Stdlib
+ * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @version    $Id:$
  */
 
-namespace Zend\Stdlib\Exception;
+namespace ZendTest\Stdlib;
 
-/**
- * Invalid callback exception
- *
- * @category   Zend
- * @package    Zend_Stdlib
- * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd     New BSD License
- */
-class InvalidCallbackException
-    extends \DomainException
-    implements ExceptionInterface
+use PHPUnit_Framework_TestCase as TestCase,
+    Zend\Stdlib\Glob;
+
+class GlobTest extends TestCase
 {
+    public function testFallback()
+    {
+        if (!defined('GLOB_BRACE')) {
+            $this->markTestSkipped('GLOB_BRACE not available');
+        }
+        
+        $this->assertEquals(
+            glob(__DIR__ . '/_files/{alph,bet}a', GLOB_BRACE),
+            Glob::glob(__DIR__ . '/_files/{alph,bet}a', Glob::GLOB_BRACE, true)
+        );
+    }
 }
