@@ -20,52 +20,26 @@
 
 namespace Zend\Stdlib;
 
-use Serializable;
-
 /**
- * Serializable version of SplStack
- *
  * @category   Zend
  * @package    Zend_Stdlib
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class SplStack extends \SplStack implements Serializable
+interface ArraySerializableInterface
 {
     /**
-     * Serialize to an array representing the stack
+     * Exchange internal values from provided array
+     * 
+     * @param  array $array 
+     * @return void
+     */
+    public function exchangeArray(array $array);
+
+    /**
+     * Return an array representation of the object
      * 
      * @return array
      */
-    public function toArray()
-    {
-        $array = array();
-        foreach ($this as $item) {
-            $array[] = $item;
-        }
-        return $array;
-    }
-
-    /**
-     * Serialize
-     * 
-     * @return string
-     */
-    public function serialize()
-    {
-        return serialize($this->toArray());
-    }
-
-    /**
-     * Unserialize
-     * 
-     * @param  string $data
-     * @return void
-     */
-    public function unserialize($data)
-    {
-        foreach (unserialize($data) as $item) {
-            $this->unshift($item);
-        }
-    }
+    public function getArrayCopy();
 }
