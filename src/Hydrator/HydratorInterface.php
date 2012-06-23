@@ -14,58 +14,36 @@
  *
  * @category   Zend
  * @package    Zend_Stdlib
+ * @subpackage Hydrator
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-namespace Zend\Stdlib;
-
-use Serializable;
+namespace Zend\Stdlib\Hydrator;
 
 /**
- * Serializable version of SplStack
- *
  * @category   Zend
  * @package    Zend_Stdlib
+ * @subpackage Hydrator
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class SplStack extends \SplStack implements Serializable
+interface HydratorInterface
 {
     /**
-     * Serialize to an array representing the stack
+     * Extract values from an object
      * 
+     * @param  object $object 
      * @return array
      */
-    public function toArray()
-    {
-        $array = array();
-        foreach ($this as $item) {
-            $array[] = $item;
-        }
-        return $array;
-    }
+    public function extract($object);
 
     /**
-     * Serialize
+     * Hydrate $object with the provided $data.
      * 
-     * @return string
+     * @param  array $data 
+     * @param  object $object 
+     * @return object
      */
-    public function serialize()
-    {
-        return serialize($this->toArray());
-    }
-
-    /**
-     * Unserialize
-     * 
-     * @param  string $data
-     * @return void
-     */
-    public function unserialize($data)
-    {
-        foreach (unserialize($data) as $item) {
-            $this->unshift($item);
-        }
-    }
+    public function hydrate(array $data, $object);
 }
