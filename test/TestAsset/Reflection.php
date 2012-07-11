@@ -8,14 +8,23 @@
  * @package   Zend_Stdlib
  */
 
-namespace Zend\Stdlib;
+namespace ZendTest\Stdlib\TestAsset;
 
-interface MessageInterface
+class Reflection
 {
-    public function setMetadata($spec, $value = null);
-    public function getMetadata($key = null);
+    public $foo = '1';
 
-    public function setContent($content);
-    public function getContent();
+    protected $fooBar = '2';
 
+    private $fooBarBaz = '3';
+
+    public function getFooBar()
+    {
+        return $this->fooBar;
+    }
+
+    public function getFooBarBaz()
+    {
+        return $this->fooBarBaz;
+    }
 }
