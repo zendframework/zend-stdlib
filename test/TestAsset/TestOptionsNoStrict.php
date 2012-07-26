@@ -10,21 +10,24 @@
 
 namespace ZendTest\Stdlib\TestAsset;
 
-class Reflection
+use Zend\Stdlib\AbstractOptions;
+
+/**
+ * Dummy TestOptions used to test Stdlib\Options
+ */
+class TestOptionsNoStrict extends AbstractOptions
 {
-    public $foo = '1';
+    protected $__strictMode__ = false;
 
-    protected $fooBar = '2';
+    protected $testField;
 
-    private $fooBarBaz = '3';
-
-    public function getFooBar()
+    public function setTestField($value)
     {
-        return $this->fooBar;
+        $this->testField = $value;
     }
 
-    public function getFooBarBaz()
+    public function getTestField()
     {
-        return $this->fooBarBaz;
+        return $this->testField;
     }
 }
