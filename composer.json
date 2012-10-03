@@ -9,7 +9,7 @@
     "homepage": "https://github.com/zendframework/zend-stdlib",
     "autoload": {
         "psr-4": {
-            "Zend\\Stdlib": "src/"
+            "Zend\\Stdlib\\": "src/"
         }
     },
     "require": {
