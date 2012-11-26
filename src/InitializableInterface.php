@@ -10,21 +10,18 @@
 
 namespace Zend\Stdlib;
 
-use Zend\Stdlib\RequestInterface as Request;
-use Zend\Stdlib\ResponseInterface as Response;
-
 /**
+ * Interface to allow objects to have initialization logic
+ *
  * @category   Zend
  * @package    Zend_Stdlib
  */
-interface DispatchableInterface
+interface InitializableInterface
 {
     /**
-     * Dispatch a request
+     * Init an object
      *
-     * @param Request $request
-     * @param null|Response $response
-     * @return Response|mixed
+     * @return void
      */
-    public function dispatch(Request $request, Response $response = null);
+    public function init();
 }
