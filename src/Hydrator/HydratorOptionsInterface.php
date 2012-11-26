@@ -8,23 +8,18 @@
  * @package   Zend_Stdlib
  */
 
-namespace Zend\Stdlib;
-
-use Zend\Stdlib\RequestInterface as Request;
-use Zend\Stdlib\ResponseInterface as Response;
+namespace Zend\Stdlib\Hydrator;
 
 /**
  * @category   Zend
  * @package    Zend_Stdlib
+ * @subpackage Hydrator
  */
-interface DispatchableInterface
+interface HydratorOptionsInterface
 {
     /**
-     * Dispatch a request
-     *
-     * @param Request $request
-     * @param null|Response $response
-     * @return Response|mixed
+     * @param  array|\Traversable $options
+     * @return HydratorOptionsInterface
      */
-    public function dispatch(Request $request, Response $response = null);
+    public function setOptions($options);
 }
