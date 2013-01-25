@@ -7,24 +7,37 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  * @package   Zend_Stdlib
  */
-
 namespace ZendTest\Stdlib\TestAsset;
 
-class Reflection
+class ClassMethodsInvalidParameter
 {
-    public $foo = '1';
-
-    protected $fooBar = '2';
-
-    private $fooBarBaz = '3';
-
-    public function getFooBar()
+    public function hasAlias($alias)
     {
-        return $this->fooBar;
+        return $alias;
     }
 
-    public function getFooBarBaz()
+    public function getTest($foo)
     {
-        return $this->fooBarBaz;
+        return $foo;
+    }
+
+    public function isTest($bar)
+    {
+        return $bar;
+    }
+
+    public function hasBar()
+    {
+        return true;
+    }
+
+    public function getFoo()
+    {
+        return "Bar";
+    }
+
+    public function isBla()
+    {
+        return false;
     }
 }
