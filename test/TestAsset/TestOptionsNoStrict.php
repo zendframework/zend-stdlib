@@ -15,8 +15,10 @@ use Zend\Stdlib\AbstractOptions;
 /**
  * Dummy TestOptions used to test Stdlib\Options
  */
-class TestOptions extends AbstractOptions
+class TestOptionsNoStrict extends AbstractOptions
 {
+    protected $__strictMode__ = false;
+
     protected $testField;
 
     public function setTestField($value)
