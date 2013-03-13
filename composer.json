@@ -12,7 +12,7 @@
             "Zend\\Stdlib\\": "src/"
         },
         "files": [
-            "compatibility/autoload.php"
+            "Zend/Stdlib/compatibility/autoload.php"
         ]
     },
     "require": {
@@ -36,8 +36,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.4-dev",
-            "dev-develop": "2.5-dev"
+            "dev-master": "2.1-dev",
+            "dev-develop": "2.2-dev"
         }
     },
     "autoload-dev": {
