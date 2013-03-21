@@ -10,10 +10,7 @@
     "autoload": {
         "psr-4": {
             "Zend\\Stdlib\\": "src/"
-        },
-        "files": [
-            "Zend/Stdlib/compatibility/autoload.php"
-        ]
+        }
     },
     "require": {
         "php": ">=5.3.3"
