@@ -32,8 +32,8 @@ class OptionalParametersFilter implements FilterInterface
      */
     public function filter($property)
     {
-        if (isset(static::$propertiesCache[$property])) {
-            return static::$propertiesCache[$property];
+        if (isset(self::$propertiesCache[$property])) {
+            return self::$propertiesCache[$property];
         }
 
         try {
@@ -49,6 +49,6 @@ class OptionalParametersFilter implements FilterInterface
             }
         );
 
-        return static::$propertiesCache[$property] = empty($mandatoryParameters);
+        return self::$propertiesCache[$property] = empty($mandatoryParameters);
     }
 }
