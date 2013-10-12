@@ -7,17 +7,15 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\TestAsset;
+namespace Zend\Stdlib\Extractor;
 
-
-class HydratorClosureStrategyEntity
+interface ExtractionInterface
 {
-    public $field1;
-    public $field2;
-
-    public function __construct($field1 = null, $field2 = null)
-    {
-        $this->field1 = $field1;
-        $this->field2 = $field2;
-    }
+    /**
+     * Extract values from an object
+     *
+     * @param  object $object
+     * @return array
+     */
+    public function extract($object);
 }
