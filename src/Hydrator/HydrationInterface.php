@@ -7,17 +7,16 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\TestAsset;
+namespace Zend\Stdlib\Hydrator;
 
-
-class HydratorClosureStrategyEntity
+interface HydrationInterface
 {
-    public $field1;
-    public $field2;
-
-    public function __construct($field1 = null, $field2 = null)
-    {
-        $this->field1 = $field1;
-        $this->field2 = $field2;
-    }
+    /**
+     * Hydrate $object with the provided $data.
+     *
+     * @param  array $data
+     * @param  object $object
+     * @return object
+     */
+    public function hydrate(array $data, $object);
 }
