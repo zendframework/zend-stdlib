@@ -32,20 +32,14 @@ class ArraySerializable extends AbstractHydrator
         }
 
         $data = $object->getArrayCopy();
-        $filter = $this->getFilter();
 
         foreach ($data as $name => $value) {
-            if (!$filter->filter($name)) {
+            if (!$this->getFilter()->filter($name)) {
                 unset($data[$name]);
                 continue;
             }
-            $extractedName = $this->extractName($name, $object);
-            // replace the original key with extracted, if differ
-            if ($extractedName !== $name) {
-                unset($data[$name]);
-                $name = $extractedName;
-            }
-            $data[$name] = $this->extractValue($name, $value, $object);
+
+            $data[$name] = $this->extractValue($name, $value);
         }
 
         return $data;
@@ -64,16 +58,15 @@ class ArraySerializable extends AbstractHydrator
      */
     public function hydrate(array $data, $object)
     {
-        $replacement = array();
-        foreach ($data as $key => $value) {
-            $name = $this->hydrateName($key, $data);
-            $replacement[$name] = $this->hydrateValue($name, $value, $data);
-        }
+        $self = $this;
+        array_walk($data, function (&$value, $name) use ($self) {
+            $value = $self->hydrateValue($name, $value);
+        });
 
         if (is_callable(array($object, 'exchangeArray'))) {
-            $object->exchangeArray($replacement);
+            $object->exchangeArray($data);
         } elseif (is_callable(array($object, 'populate'))) {
-            $object->populate($replacement);
+            $object->populate($data);
         } else {
             throw new Exception\BadMethodCallException(sprintf(
                 '%s expects the provided object to implement exchangeArray() or populate()', __METHOD__

@@ -30,7 +30,7 @@ class Reflection extends AbstractHydrator
     {
         $result = array();
         foreach (self::getReflProperties($object) as $property) {
-            $propertyName = $this->extractName($property->getName(), $object);
+            $propertyName = $property->getName();
             if (!$this->filterComposite->filter($propertyName)) {
                 continue;
             }
@@ -53,9 +53,8 @@ class Reflection extends AbstractHydrator
     {
         $reflProperties = self::getReflProperties($object);
         foreach ($data as $key => $value) {
-            $name = $this->hydrateName($key, $data);
-            if (isset($reflProperties[$name])) {
-                $reflProperties[$name]->setValue($object, $this->hydrateValue($name, $value, $data));
+            if (isset($reflProperties[$key])) {
+                $reflProperties[$key]->setValue($object, $this->hydrateValue($key, $value, $data));
             }
         }
         return $object;

@@ -9,9 +9,22 @@
 
 namespace Zend\Stdlib\Hydrator;
 
-use Zend\Stdlib\Extractor\ExtractionInterface;
-
-interface HydratorInterface extends HydrationInterface, ExtractionInterface
+interface HydratorInterface
 {
+    /**
+     * Extract values from an object
+     *
+     * @param  object $object
+     * @return array
+     */
+    public function extract($object);
 
+    /**
+     * Hydrate $object with the provided $data.
+     *
+     * @param  array $data
+     * @param  object $object
+     * @return object
+     */
+    public function hydrate(array $data, $object);
 }

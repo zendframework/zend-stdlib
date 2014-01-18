@@ -75,28 +75,26 @@ class ClosureStrategy implements StrategyInterface
     /**
      * Converts the given value so that it can be extracted by the hydrator.
      *
-     * @param  mixed $value  The original value.
-     * @param  array $object The object is optionally provided as context.
+     * @param mixed $value The original value.
      * @return mixed Returns the value that should be extracted.
      */
-    public function extract($value, $object = null)
+    public function extract($value)
     {
         $func = $this->extractFunc;
 
-        return $func($value, $object);
+        return $func($value);
     }
 
     /**
      * Converts the given value so that it can be hydrated by the hydrator.
      *
-     * @param  mixed $value The original value.
-     * @param  array $data  The whole data is optionally provided as context.
+     * @param mixed $value The original value.
      * @return mixed Returns the value that should be hydrated.
      */
-    public function hydrate($value, $data = null)
+    public function hydrate($value)
     {
         $func = $this->hydrateFunc;
 
-        return $func($value, $data);
+        return $func($value);
     }
 }
