@@ -257,7 +257,7 @@ abstract class ArrayUtils
     public static function merge(array $a, array $b, $preserveNumericKeys = false)
     {
         foreach ($b as $key => $value) {
-            if (isset($a[$key]) || array_key_exists($key, $a)) {
+            if (array_key_exists($key, $a)) {
                 if (is_int($key) && !$preserveNumericKeys) {
                     $a[] = $value;
                 } elseif (is_array($value) && is_array($a[$key])) {
