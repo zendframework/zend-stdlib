@@ -7,10 +7,22 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\Stdlib\Hydrator;
+namespace ZendTest\Stdlib\TestAsset;
 
-use Zend\Stdlib\Extractor\ExtractionInterface;
-
-interface HydratorInterface extends HydrationInterface, ExtractionInterface
+class ClassWithPublicStaticProperties
 {
+    /**
+     * @var string
+     */
+    public static $foo = 'foo';
+
+    /**
+     * @var string
+     */
+    public static $bar = 'bar';
+
+    /**
+     * @var string
+     */
+    public static $baz = 'baz';
 }
