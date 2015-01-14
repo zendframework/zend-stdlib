@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -19,6 +19,7 @@ use Zend\Stdlib\Hydrator\Filter\HasFilter;
 use Zend\Stdlib\Hydrator\Filter\IsFilter;
 use Zend\Stdlib\Hydrator\Filter\MethodMatchFilter;
 use Zend\Stdlib\Hydrator\Filter\OptionalParametersFilter;
+use Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
 
 class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
 {
@@ -44,10 +45,10 @@ class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
 
         $this->callableMethodFilter = new OptionalParametersFilter();
 
-        $this->filterComposite->addFilter("is", new IsFilter());
-        $this->filterComposite->addFilter("has", new HasFilter());
-        $this->filterComposite->addFilter("get", new GetFilter());
-        $this->filterComposite->addFilter("parameter", new OptionalParametersFilter(), FilterComposite::CONDITION_AND);
+        $this->filterComposite->addFilter('is', new IsFilter());
+        $this->filterComposite->addFilter('has', new HasFilter());
+        $this->filterComposite->addFilter('get', new GetFilter());
+        $this->filterComposite->addFilter('parameter', new OptionalParametersFilter(), FilterComposite::CONDITION_AND);
     }
 
     /**
@@ -77,7 +78,13 @@ class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
      */
     public function setUnderscoreSeparatedKeys($underscoreSeparatedKeys)
     {
-        $this->underscoreSeparatedKeys = $underscoreSeparatedKeys;
+        $this->underscoreSeparatedKeys = (bool) $underscoreSeparatedKeys;
+
+        if ($this->underscoreSeparatedKeys) {
+            $this->setNamingStrategy(new UnderscoreNamingStrategy);
+        } elseif ($this->getNamingStrategy() instanceof UnderscoreNamingStrategy) {
+            $this->removeNamingStrategy();
+        }
 
         return $this;
     }
@@ -102,26 +109,21 @@ class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
     public function extract($object)
     {
         if (!is_object($object)) {
-            throw new Exception\BadMethodCallException(sprintf(
-                '%s expects the provided $object to be a PHP object)', __METHOD__
-            ));
+            throw new Exception\BadMethodCallException(
+                sprintf('%s expects the provided $object to be a PHP object)', __METHOD__)
+            );
         }
 
         $filter = null;
         if ($object instanceof FilterProviderInterface) {
             $filter = new FilterComposite(
                 array($object->getFilter()),
-                array(new MethodMatchFilter("getFilter"))
+                array(new MethodMatchFilter('getFilter'))
             );
         } else {
             $filter = $this->filterComposite;
         }
 
-        $transform = function ($letters) {
-            $letter = array_shift($letters);
-
-            return '_' . strtolower($letter);
-        };
         $attributes = array();
         $methods = get_class_methods($object);
 
@@ -146,9 +148,7 @@ class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
                 }
             }
 
-            if ($this->underscoreSeparatedKeys) {
-                $attribute = preg_replace_callback('/([A-Z])/', $transform, $attribute);
-            }
+            $attribute = $this->extractName($attribute, $object);
             $attributes[$attribute] = $this->extractValue($attribute, $object->$method(), $object);
         }
 
@@ -168,22 +168,13 @@ class ClassMethods extends AbstractHydrator implements HydratorOptionsInterface
     public function hydrate(array $data, $object)
     {
         if (!is_object($object)) {
-            throw new Exception\BadMethodCallException(sprintf(
-                '%s expects the provided $object to be a PHP object)', __METHOD__
-            ));
+            throw new Exception\BadMethodCallException(
+                sprintf('%s expects the provided $object to be a PHP object)', __METHOD__)
+            );
         }
 
-        $transform = function ($letters) {
-            $letter = substr(array_shift($letters), 1, 1);
-
-            return ucfirst($letter);
-        };
-
         foreach ($data as $property => $value) {
-            $method = 'set' . ucfirst($property);
-            if ($this->underscoreSeparatedKeys) {
-                $method = preg_replace_callback('/(_[a-z])/i', $transform, $method);
-            }
+            $method = 'set' . ucfirst($this->hydrateName($property, $data));
             if (is_callable(array($object, $method))) {
                 $value = $this->hydrateValue($property, $value, $data);
                 $object->$method($value);
