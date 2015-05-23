@@ -5,7 +5,7 @@ class for different scopes like:
 
 - array utilities functions;
 - hydrators;
-- json serialazible interfaces;
+- json serializable interfaces;
 - general messaging systems;
 - strin wrappers;
 - etc
