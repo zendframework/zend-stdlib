@@ -16,7 +16,9 @@
         "php": ">=5.3.23"
     },
     "require-dev": {
+        "zendframework/zend-config": "~2.4",
         "zendframework/zend-eventmanager": "~2.4",
+        "zendframework/zend-inputfilter": "~2.4",
         "zendframework/zend-serializer": "~2.4",
         "zendframework/zend-servicemanager": "~2.4",
         "zendframework/zend-filter": "~2.4",
