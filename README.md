@@ -11,8 +11,8 @@ class for different scopes like:
 - json serializable interfaces;
 - general messaging systems;
 - strin wrappers;
-- etc
+- etc.
 
-
+-
 - File issues at https://github.com/zendframework/zend-stdlib/issues
 - Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib
