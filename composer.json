@@ -23,7 +23,6 @@
         "zendframework/zend-servicemanager": "~2.4",
         "zendframework/zend-filter": "~2.4",
         "fabpot/php-cs-fixer": "1.7.*",
-        "satooshi/php-coveralls": "dev-master",
         "phpunit/PHPUnit": "~4.0"
     },
     "suggest": {
