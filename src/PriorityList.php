@@ -65,7 +65,7 @@ class PriorityList implements Iterator, Countable
         if (!isset($this->items[$name])) {
             $this->count++;
         }
-		
+
         $this->sorted = false;
 
         $this->items[$name] = [
