@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "php": ">=5.3.23"
+        "php": ">=5.5"
     },
     "require-dev": {
         "zendframework/zend-config": "~2.5",
