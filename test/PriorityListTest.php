@@ -34,6 +34,24 @@ class PriorityListTest extends TestCase
             $this->assertEquals('foo', $key);
         }
     }
+    
+    public function testInsertDuplicates()
+    {
+        $this->list->insert('foo', new \stdClass());
+        $this->list->insert('bar', new \stdClass());
+        
+        $this->assertEquals(2, count($this->list));
+        
+        $this->list->insert('foo', new \stdClass());
+        $this->list->insert('foo', new \stdClass());
+        $this->list->insert('bar', new \stdClass());
+        
+        $this->assertEquals(2, count($this->list));
+        
+        $this->list->remove('foo');
+        
+        $this->assertEquals(1, count($this->list));
+    }
 
     public function testRemove()
     {
