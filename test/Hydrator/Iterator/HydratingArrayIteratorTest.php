@@ -17,10 +17,10 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testHydratesObjectAndClonesOnCurrent()
     {
-        $data = array(
-            array('foo' => 'bar'),
-            array('baz' => 'bat')
-        );
+        $data = [
+            ['foo' => 'bar'],
+            ['baz' => 'bat']
+        ];
 
         $object   = new ArrayObject();
 
@@ -40,9 +40,9 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     public function testUsingStringForObjectName()
     {
-        $data = array(
-            array('foo' => 'bar')
-        );
+        $data = [
+            ['foo' => 'bar']
+        ];
 
         $hydratingIterator = new HydratingArrayIterator(new ArraySerializable(), $data, '\ArrayObject');
 
@@ -53,6 +53,6 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
     public function testThrowingInvalidArguementExceptionWhenSettingPrototypeToInvalidClass()
     {
         $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
-        $hydratingIterator = new HydratingArrayIterator(new ArraySerializable(), array(), 'not a real class');
+        $hydratingIterator = new HydratingArrayIterator(new ArraySerializable(), [], 'not a real class');
     }
 }

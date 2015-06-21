@@ -18,10 +18,10 @@ class HydratingIteratorIteratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testHydratesObjectAndClonesOnCurrent()
     {
-        $data = array(
-            array('foo' => 'bar'),
-            array('baz' => 'bat')
-        );
+        $data = [
+            ['foo' => 'bar'],
+            ['baz' => 'bat']
+        ];
 
         $iterator = new ArrayIterator($data);
         $object   = new ArrayObject();
@@ -42,9 +42,9 @@ class HydratingIteratorIteratorTest extends \PHPUnit_Framework_TestCase
 
     public function testUsingStringForObjectName()
     {
-        $data = array(
-            array('foo' => 'bar')
-        );
+        $data = [
+            ['foo' => 'bar']
+        ];
 
         $iterator = new ArrayIterator($data);
 
