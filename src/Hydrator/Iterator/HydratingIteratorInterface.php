@@ -9,7 +9,7 @@
 
 namespace Zend\Stdlib\Hydrator\Iterator;
 
-use \Iterator;
+use Iterator;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 
 interface HydratingIteratorInterface extends Iterator
