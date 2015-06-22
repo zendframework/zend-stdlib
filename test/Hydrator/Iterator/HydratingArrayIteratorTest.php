@@ -9,7 +9,7 @@
 
 namespace Hydrator\Iterator;
 
-use \ArrayObject;
+use ArrayObject;
 use Zend\Stdlib\Hydrator\ArraySerializable;
 use Zend\Stdlib\Hydrator\Iterator\HydratingArrayIterator;
 

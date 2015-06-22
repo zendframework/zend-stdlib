@@ -9,8 +9,8 @@
 
 namespace Zend\Stdlib\Hydrator\Iterator;
 
-use \Iterator;
-use \IteratorIterator;
+use Iterator;
+use IteratorIterator;
 use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 

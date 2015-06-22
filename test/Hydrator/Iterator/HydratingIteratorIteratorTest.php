@@ -9,8 +9,8 @@
 
 namespace ZendTest\Stdlib\Hydrator\Iterator;
 
-use \ArrayIterator;
-use \ArrayObject;
+use ArrayIterator;
+use ArrayObject;
 use Zend\Stdlib\Hydrator\ArraySerializable;
 use Zend\Stdlib\Hydrator\Iterator\HydratingIteratorIterator;
 
