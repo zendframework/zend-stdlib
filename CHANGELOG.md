@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.6.0 - TBD
+## 2.6.0 - 2015-07-21
 
 ### Added
 
@@ -12,24 +12,6 @@ All notable changes to this project will be documented in this file, in reverse 
   resultsets; the original idea was pulled from
   [PhlyMongo](https://github.com/phly/PhlyMongo), where it was used to hydrate
   collections retrieved from MongoDB.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 2.5.3 - TBD
-
-### Added
-
-- Nothing.
 
 ### Deprecated
 
