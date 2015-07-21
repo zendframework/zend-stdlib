@@ -26,6 +26,11 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
      */
     protected $prototype;
 
+    /**
+     * @param HydratorInterface $hydrator
+     * @param Iterator $data
+     * @param string|object $prototype Object or class name to use for prototype.
+     */
     public function __construct(HydratorInterface $hydrator, Iterator $data, $prototype)
     {
         $this->setHydrator($hydrator);
@@ -33,6 +38,9 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
         parent::__construct($data);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function setPrototype($prototype)
     {
         if (is_object($prototype)) {
@@ -49,11 +57,17 @@ class HydratingIteratorIterator extends IteratorIterator implements HydratingIte
         $this->prototype = new $prototype;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function setHydrator(HydratorInterface $hydrator)
     {
         $this->hydrator = $hydrator;
     }
 
+    /**
+     * @return object Returns hydrated clone of $prototype
+     */
     public function current()
     {
         $currentValue = parent::current();

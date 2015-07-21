@@ -15,15 +15,17 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
 interface HydratingIteratorInterface extends Iterator
 {
     /**
-     * This sets the prototype of that will be hydrated.  This can be the name of the class or
-     * the object itself.  The iterator will clone the object
+     * This sets the prototype to hydrate.
+     *
+     * This prototype can be the name of the class or the object itself;
+     * iteration will clone the object.
      *
      * @param string|object $prototype
      */
     public function setPrototype($prototype);
 
     /**
-     * Sets the hydrator to use for the prototype
+     * Sets the hydrator to use during iteration.
      *
      * @param HydratorInterface $hydrator
      */

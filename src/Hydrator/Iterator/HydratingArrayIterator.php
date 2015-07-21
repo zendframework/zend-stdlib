@@ -24,6 +24,11 @@ class HydratingArrayIterator extends HydratingIteratorIterator
      */
     protected $prototype;
 
+    /**
+     * @param HydratorInterface $hydrator
+     * @param array $data
+     * @param string|object $prototype Object, or class name to use for prototype.
+     */
     public function __construct(HydratorInterface $hydrator, array $data, $prototype)
     {
         parent::__construct($hydrator, new ArrayIterator($data), $prototype);

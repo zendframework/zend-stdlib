@@ -19,7 +19,7 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $data = [
             ['foo' => 'bar'],
-            ['baz' => 'bat']
+            ['baz' => 'bat'],
         ];
 
         $object   = new ArrayObject();
@@ -41,7 +41,7 @@ class HydratingArrayIteratorTest extends \PHPUnit_Framework_TestCase
     public function testUsingStringForObjectName()
     {
         $data = [
-            ['foo' => 'bar']
+            ['foo' => 'bar'],
         ];
 
         $hydratingIterator = new HydratingArrayIterator(new ArraySerializable(), $data, '\ArrayObject');
