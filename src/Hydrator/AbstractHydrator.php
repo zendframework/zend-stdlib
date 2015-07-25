@@ -12,7 +12,8 @@ namespace Zend\Stdlib\Hydrator;
 use ArrayObject;
 use Zend\Stdlib\Exception;
 use Zend\Stdlib\Hydrator\Filter\FilterComposite;
-use Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\NamingStrategyEnabledInterface;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\NamingStrategyInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 abstract class AbstractHydrator implements

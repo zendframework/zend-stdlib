@@ -7,14 +7,14 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\Hydrator\NamingStrategy;
+namespace ZendTest\Stdlib\Hydrator\Strategy\NamingStrategy;
 
-use Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\UnderscoreNamingStrategy;
 
 /**
- * Unit tests for {@see \Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy}
+ * Unit tests for {@see \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\UnderscoreNamingStrategy}
  *
- * @covers \Zend\Stdlib\Hydrator\NamingStrategy\UnderscoreNamingStrategy
+ * @covers \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\UnderscoreNamingStrategy
  */
 class UnderscoreNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {
