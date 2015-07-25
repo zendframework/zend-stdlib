@@ -7,13 +7,13 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\Stdlib\Hydrator\NamingStrategy;
+namespace Zend\Stdlib\Hydrator\Strategy\NamingStrategy;
 
 /**
  * Allow property extraction / hydration for hydrator
  *
  * Interface PropertyStrategyInterface
- * @package Zend\Stdlib\Hydrator\NamingStrategy
+ * @package Zend\Stdlib\Hydrator\Strategy\NamingStrategy
  */
 interface NamingStrategyInterface
 {

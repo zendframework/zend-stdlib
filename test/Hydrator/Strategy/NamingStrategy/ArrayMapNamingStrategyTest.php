@@ -7,14 +7,14 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\Hydrator\NamingStrategy;
+namespace ZendTest\Stdlib\Hydrator\Strategy\NamingStrategy;
 
-use Zend\Stdlib\Hydrator\NamingStrategy\ArrayMapNamingStrategy;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\ArrayMapNamingStrategy;
 
 /**
- * Tests for {@see \Zend\Stdlib\Hydrator\NamingStrategy\ArrayMapNamingStrategy}
+ * Tests for {@see \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\ArrayMapNamingStrategy}
  *
- * @covers \Zend\Stdlib\Hydrator\NamingStrategy\ArrayMapNamingStrategy
+ * @covers \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\ArrayMapNamingStrategy
  */
 class ArrayMapNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {

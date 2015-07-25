@@ -7,9 +7,9 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\Hydrator\NamingStrategy;
+namespace ZendTest\Stdlib\Hydrator\Strategy\NamingStrategy;
 
-use Zend\Stdlib\Hydrator\NamingStrategy\MapNamingStrategy;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\MapNamingStrategy;
 
 class MapNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {

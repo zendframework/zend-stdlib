@@ -7,14 +7,14 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendTest\Stdlib\Hydrator\NamingStrategy;
+namespace ZendTest\Stdlib\Hydrator\Strategy\NamingStrategy;
 
-use Zend\Stdlib\Hydrator\NamingStrategy\IdentityNamingStrategy;
+use Zend\Stdlib\Hydrator\Strategy\NamingStrategy\IdentityNamingStrategy;
 
 /**
- * Tests for {@see \Zend\Stdlib\Hydrator\NamingStrategy\IdentityNamingStrategy}
+ * Tests for {@see \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\IdentityNamingStrategy}
  *
- * @covers \Zend\Stdlib\Hydrator\NamingStrategy\IdentityNamingStrategy
+ * @covers \Zend\Stdlib\Hydrator\Strategy\NamingStrategy\IdentityNamingStrategy
  */
 class IdentityNamingStrategyTest extends \PHPUnit_Framework_TestCase
 {
