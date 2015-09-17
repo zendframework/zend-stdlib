@@ -82,8 +82,8 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function insert($value, $priority)
     {
-        if (!is_int($priority) || $priority < 1) {
-            throw new Exception\InvalidArgumentException("The priority must be a positive integer");
+        if (!is_int($priority)) {
+            throw new Exception\InvalidArgumentException("The priority must be an integer");
         }
         $this->values[$priority][] = $value;
         if (!isset($this->priorities[$priority])) {
@@ -256,6 +256,8 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
             case self::EXTR_BOTH:
                 $this->extractFlag = $flag;
                 break;
+            default:
+                throw new Exception\InvalidArgumentException("The extract flag specified is not valid");
         }
     }
 
