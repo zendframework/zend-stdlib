@@ -13,16 +13,7 @@ class for different scopes like:
 - string wrappers;
 - etc.
 
-## Benchmarks
+---
 
-We provided some benchmarks for zend-stdlib in the folder [/benchmark](/benchmark).
-We used [athletic](https://github.com/polyfractal/athletic) framework to write the benchmark tests.
-You can execute the benchmarks running the following command:
-
-```
-vendor/bin/athletic -p benchmark
-```
-
--
 - File issues at https://github.com/zendframework/zend-stdlib/issues
 - Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib
