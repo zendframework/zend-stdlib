@@ -83,12 +83,12 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     public function insert($value, $priority)
     {
         if (!is_int($priority) || $priority < 1) {
-            throw new Exception\InvalidArgumentException("The priority must be a positive integer");
+            throw new Exception\InvalidArgumentException('The priority must be a positive integer');
         }
         $this->values[$priority][] = $value;
-        if (!isset($this->priorities[$priority])) {
+        if (! isset($this->priorities[$priority])) {
             $this->priorities[$priority] = $priority;
-            $this->maxPriority = max($priority, $this->maxPriority);
+            $this->maxPriority           = max($priority, $this->maxPriority);
         }
         ++$this->count;
     }
@@ -101,7 +101,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function extract()
     {
-        if (!$this->valid()) {
+        if (! $this->valid()) {
             return false;
         }
         $value = $this->current();
@@ -133,7 +133,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
                 return $this->maxPriority;
             case self::EXTR_BOTH:
                 return [
-                    'data' => current($this->values[$this->maxPriority]),
+                    'data'     => current($this->values[$this->maxPriority]),
                     'priority' => $this->maxPriority
                 ];
         }
