@@ -6,7 +6,15 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#19](https://github.com/zendframework/zend-stdlib/pull/19) adds a new
+  `FastPriorityQueue` implementation. It follows the same signature as
+  `SplPriorityQueue`, but uses a performance-optimized algorithm:
+  - inserts are 2x faster than `SplPriorityQueue` and 3x faster than the
+    `Zend\Stdlib\PriorityQueue` implementation.
+  - extracts are 4x faster than `SplPriorityQueue` and 4-5x faster than the
+    `Zend\Stdlib\PriorityQueue` implementation.
+  The intention is to use this as a drop-in replacement in the
+  `zend-eventmanager` component to provide performance benefits.
 
 ### Deprecated
 
