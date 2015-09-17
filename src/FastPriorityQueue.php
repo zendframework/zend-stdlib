@@ -58,14 +58,14 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      *
      * @var integer
      */
-    protected $max = 0;
+    protected $maxPriority = 0;
 
     /**
      * Total number of elements in the queue
      *
      * @var integer
      */
-    protected $tot = 0;
+    protected $count = 0;
 
     /**
      * Index of the current element in the queue
@@ -88,9 +88,9 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         $this->values[$priority][] = $value;
         if (!isset($this->priorities[$priority])) {
             $this->priorities[$priority] = $priority;
-            $this->max = max($priority, $this->max);
+            $this->maxPriority = max($priority, $this->maxPriority);
         }
-        ++$this->tot;
+        ++$this->count;
     }
 
     /**
@@ -116,7 +116,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function count()
     {
-        return $this->tot;
+        return $this->count;
     }
 
     /**
@@ -128,13 +128,13 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     {
         switch ($this->extractFlag) {
             case self::EXTR_DATA:
-                return current($this->values[$this->max]);
+                return current($this->values[$this->maxPriority]);
             case self::EXTR_PRIORITY:
-                return $this->max;
+                return $this->maxPriority;
             case self::EXTR_BOTH:
                 return [
-                    'data' => current($this->values[$this->max]),
-                    'priority' => $this->max
+                    'data' => current($this->values[$this->maxPriority]),
+                    'priority' => $this->maxPriority
                 ];
         }
     }
@@ -155,13 +155,13 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     protected function nextAndRemove()
     {
-        if (false === next($this->values[$this->max])) {
-            unset($this->priorities[$this->max]);
-            unset($this->values[$this->max]);
-            $this->max = empty($this->priorities) ? 0 : max($this->priorities);
+        if (false === next($this->values[$this->maxPriority])) {
+            unset($this->priorities[$this->maxPriority]);
+            unset($this->values[$this->maxPriority]);
+            $this->maxPriority = empty($this->priorities) ? 0 : max($this->priorities);
         }
         ++$this->index;
-        --$this->tot;
+        --$this->count;
     }
 
     /**
@@ -170,12 +170,12 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function next()
     {
-        if (false === next($this->values[$this->max])) {
-            unset($this->subPriorities[$this->max]);
-            $this->max = empty($this->subPriorities) ? 0 : max($this->subPriorities);
+        if (false === next($this->values[$this->maxPriority])) {
+            unset($this->subPriorities[$this->maxPriority]);
+            $this->maxPriority = empty($this->subPriorities) ? 0 : max($this->subPriorities);
         }
         ++$this->index;
-        --$this->tot;
+        --$this->count;
     }
 
     /**
@@ -185,7 +185,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function valid()
     {
-        return isset($this->values[$this->max]);
+        return isset($this->values[$this->maxPriority]);
     }
 
     /**
