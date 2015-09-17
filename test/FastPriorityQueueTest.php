@@ -33,12 +33,12 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
     protected function getDataPriorityQueue()
     {
         return [
-            'test3' => 2,
-            'test5' => 1,
+            'test3' => -1,
+            'test5' => -10,
             'test1' => 5,
-            'test2' => 3,
-            'test4' => 2,
-            'test6' => 1
+            'test2' => 2,
+            'test4' => -1,
+            'test6' => -10
         ];
     }
 
@@ -141,16 +141,25 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 
     public function testSetExtractFlag()
     {
+        $priorities = $this->getDataPriorityQueue();
         $this->queue->setExtractFlags(FastPriorityQueue::EXTR_DATA);
         $this->assertEquals($this->expected[0], $this->queue->extract());
         $this->queue->setExtractFlags(FastPriorityQueue::EXTR_PRIORITY);
-        $this->assertEquals(3, $this->queue->extract());
+        $this->assertEquals($priorities[$this->expected[1]], $this->queue->extract());
         $this->queue->setExtractFlags(FastPriorityQueue::EXTR_BOTH);
         $expected = [
             'data'     => $this->expected[2],
-            'priority' => 2
+            'priority' => $priorities[$this->expected[2]]
         ];
         $this->assertEquals($expected, $this->queue->extract());
+    }
+
+    /**
+     * @expectedException Zend\Stdlib\Exception\InvalidArgumentException
+     */
+    public function testSetInvalidExtractFlag()
+    {
+        $this->queue->setExtractFlags('foo');
     }
 
     public function testIsEmpty()
