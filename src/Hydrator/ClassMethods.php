@@ -9,7 +9,6 @@
 
 namespace Zend\Stdlib\Hydrator;
 
-use Traversable;
 use Zend\Hydrator\ClassMethods as BaseClassMethods;
 
 /**
