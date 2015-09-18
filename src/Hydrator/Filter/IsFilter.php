@@ -10,6 +10,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\IsFilter as BaseIsFilter;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\IsFilter from zendframework/zend-hydrator instead.
+ */
 class IsFilter extends BaseIsFilter
 {
 }

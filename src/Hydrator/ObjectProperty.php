@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\ObjectProperty as BaseObjectProperty;
 
+/**
+ * @deprecated Use Zend\Hydrator\ObjectProperty from zendframework/zend-hydrator instead.
+ */
 class ObjectProperty extends BaseObjectProperty implements HydratorInterface
 {
 }

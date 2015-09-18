@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\DelegatingHydratorFactory as BaseDelegatingHydratorFactory;
 
+/**
+ * @deprecated Use Zend\Hydrator\DelegatingHydratorFactory from zendframework/zend-hydrator instead.
+ */
 class DelegatingHydratorFactory extends BaseDelegatingHydratorFactory
 {
 }

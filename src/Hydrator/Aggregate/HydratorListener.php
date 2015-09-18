@@ -15,6 +15,8 @@ use Zend\Hydrator\Aggregate\HydratorListener as BaseHydratorListener;
  * Aggregate listener wrapping around a hydrator. Listens
  * to {@see \Zend\Stdlib\Hydrator\Aggregate::EVENT_HYDRATE} and
  * {@see \Zend\Stdlib\Hydrator\Aggregate::EVENT_EXTRACT}
+ *
+ * @deprecated Use Zend\Hydrator\Aggregate\HydratorListener from zendframework/zend-hydrator instead.
  */
 class HydratorListener extends BaseHydratorListener
 {

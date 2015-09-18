@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\NamingStrategy;
 
 use Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy as BaseUnderscoreNamingStrategy;
 
+/**
+ * @deprecated Use Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy from zendframework/zend-hydrator instead.
+ */
 class UnderscoreNamingStrategy extends BaseUnderscoreNamingStrategy
 {
 }

@@ -10,6 +10,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\MethodMatchFilter as BaseMethodMatchFilter;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\MethodMatchFilter from zendframework/zend-hydrator instead.
+ */
 class MethodMatchFilter extends BaseMethodMatchFilter
 {
 }

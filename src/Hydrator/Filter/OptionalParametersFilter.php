@@ -12,6 +12,8 @@ use Zend\Hydrator\Filter\OptionalParametersFilter as BaseOptionalParametersFilte
 
 /**
  * Filter that includes methods which have no parameters or only optional parameters
+ *
+ * @deprecated Use Zend\Hydrator\Filter\OptionalParametersFilter from zendframework/zend-hydrator instead.
  */
 class OptionalParametersFilter extends BaseOptionalParametersFilter
 {

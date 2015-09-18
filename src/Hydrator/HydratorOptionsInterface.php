@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\HydratorOptionsInterface as BaseHydratorOptionsInterface;
 
+/**
+ * @deprecated Use Zend\Hydrator\HydratorOptionsInterface from zendframework/zend-hydrator instead.
+ */
 interface HydratorOptionsInterface extends BaseHydratorOptionsInterface
 {
 }

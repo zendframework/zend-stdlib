@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Strategy;
 
 use Zend\Hydrator\Strategy\DateTimeFormatterStrategy as BaseDateTimeFormatterStrategy;
 
+/**
+ * @deprecated Use Zend\Hydrator\Strategy\DateTimeFormatterStrategy from zendframework/zend-hydrator instead.
+ */
 class DateTimeFormatterStrategy extends BaseDateTimeFormatterStrategy
 {
 }

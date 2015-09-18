@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Iterator;
 
 use Zend\Hydrator\Iterator\HydratingIteratorIterator as BaseHydratingIteratorIterator;
 
+/**
+ * @deprecated Use Zend\Hydrator\Iterator\HydratingIteratorIterator from zendframework/zend-hydrator instead.
+ */
 class HydratingIteratorIterator extends BaseHydratingIteratorIterator
 {
 }

@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Iterator;
 
 use Zend\Hydrator\Iterator\HydratingIteratorInterface as BaseHydratingIteratorInterface;
 
+/**
+ * @deprecated Use Zend\Hydrator\Iterator\HydratingIteratorInterface from zendframework/zend-hydrator instead.
+ */
 interface HydratingIteratorInterface extends BaseHydratingIteratorInterface
 {
 }

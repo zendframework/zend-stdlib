@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\NamingStrategy;
 
 use Zend\Hydrator\NamingStrategy\IdentityNamingStrategy as BaseIdentityNamingStrategy;
 
+/**
+ * @deprecated Use Zend\Hydrator\NamingStrategy\IdentityNamingStrategy from zendframework/zend-hydrator instead.
+ */
 class IdentityNamingStrategy extends BaseIdentityNamingStrategy
 {
 }

@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Strategy;
 
 use Zend\Hydrator\Strategy\StrategyChain as BaseStrategyChain;
 
+/**
+ * @deprecated Use Zend\Hydrator\Strategy\StrategyChain from zendframework/zend-hydrator instead.
+ */
 class StrategyChain extends BaseStrategyChain
 {
 }

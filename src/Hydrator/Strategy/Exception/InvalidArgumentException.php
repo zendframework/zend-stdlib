@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Strategy\Exception;
 
 use Zend\Hydrator\Strategy\Exception\InvalidArgumentException as BaseInvalidArgumentException;
 
+/**
+ * @deprecated Use Zend\Hydrator\Strategy\Exception\InvalidArgumentException from zendframework/zend-hydrator instead.
+ */
 class InvalidArgumentException extends BaseInvalidArgumentException implements ExceptionInterface
 {
 }

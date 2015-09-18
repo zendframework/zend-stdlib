@@ -10,6 +10,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\FilterComposite as BaseFilterComposite;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\FilterComposite from zendframework/zend-hydrator instead.
+ */
 class FilterComposite extends BaseFilterComposite
 {
 }

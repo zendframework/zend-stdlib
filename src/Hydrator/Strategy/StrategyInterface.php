@@ -12,7 +12,7 @@ namespace Zend\Stdlib\Hydrator\Strategy;
 use Zend\Hydrator\Strategy\StrategyInterface as BaseStrategyInterface;
 
 /**
- * @deprecated
+ * @deprecated Use Zend\Hydrator\Strategy\StrategyInterface from zendframework/zend-hydrator instead.
  */
 interface StrategyInterface extends BaseStrategyInterface
 {

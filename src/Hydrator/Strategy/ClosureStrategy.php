@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Strategy;
 
 use Zend\Hydrator\Strategy\ClosureStrategy as BaseClosureStrategy;
 
+/**
+ * @deprecated Use Zend\Hydrator\Strategy\ClosureStrategy from zendframework/zend-hydrator instead.
+ */
 class ClosureStrategy extends BaseClosureStrategy
 {
 }

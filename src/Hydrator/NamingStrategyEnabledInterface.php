@@ -12,6 +12,9 @@ namespace Zend\Stdlib\Hydrator;
 use Zend\Hydrator\NamingStrategyEnabledInterface as BaseNamingStrategyEnabledInterface;
 use Zend\Hydrator\NamingStrategy\NamingStrategyInterface;
 
+/**
+ * @deprecated Use Zend\Hydrator\NamingStrategy\NamingStrategyEnabledInterface from zendframework/zend-hydrator instead.
+ */
 interface NamingStrategyEnabledInterface extends BaseNamingStrategyEnabledInterface
 {
 }

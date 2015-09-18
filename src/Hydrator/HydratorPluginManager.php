@@ -15,6 +15,8 @@ use Zend\Hydrator\HydratorPluginManager as BaseHydratorPluginManager;
  * Plugin manager implementation for hydrators.
  *
  * Enforces that adapters retrieved are instances of HydratorInterface
+ *
+ * @deprecated Use Zend\Hydrator\HydratorPluginManager from zendframework/zend-hydrator instead.
  */
 class HydratorPluginManager extends BaseHydratorPluginManager
 {

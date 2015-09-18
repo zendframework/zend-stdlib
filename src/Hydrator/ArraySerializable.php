@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\ArraySerializable as BaseArraySerializable;
 
+/**
+ * @deprecated Use Zend\Hydrator\ArraySerializable from zendframework/zend-hydrator instead.
+ */
 class ArraySerializable extends BaseArraySerializable implements HydratorInterface
 {
 }

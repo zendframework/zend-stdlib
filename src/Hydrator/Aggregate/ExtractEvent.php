@@ -14,6 +14,8 @@ use Zend\Hydrator\Aggregate\ExtractEvent as BaseExtractEvent;
 /**
  * Event triggered when the {@see \Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator} extracts
  * data from an object
+ *
+ * @deprecated Use Zend\Hydrator\Aggregate\ExtractEvent from zendframework/zend-hydrator instead.
  */
 class ExtractEvent extends BaseExtractEvent
 {

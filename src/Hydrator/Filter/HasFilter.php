@@ -10,6 +10,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\HasFilter as BaseHasFilter;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\HasFilter from zendframework/zend-hydrator instead.
+ */
 class HasFilter extends BaseHasFilter
 {
 }

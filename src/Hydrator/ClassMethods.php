@@ -12,6 +12,9 @@ namespace Zend\Stdlib\Hydrator;
 use Traversable;
 use Zend\Hydrator\ClassMethods as BaseClassMethods;
 
+/**
+ * @deprecated Use Zend\Hydrator\ClassMethods from zendframework/zend-hydrator instead.
+ */
 class ClassMethods extends BaseClassMethods implements HydratorInterface
 {
 }

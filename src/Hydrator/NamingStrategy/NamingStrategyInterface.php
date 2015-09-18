@@ -14,8 +14,7 @@ use Zend\Hydrator\NamingStrategy\NamingStrategyInterface as BaseNamingStrategyIn
 /**
  * Allow property extraction / hydration for hydrator
  *
- * Interface PropertyStrategyInterface
- * @package Zend\Stdlib\Hydrator\NamingStrategy
+ * @deprecated Use Zend\Hydrator\NamingStrategy\NamingStrategyInterface from zendframework/zend-hydrator instead.
  */
 interface NamingStrategyInterface extends BaseNamingStrategyInterface
 {

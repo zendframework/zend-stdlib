@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\Reflection as BaseReflection;
 
+/**
+ * @deprecated Use Zend\Hydrator\Reflection from zendframework/zend-hydrator instead.
+ */
 class Reflection extends BaseReflection implements HydratorInterface
 {
 }

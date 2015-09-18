@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\HydratorAwareTrait as BaseHydratorAwareTrait;
 
+/**
+ * @deprecated Use Zend\Hydrator\HydratorAwareTrait from zendframework/zend-hydrator instead.
+ */
 trait HydratorAwareTrait
 {
     use BaseHydratorAwareTrait;

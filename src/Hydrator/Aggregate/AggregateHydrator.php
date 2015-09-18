@@ -14,6 +14,8 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
 
 /**
  * Aggregate hydrator that composes multiple hydrators via events
+ *
+ * @deprecated Use Zend\Hydrator\Aggregate\AggregateHydrator from zendframework/zend-hydrator instead.
  */
 class AggregateHydrator extends BaseAggregateHydrator implements HydratorInterface
 {

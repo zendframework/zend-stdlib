@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\NamingStrategy;
 
 use Zend\Hydrator\NamingStrategy\CompositeNamingStrategy as BaseCompositeNamingStrategy;
 
+/**
+ * @deprecated Use Zend\Hydrator\NamingStrategy\CompositeNamingStrategy from zendframework/zend-hydrator instead.
+ */
 class CompositeNamingStrategy extends BaseCompositeNamingStrategy
 {
 }

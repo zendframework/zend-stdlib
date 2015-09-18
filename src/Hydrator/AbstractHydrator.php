@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\AbstractHydrator as BaseAbstractHydrator;
 
+/**
+ * @deprecated Use Zend\Hydrator\AbstractHydrator from zendframework/zend-hydrator instead.
+ */
 abstract class AbstractHydrator extends BaseAbstractHydrator
 {
 }

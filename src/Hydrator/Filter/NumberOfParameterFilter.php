@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\NumberOfParameterFilter as BaseNumberOfParameterFilter;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\NumberOfParameterFilter from zendframework/zend-hydrator instead.
+ */
 class NumberOfParameterFilter extends BaseNumberOfParameterFilter
 {
 }

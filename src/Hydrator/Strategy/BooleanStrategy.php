@@ -14,7 +14,7 @@ use Zend\Hydrator\Strategy\BooleanStrategy as BaseBooleanStrategy;
 /**
  * This Strategy extracts and hydrates int and string values to Boolean values
  *
- * @package Zend\Stdlib\Hydrator\Strategy
+ * @deprecated Use Zend\Hydrator\Strategy\BooleanStrategy from zendframework/zend-hydrator instead.
  */
 class BooleanStrategy extends BaseBooleanStrategy
 {

@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\DelegatingHydrator as BaseDelegatingHydrator;
 
+/**
+ * @deprecated Use Zend\Hydrator\DelegatingHydrator from zendframework/zend-hydrator instead.
+ */
 class DelegatingHydrator extends BaseDelegatingHydrator implements HydratorInterface
 {
 }

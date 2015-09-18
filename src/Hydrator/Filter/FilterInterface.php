@@ -10,6 +10,9 @@ namespace Zend\Stdlib\Hydrator\Filter;
 
 use Zend\Hydrator\Filter\FilterInterface as BaseFilterInterface;
 
+/**
+ * @deprecated Use Zend\Hydrator\Filter\FilterInterface from zendframework/zend-hydrator instead.
+ */
 interface FilterInterface extends BaseFilterInterface
 {
 }

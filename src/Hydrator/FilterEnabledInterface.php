@@ -11,6 +11,9 @@ namespace Zend\Stdlib\Hydrator;
 
 use Zend\Hydrator\FilterEnabledInterface as BaseFilterEnabledInterface;
 
+/**
+ * @deprecated Use Zend\Hydrator\FilterEnabledInterface from zendframework/zend-hydrator instead.
+ */
 interface FilterEnabledInterface extends BaseFilterEnabledInterface
 {
 }
