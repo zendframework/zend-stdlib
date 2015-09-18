@@ -18,7 +18,11 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Deprecated
 
-- Nothing.
+- [#20](https://github.com/zendframework/zend-stdlib/pull/20) deprecates *all
+  hydrator* classes, in favor of the new [zend-hydrator](https://github.com/zendframework/zend-hydrator)
+  component. All classes were updated to extend their zend-hydrator equivalents,
+  and marked as `@deprecated`, indicating the equivalent class from the other
+  repository.
 
 ### Removed
 
