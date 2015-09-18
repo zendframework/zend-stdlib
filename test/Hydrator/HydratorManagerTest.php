@@ -28,14 +28,14 @@ class HydratorManagerTest extends \PHPUnit_Framework_TestCase
 
     public function testRegisteringInvalidElementRaisesException()
     {
-        $this->setExpectedException('Zend\Stdlib\Exception\RuntimeException');
+        $this->setExpectedException('Zend\Hydrator\Exception\RuntimeException');
         $this->manager->setService('test', $this);
     }
 
     public function testLoadingInvalidElementRaisesException()
     {
         $this->manager->setInvokableClass('test', get_class($this));
-        $this->setExpectedException('Zend\Stdlib\Exception\RuntimeException');
+        $this->setExpectedException('Zend\Hydrator\Exception\RuntimeException');
         $this->manager->get('test');
     }
 }

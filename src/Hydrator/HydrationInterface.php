@@ -9,14 +9,8 @@
 
 namespace Zend\Stdlib\Hydrator;
 
-interface HydrationInterface
+use Zend\Hydrator\HydrationInterface as BaseHydrationInterface;
+
+interface HydrationInterface extends BaseHydrationInterface
 {
-    /**
-     * Hydrate $object with the provided $data.
-     *
-     * @param  array $data
-     * @param  object $object
-     * @return object
-     */
-    public function hydrate(array $data, $object);
 }

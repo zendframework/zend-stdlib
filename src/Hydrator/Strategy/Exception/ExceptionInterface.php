@@ -9,6 +9,8 @@
 
 namespace Zend\Stdlib\Hydrator\Strategy\Exception;
 
-interface ExceptionInterface
+use Zend\Hydrator\Strategy\Exception;
+
+interface ExceptionInterface extends Exception\ExceptionInterface
 {
 }

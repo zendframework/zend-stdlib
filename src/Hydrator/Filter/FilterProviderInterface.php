@@ -8,12 +8,8 @@
  */
 namespace Zend\Stdlib\Hydrator\Filter;
 
-interface FilterProviderInterface
+use Zend\Hydrator\Filter\FilterProviderInterface as BaseFilterProviderInterface;
+
+interface FilterProviderInterface extends BaseFilterProviderInterface
 {
-    /**
-     * Provides a filter for hydration
-     *
-     * @return FilterInterface
-     */
-    public function getFilter();
 }

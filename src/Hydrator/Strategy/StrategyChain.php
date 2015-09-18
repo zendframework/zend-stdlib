@@ -9,65 +9,8 @@
 
 namespace Zend\Stdlib\Hydrator\Strategy;
 
-use Traversable;
-use Zend\Stdlib\ArrayUtils;
+use Zend\Hydrator\Strategy\StrategyChain as BaseStrategyChain;
 
-final class StrategyChain implements StrategyInterface
+class StrategyChain extends BaseStrategyChain
 {
-    /**
-     * Strategy chain for extraction
-     *
-     * @var StrategyInterface[]
-     */
-    private $extractionStrategies;
-
-    /**
-     * Strategy chain for hydration
-     *
-     * @var StrategyInterface[]
-     */
-    private $hydrationStrategies;
-
-    /**
-     * Constructor
-     *
-     * @param array|Traversable $extractionStrategies
-     */
-    public function __construct($extractionStrategies)
-    {
-        $extractionStrategies = ArrayUtils::iteratorToArray($extractionStrategies);
-        $this->extractionStrategies = array_map(
-            function (StrategyInterface $strategy) {
-                // this callback is here only to ensure type-safety
-                return $strategy;
-            },
-            $extractionStrategies
-        );
-
-        $this->hydrationStrategies = array_reverse($extractionStrategies);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function extract($value)
-    {
-        foreach ($this->extractionStrategies as $strategy) {
-            $value = $strategy->extract($value);
-        }
-
-        return $value;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function hydrate($value)
-    {
-        foreach ($this->hydrationStrategies as $strategy) {
-            $value = $strategy->hydrate($value);
-        }
-
-        return $value;
-    }
 }

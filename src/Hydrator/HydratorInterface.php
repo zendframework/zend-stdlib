@@ -9,8 +9,9 @@
 
 namespace Zend\Stdlib\Hydrator;
 
-use Zend\Stdlib\Extractor\ExtractionInterface;
+use Zend\Hydrator\HydrationInterface as BaseHydrationInterface;
+use Zend\Hydrator\ExtractionInterface;
 
-interface HydratorInterface extends HydrationInterface, ExtractionInterface
+interface HydratorInterface extends BaseHydrationInterface, ExtractionInterface
 {
 }

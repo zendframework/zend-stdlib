@@ -9,21 +9,8 @@
 
 namespace Zend\Stdlib\Hydrator\NamingStrategy;
 
-final class IdentityNamingStrategy implements NamingStrategyInterface
-{
-    /**
-     * {@inheritDoc}
-     */
-    public function hydrate($name)
-    {
-        return $name;
-    }
+use Zend\Hydrator\NamingStrategy\IdentityNamingStrategy as BaseIdentityNamingStrategy;
 
-    /**
-     * {@inheritDoc}
-     */
-    public function extract($name)
-    {
-        return $name;
-    }
+class IdentityNamingStrategy extends BaseIdentityNamingStrategy
+{
 }
