@@ -163,9 +163,9 @@ class FilterCompositeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Stdlib\Exception\InvalidArgumentException
+     * @expectedException Zend\Hydrator\Exception\InvalidArgumentException
      * @expectedExceptionMessage The value of test should be either a callable
-     * or an instance of Zend\Stdlib\Hydrator\Filter\FilterInterface
+     * or an instance of Zend\Hydrator\Filter\FilterInterface
      */
     public function testInvalidParameterConstructorInjection()
     {
@@ -176,9 +176,9 @@ class FilterCompositeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Stdlib\Exception\InvalidArgumentException
+     * @expectedException Zend\Hydrator\Exception\InvalidArgumentException
      * @expectedExceptionMessage The value of foo should be either a callable
-     * or an instance of Zend\Stdlib\Hydrator\Filter\FilterInterface
+     * or an instance of Zend\Hydrator\Filter\FilterInterface
      */
     public function testInvalidFilterInjection()
     {

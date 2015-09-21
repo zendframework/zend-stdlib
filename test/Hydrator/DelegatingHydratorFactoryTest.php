@@ -18,7 +18,7 @@ class DelegatingHydratorFactoryTest extends \PHPUnit_Framework_TestCase
         $hydratorManager = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
         $factory = new DelegatingHydratorFactory();
         $this->assertInstanceOf(
-            'Zend\Stdlib\Hydrator\DelegatingHydrator',
+            'Zend\Hydrator\DelegatingHydrator',
             $factory->createService($hydratorManager)
         );
     }

@@ -44,13 +44,13 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
      */
     public function testAdd()
     {
-        $attached = $this->getMock('Zend\Stdlib\Hydrator\HydratorInterface');
+        $attached = $this->getMock('Zend\Hydrator\HydratorInterface');
 
         $this
             ->eventManager
             ->expects($this->once())
             ->method('attachAggregate')
-            ->with($this->isInstanceOf('Zend\Stdlib\Hydrator\Aggregate\HydratorListener'), 123);
+            ->with($this->isInstanceOf('Zend\Hydrator\Aggregate\HydratorListener'), 123);
 
         $this->hydrator->add($attached, 123);
     }
@@ -66,7 +66,7 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
             ->eventManager
             ->expects($this->once())
             ->method('trigger')
-            ->with($this->isInstanceOf('Zend\Stdlib\Hydrator\Aggregate\HydrateEvent'));
+            ->with($this->isInstanceOf('Zend\Hydrator\Aggregate\HydrateEvent'));
 
         $this->assertSame($object, $this->hydrator->hydrate(['foo' => 'bar'], $object));
     }
@@ -82,7 +82,7 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
             ->eventManager
             ->expects($this->once())
             ->method('trigger')
-            ->with($this->isInstanceOf('Zend\Stdlib\Hydrator\Aggregate\ExtractEvent'));
+            ->with($this->isInstanceOf('Zend\Hydrator\Aggregate\ExtractEvent'));
 
         $this->assertSame([], $this->hydrator->extract($object));
     }
@@ -103,7 +103,7 @@ class AggregateHydratorTest extends PHPUnit_Framework_TestCase
             ->method('setIdentifiers')
             ->with(
                 [
-                     'Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator',
+                     'Zend\Hydrator\Aggregate\AggregateHydrator',
                      'Zend\Stdlib\Hydrator\Aggregate\AggregateHydrator',
                 ]
             );
