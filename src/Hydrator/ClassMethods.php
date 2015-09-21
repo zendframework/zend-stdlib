@@ -14,6 +14,6 @@ use Zend\Hydrator\ClassMethods as BaseClassMethods;
 /**
  * @deprecated Use Zend\Hydrator\ClassMethods from zendframework/zend-hydrator instead.
  */
-class ClassMethods extends BaseClassMethods implements HydratorInterface
+class ClassMethods extends BaseClassMethods implements HydratorInterface, HydratorOptionsInterface
 {
 }
