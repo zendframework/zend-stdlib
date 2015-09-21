@@ -14,6 +14,6 @@ use Zend\Hydrator\Strategy\ExplodeStrategy as BaseExplodeStrategy;
 /**
  * @deprecated Use Zend\Hydrator\Strategy\ExplodeStrategy from zendframework/zend-hydrator instead.
  */
-class ExplodeStrategy extends BaseExplodeStrategy
+class ExplodeStrategy extends BaseExplodeStrategy implements StrategyInterface
 {
 }

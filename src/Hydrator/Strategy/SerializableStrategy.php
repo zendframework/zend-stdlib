@@ -14,6 +14,6 @@ use Zend\Hydrator\Strategy\SerializableStrategy as BaseSerializableStrategy;
 /**
  * @deprecated Use Zend\Hydrator\Strategy\SerializableStrategy from zendframework/zend-hydrator instead.
  */
-class SerializableStrategy extends BaseSerializableStrategy
+class SerializableStrategy extends BaseSerializableStrategy implements StrategyInterface
 {
 }

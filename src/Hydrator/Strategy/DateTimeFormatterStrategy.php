@@ -14,6 +14,6 @@ use Zend\Hydrator\Strategy\DateTimeFormatterStrategy as BaseDateTimeFormatterStr
 /**
  * @deprecated Use Zend\Hydrator\Strategy\DateTimeFormatterStrategy from zendframework/zend-hydrator instead.
  */
-class DateTimeFormatterStrategy extends BaseDateTimeFormatterStrategy
+class DateTimeFormatterStrategy extends BaseDateTimeFormatterStrategy implements StrategyInterface
 {
 }

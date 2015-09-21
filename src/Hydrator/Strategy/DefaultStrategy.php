@@ -14,6 +14,6 @@ use Zend\Hydrator\Strategy\DefaultStrategy as BaseDefaultStrategy;
 /**
  * @deprecated Use Zend\Hydrator\Strategy\DefaultStrategy from zendframework/zend-hydrator instead.
  */
-class DefaultStrategy extends BaseDefaultStrategy
+class DefaultStrategy extends BaseDefaultStrategy implements StrategyInterface
 {
 }

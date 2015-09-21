@@ -16,6 +16,6 @@ use Zend\Hydrator\Strategy\BooleanStrategy as BaseBooleanStrategy;
  *
  * @deprecated Use Zend\Hydrator\Strategy\BooleanStrategy from zendframework/zend-hydrator instead.
  */
-class BooleanStrategy extends BaseBooleanStrategy
+class BooleanStrategy extends BaseBooleanStrategy implements StrategyInterface
 {
 }
