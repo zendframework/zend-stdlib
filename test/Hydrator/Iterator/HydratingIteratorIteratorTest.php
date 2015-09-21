@@ -56,7 +56,7 @@ class HydratingIteratorIteratorTest extends \PHPUnit_Framework_TestCase
 
     public function testThrowingInvalidArguementExceptionWhenSettingPrototypeToInvalidClass()
     {
-        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Hydrator\Exception\InvalidArgumentException');
         $hydratingIterator = new HydratingIteratorIterator(
             new ArraySerializable(),
             new ArrayIterator(),
