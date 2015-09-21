@@ -9,10 +9,12 @@ All notable changes to this project will be documented in this file, in reverse 
 - [#19](https://github.com/zendframework/zend-stdlib/pull/19) adds a new
   `FastPriorityQueue` implementation. It follows the same signature as
   `SplPriorityQueue`, but uses a performance-optimized algorithm:
+
   - inserts are 2x faster than `SplPriorityQueue` and 3x faster than the
     `Zend\Stdlib\PriorityQueue` implementation.
   - extracts are 4x faster than `SplPriorityQueue` and 4-5x faster than the
     `Zend\Stdlib\PriorityQueue` implementation.
+
   The intention is to use this as a drop-in replacement in the
   `zend-eventmanager` component to provide performance benefits.
 
@@ -23,6 +25,37 @@ All notable changes to this project will be documented in this file, in reverse 
   component. All classes were updated to extend their zend-hydrator equivalents,
   and marked as `@deprecated`, indicating the equivalent class from the other
   repository.
+
+  Users *should* immediately start changing their code to use the zend-hydrator
+  equivalents; in most cases, this can be as easy as removing the `Stdlib`
+  namespace from import statements or hydrator configuration. Hydrators will be
+  removed entirely from zend-stdlib in v3.0, and all future updates to hydrators
+  will occur in the zend-hydrator library.
+
+  One change is **backwards-incompatible**: Users implementing
+  `Zend\Stdlib\Hydrator\HydratorAwareInterface` will need to update their
+  `setHydrator()` implementation to typehint on
+  `Zend\Hydrator\HydratorInterface`. This can be done by changing the import
+  statement for that interface as follows:
+
+  ```php
+  // Replace this:
+  use Zend\Stdlib\Hydrator\HydratorInterface;
+  // with this:
+  use Zend\Hydrator\HydratorInterface;
+  ```
+
+  If you are not using imports, change the typehint within the signature itself:
+
+  ```php
+  // Replace this:
+  public function setHydrator(\Zend\Stdlib\Hydrator\HydratorInterface $hydrator)
+  // with this:
+  public function setHydrator(\Zend\Hydrator\HydratorInterface $hydrator)
+  ```
+
+  If you are using `Zend\Stdlib\Hydrator\HydratorAwareTrait`, no changes are
+  necessary, unless you override that method.
 
 ### Removed
 
