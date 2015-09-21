@@ -62,6 +62,14 @@ All notable changes to this project will be documented in this file, in reverse 
     the `Zend\Stdlib\Exception` namespace. You will need to update your code to
     catch exceptions in the `Zend\Hydrator\Exception` namespace.
 
+  - Users who *do* migrate to zend-hydrator may end up in a situation where
+    their code will not work with existing libraries that are still type-hinting
+    on the zend-stdlib interfaces. We will be attempting to address that ASAP,
+    but the deprecation within zend-stdlib is necessary as a first step.
+
+    In the meantime, you can write hydrators targeting zend-stdlib still in
+    order to guarantee compatibility.
+
 ### Removed
 
 - Nothing.
