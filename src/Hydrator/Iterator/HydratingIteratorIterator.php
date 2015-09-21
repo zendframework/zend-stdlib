@@ -14,6 +14,6 @@ use Zend\Hydrator\Iterator\HydratingIteratorIterator as BaseHydratingIteratorIte
 /**
  * @deprecated Use Zend\Hydrator\Iterator\HydratingIteratorIterator from zendframework/zend-hydrator instead.
  */
-class HydratingIteratorIterator extends BaseHydratingIteratorIterator
+class HydratingIteratorIterator extends BaseHydratingIteratorIterator implements HydratingIteratorInterface
 {
 }
