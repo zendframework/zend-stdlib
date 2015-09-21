@@ -130,13 +130,13 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->queue->valid());
     }
 
-    public function testNoRewindOperation()
+    public function testRewindOperation()
     {
         $this->assertEquals(0, $this->queue->key());
         $this->queue->next();
         $this->assertEquals(1, $this->queue->key());
         $this->queue->rewind();
-        $this->assertEquals(1, $this->queue->key());
+        $this->assertEquals(0, $this->queue->key());
     }
 
     public function testSetExtractFlag()
@@ -186,5 +186,44 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue($this->queue->hasPriority($priority));
         }
         $this->assertFalse($this->queue->hasPriority(10000));
+    }
+
+    public function testCanRemoveItemFromQueue()
+    {
+        $this->assertTrue($this->queue->remove('test5'));
+        $tot = count($this->getDataPriorityQueue()) - 1;
+        $this->assertEquals($this->queue->count(), $tot);
+        $this->assertEquals(count($this->queue), $tot);
+        $expected = ['test1', 'test2', 'test3', 'test4', 'test6'];
+        $test = [];
+        foreach ($this->queue as $item) {
+            $test[] = $item;
+        }
+        $this->assertEquals($expected, $test);
+    }
+
+    public function testRemoveOnlyTheFirstOccurenceFromQueue()
+    {
+        $data = $this->getDataPriorityQueue();
+        $this->queue->insert('test2', $data['test2']);
+        $tot = count($this->getDataPriorityQueue()) + 1;
+        $this->assertEquals($this->queue->count(), $tot);
+        $this->assertEquals(count($this->queue), $tot);
+
+        $expected = ['test1', 'test2', 'test2', 'test3', 'test4', 'test5', 'test6'];
+        $test = [];
+        foreach ($this->queue as $item) {
+            $test[] = $item;
+        }
+        $this->assertEquals($expected, $test);
+
+        $this->assertTrue($this->queue->remove('test2'));
+        $this->assertEquals($this->queue->count(), $tot - 1);
+        $this->assertEquals(count($this->queue), $tot - 1);
+        $test = [];
+        foreach ($this->queue as $item) {
+            $test[] = $item;
+        }
+        $this->assertEquals($this->expected, $test);
     }
 }
