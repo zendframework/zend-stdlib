@@ -233,7 +233,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     public function rewind()
     {
         $this->subPriorities = $this->priorities;
-        $this->maxPriority   = max($this->priorities);
+        $this->maxPriority   = empty($this->priorities) ? 0 : max($this->priorities);
         $this->index         = 0;
         $this->subIndex      = 0;
     }
