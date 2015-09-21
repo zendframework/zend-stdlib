@@ -75,6 +75,13 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     protected $index = 0;
 
     /**
+     * Sub index of the current element in the same priority level
+     *
+     * @var integer
+     */
+    protected $subIndex = 0;
+
+    /**
      * Insert an element in the queue with a specified priority
      *
      * @param mixed $value
@@ -107,6 +114,33 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         $value = $this->current();
         $this->nextAndRemove();
         return $value;
+    }
+
+    /**
+     * Remove an item from the queue
+     *
+     * This is different than {@link extract()}; its purpose is to dequeue an
+     * item.
+     *
+     * Note: this removes the first item matching the provided item found. If
+     * the same item has been added multiple times, it will not remove other
+     * instances.
+     *
+     * @param  mixed $datum
+     * @return bool False if the item was not found, true otherwise.
+     */
+    public function remove($datum)
+    {
+        $this->rewind();
+        while ($this->valid()) {
+            if (current($this->values[$this->maxPriority]) === $datum) {
+                unset($this->values[$this->maxPriority][$this->subIndex]);
+                --$this->count;
+                return true;
+            }
+            $this->next();
+        }
+        return false;
     }
 
     /**
@@ -159,8 +193,10 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
             unset($this->priorities[$this->maxPriority]);
             unset($this->values[$this->maxPriority]);
             $this->maxPriority = empty($this->priorities) ? 0 : max($this->priorities);
+            $this->subIndex    = -1;
         }
         ++$this->index;
+        ++$this->subIndex;
         --$this->count;
     }
 
@@ -172,10 +208,12 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     {
         if (false === next($this->values[$this->maxPriority])) {
             unset($this->subPriorities[$this->maxPriority]);
+            reset($this->values[$this->maxPriority]);
             $this->maxPriority = empty($this->subPriorities) ? 0 : max($this->subPriorities);
+            $this->subIndex    = -1;
         }
         ++$this->index;
-        --$this->count;
+        ++$this->subIndex;
     }
 
     /**
@@ -194,6 +232,9 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     public function rewind()
     {
         $this->subPriorities = $this->priorities;
+        $this->maxPriority   = max($this->priorities);
+        $this->index         = 0;
+        $this->subIndex      = 0;
     }
 
     /**
