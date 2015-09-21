@@ -32,30 +32,35 @@ All notable changes to this project will be documented in this file, in reverse 
   removed entirely from zend-stdlib in v3.0, and all future updates to hydrators
   will occur in the zend-hydrator library.
 
-  One change is **backwards-incompatible**: Users implementing
-  `Zend\Stdlib\Hydrator\HydratorAwareInterface` will need to update their
-  `setHydrator()` implementation to typehint on
-  `Zend\Hydrator\HydratorInterface`. This can be done by changing the import
-  statement for that interface as follows:
+  Changes with backwards compatibility implications:
 
-  ```php
-  // Replace this:
-  use Zend\Stdlib\Hydrator\HydratorInterface;
-  // with this:
-  use Zend\Hydrator\HydratorInterface;
-  ```
+  - Users implementing `Zend\Stdlib\Hydrator\HydratorAwareInterface` will need to
+    update their `setHydrator()` implementation to typehint on
+    `Zend\Hydrator\HydratorInterface`. This can be done by changing the import
+    statement for that interface as follows:
 
-  If you are not using imports, change the typehint within the signature itself:
+    ```php
+    // Replace this:
+    use Zend\Stdlib\Hydrator\HydratorInterface;
+    // with this:
+    use Zend\Hydrator\HydratorInterface;
+    ```
 
-  ```php
-  // Replace this:
-  public function setHydrator(\Zend\Stdlib\Hydrator\HydratorInterface $hydrator)
-  // with this:
-  public function setHydrator(\Zend\Hydrator\HydratorInterface $hydrator)
-  ```
+    If you are not using imports, change the typehint within the signature itself:
 
-  If you are using `Zend\Stdlib\Hydrator\HydratorAwareTrait`, no changes are
-  necessary, unless you override that method.
+    ```php
+    // Replace this:
+    public function setHydrator(\Zend\Stdlib\Hydrator\HydratorInterface $hydrator)
+    // with this:
+    public function setHydrator(\Zend\Hydrator\HydratorInterface $hydrator)
+    ```
+
+    If you are using `Zend\Stdlib\Hydrator\HydratorAwareTrait`, no changes are
+    necessary, unless you override that method.
+
+  - If you were catching hydrator-generated exceptions, these were previously in
+    the `Zend\Stdlib\Exception` namespace. You will need to update your code to
+    catch exceptions in the `Zend\Hydrator\Exception` namespace.
 
 ### Removed
 
