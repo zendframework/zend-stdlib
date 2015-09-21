@@ -15,6 +15,6 @@ use Zend\Hydrator\Filter\OptionalParametersFilter as BaseOptionalParametersFilte
  *
  * @deprecated Use Zend\Hydrator\Filter\OptionalParametersFilter from zendframework/zend-hydrator instead.
  */
-class OptionalParametersFilter extends BaseOptionalParametersFilter
+class OptionalParametersFilter extends BaseOptionalParametersFilter implements FilterInterface
 {
 }

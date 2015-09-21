@@ -13,6 +13,6 @@ use Zend\Hydrator\Filter\IsFilter as BaseIsFilter;
 /**
  * @deprecated Use Zend\Hydrator\Filter\IsFilter from zendframework/zend-hydrator instead.
  */
-class IsFilter extends BaseIsFilter
+class IsFilter extends BaseIsFilter implements FilterInterface
 {
 }

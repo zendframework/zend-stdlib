@@ -13,6 +13,6 @@ use Zend\Hydrator\Filter\HasFilter as BaseHasFilter;
 /**
  * @deprecated Use Zend\Hydrator\Filter\HasFilter from zendframework/zend-hydrator instead.
  */
-class HasFilter extends BaseHasFilter
+class HasFilter extends BaseHasFilter implements FilterInterface
 {
 }

@@ -13,6 +13,6 @@ use Zend\Hydrator\Filter\GetFilter as BaseGetFilter;
 /**
  * @deprecated Use Zend\Hydrator\Filter\GetFilter from zendframework/zend-hydrator instead.
  */
-class GetFilter extends BaseGetFilter
+class GetFilter extends BaseGetFilter implements FilterInterface
 {
 }

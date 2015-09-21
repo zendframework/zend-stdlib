@@ -13,6 +13,6 @@ use Zend\Hydrator\Filter\FilterComposite as BaseFilterComposite;
 /**
  * @deprecated Use Zend\Hydrator\Filter\FilterComposite from zendframework/zend-hydrator instead.
  */
-class FilterComposite extends BaseFilterComposite
+class FilterComposite extends BaseFilterComposite implements FilterInterface
 {
 }
