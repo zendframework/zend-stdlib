@@ -14,6 +14,6 @@ use Zend\Hydrator\NamingStrategy\ArrayMapNamingStrategy as BaseArrayMapNamingStr
 /**
  * @deprecated Use Zend\Hydrator\NamingStrategy\ArrayMapNamingStrategy from zendframework/zend-hydrator instead.
  */
-class ArrayMapNamingStrategy extends BaseArrayMapNamingStrategy
+class ArrayMapNamingStrategy extends BaseArrayMapNamingStrategy implements NamingStrategyInterface
 {
 }

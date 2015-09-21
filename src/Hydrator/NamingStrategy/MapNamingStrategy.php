@@ -14,6 +14,6 @@ use Zend\Hydrator\NamingStrategy\MapNamingStrategy as BaseMapNamingStrategy;
 /**
  * @deprecated Use Zend\Hydrator\NamingStrategy\MapNamingStrategy from zendframework/zend-hydrator instead.
  */
-class MapNamingStrategy extends BaseMapNamingStrategy
+class MapNamingStrategy extends BaseMapNamingStrategy implements NamingStrategyInterface
 {
 }

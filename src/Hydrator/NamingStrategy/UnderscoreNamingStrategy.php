@@ -14,6 +14,6 @@ use Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy as BaseUnderscoreNamin
 /**
  * @deprecated Use Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy from zendframework/zend-hydrator instead.
  */
-class UnderscoreNamingStrategy extends BaseUnderscoreNamingStrategy
+class UnderscoreNamingStrategy extends BaseUnderscoreNamingStrategy implements NamingStrategyInterface
 {
 }
