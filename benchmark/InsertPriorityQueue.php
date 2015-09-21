@@ -14,20 +14,13 @@ use Zend\Stdlib\FastPriorityQueue;
 use Zend\Stdlib\PriorityQueue;
 use Zend\Stdlib\SplPriorityQueue;
 
-class PriorityQueueBenchmark extends AthleticEvent
+class InsertPriorityQueue extends AthleticEvent
 {
     public function classSetUp()
     {
         $this->splPriorityQueue  = new SplPriorityQueue();
         $this->fastPriorityQueue = new FastPriorityQueue();
         $this->priorityQueue     = new PriorityQueue();
-
-        for ($i = 0; $i < 5000; $i += 1) {
-            $priority = rand(1, 100);
-            $this->splPriorityQueue->insert('foo', $priority);
-            $this->fastPriorityQueue->insert('foo', $priority);
-            $this->priorityQueue->insert('foo', $priority);
-        }
     }
 
     /**
@@ -41,14 +34,6 @@ class PriorityQueueBenchmark extends AthleticEvent
     /**
      * @iterations 5000
      */
-    public function extractSplPriorityQueue()
-    {
-        $this->splPriorityQueue->extract();
-    }
-
-    /**
-     * @iterations 5000
-     */
     public function insertPriorityQueue()
     {
         $this->priorityQueue->insert('foo', rand(1, 100));
@@ -57,24 +42,8 @@ class PriorityQueueBenchmark extends AthleticEvent
     /**
      * @iterations 5000
      */
-    public function extractPriorityQueue()
-    {
-        $this->priorityQueue->extract();
-    }
-    
-    /**
-     * @iterations 5000
-     */
     public function insertFastPriorityQueue()
     {
         $this->fastPriorityQueue->insert('foo', rand(1, 100));
-    }
-
-    /**
-     * @iterations 5000
-     */
-    public function extractFastPriorityQueue()
-    {
-        $this->fastPriorityQueue->extract();
     }
 }
