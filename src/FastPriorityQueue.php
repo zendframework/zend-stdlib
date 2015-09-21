@@ -12,6 +12,7 @@ namespace Zend\Stdlib;
 use Iterator;
 use Countable;
 use Serializable;
+use SplPriorityQueue;
 
 /**
  * This is an efficient implementation of an integer priority queue in PHP
@@ -23,9 +24,9 @@ use Serializable;
  */
 class FastPriorityQueue implements Iterator, Countable, Serializable
 {
-    const EXTR_DATA     = 0x00000001;
-    const EXTR_PRIORITY = 0x00000002;
-    const EXTR_BOTH     = 0x00000003;
+    const EXTR_DATA     = SplPriorityQueue::EXTR_DATA;
+    const EXTR_PRIORITY = SplPriorityQueue::EXTR_PRIORITY;
+    const EXTR_BOTH     = SplPriorityQueue::EXTR_BOTH;
 
     /**
      * @var integer
