@@ -17,7 +17,7 @@ class SerializableStrategyTest extends TestCase
 {
     public function testCannotUseBadArgumentSerilizer()
     {
-        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->setExpectedException('Zend\Hydrator\Exception\InvalidArgumentException');
         $serializerStrategy = new SerializableStrategy(false);
     }
 
