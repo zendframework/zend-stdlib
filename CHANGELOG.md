@@ -18,7 +18,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#24](https://github.com/zendframework/zend-stdlib/pull/24) fixes an import in
+  `FastPriorityQueue` to alias `SplPriorityQueue` in order to disambiguate with
+  the local override present in the component.
 
 ## 2.7.0 - 2015-09-22
 
