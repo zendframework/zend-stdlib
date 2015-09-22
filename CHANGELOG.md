@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.7.0 - TBD
+## 2.7.0 - 2015-09-22
 
 ### Added
 
@@ -69,24 +69,6 @@ All notable changes to this project will be documented in this file, in reverse 
 
     In the meantime, you can write hydrators targeting zend-stdlib still in
     order to guarantee compatibility.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 2.6.1 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
 
 ### Removed
 
