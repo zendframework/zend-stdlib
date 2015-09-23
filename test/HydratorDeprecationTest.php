@@ -26,7 +26,7 @@ class HydratorDeprecationTest extends TestCase
 
     public function testDeprecatedHydratorInterfaceIsAcceptedByMethodsTypehintedWithNewInterface()
     {
-        $hydratorInjected = new TestAsset\HydratorInjectedObjectUsingDeprecatedInterfaceHydrator();
+        $hydratorInjected = new TestAsset\HydratorInjectedObjectUsingDeprecatedInterfaceTypehint();
         $hydrator         = new TestAsset\DeprecatedInterfaceHydrator();
         set_error_handler(function ($errno, $errstr) {
             $this->fail('Catchable fatal error was triggered: ' . $errstr);

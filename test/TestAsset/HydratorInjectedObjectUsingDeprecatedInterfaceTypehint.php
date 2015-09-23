@@ -13,7 +13,7 @@ use Zend\Hydrator\HydratorInterface;
  * This test asset exists to see how deprecation works; it is associated with
  * the test ZendTest\Stdlib\HydratorDeprecationTest.
  */
-class HydratorInjectedObjectUsingDeprecatedInterfaceHydrator
+class HydratorInjectedObjectUsingDeprecatedInterfaceTypehint
 {
     public $hydrator;
 
