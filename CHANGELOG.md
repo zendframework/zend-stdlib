@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.7.2 - TBD
+## 2.7.2 - 2015-09-23
 
 ### Added
 
@@ -18,7 +18,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#26](https://github.com/zendframework/zend-stdlib/pull/26) fixes a subtle
+  inheritance issue with deprecation in the hydrators, and updates the
+  `HydratorInterface` to also extend the zend-hydrator `HydratorInterface` to
+  ensure LSP is preserved.
 
 ## 2.7.1 - 2015-09-22
 
