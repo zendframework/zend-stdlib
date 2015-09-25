@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 2.7.3 - TBD
+## 2.7.3 - 2015-09-24
 
 ### Added
 
@@ -36,7 +36,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#27](https://github.com/zendframework/zend-stdlib/pull/27) fixes a race
+  condition in the `FastPriorityQueue::remove()` logic that occurs when removing
+  items iteratively from the same priority of a queue.
 
 ## 2.7.2 - 2015-09-23
 

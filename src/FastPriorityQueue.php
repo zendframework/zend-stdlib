@@ -135,7 +135,8 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         $this->rewind();
         while ($this->valid()) {
             if (current($this->values[$this->maxPriority]) === $datum) {
-                unset($this->values[$this->maxPriority][$this->subIndex]);
+                $index = key($this->values[$this->maxPriority]);
+                unset($this->values[$this->maxPriority][$index]);
                 --$this->count;
                 return true;
             }
