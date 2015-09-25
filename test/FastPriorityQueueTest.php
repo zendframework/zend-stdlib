@@ -238,4 +238,51 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue->rewind();
         restore_error_handler();
     }
+
+    public function testRemoveShouldFindItemEvenIfMultipleItemsAreInQueue()
+    {
+        $prototype = function ($e) {
+        };
+
+        $queue = new FastPriorityQueue();
+        $this->assertTrue($queue->isEmpty());
+
+        $listeners = [];
+        for ($i = 0; $i < 5; $i += 1) {
+            $listeners[] = $listener = clone $prototype;
+            $queue->insert($listener, 1);
+        }
+
+        $remove   = array_rand(array_keys($listeners));
+        $listener = $listeners[$remove];
+
+        $this->assertTrue($queue->contains($listener));
+        $this->assertTrue($queue->remove($listener));
+        $this->assertFalse($queue->contains($listener));
+    }
+
+    public function testIterativelyRemovingItemsShouldRemoveAllItems()
+    {
+        $prototype = function ($e) {
+        };
+
+        $queue = new FastPriorityQueue();
+        $this->assertTrue($queue->isEmpty());
+
+        $listeners = [];
+        for ($i = 0; $i < 5; $i += 1) {
+            $listeners[] = $listener = clone $prototype;
+            $queue->insert($listener, 1);
+        }
+
+        for ($i = 0; $i < 5; $i += 1) {
+            $listener = $listeners[$i];
+            $queue->remove($listener);
+        }
+
+        for ($i = 0; $i < 5; $i += 1) {
+            $listener = $listeners[$i];
+            $this->assertFalse($queue->contains($listener), sprintf('Listener %s remained in queue', $i));
+        }
+    }
 }
