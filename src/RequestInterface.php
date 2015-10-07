@@ -11,5 +11,12 @@ namespace Zend\Stdlib;
 
 interface RequestInterface extends MessageInterface
 {
-    public function getPost();
+    /**
+     * Return the parameter container responsible for post parameters or a single post parameter.
+     *
+     * @param string|null           $name            Parameter name to retrieve, or null to get the whole container.
+     * @param mixed|null            $default         Default value to use when the parameter is missing.
+     * @return \Zend\Stdlib\ParametersInterface|mixed
+     */
+    public function getPost($name = null, $default = null)
 }
