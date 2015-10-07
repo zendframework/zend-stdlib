@@ -11,4 +11,5 @@ namespace Zend\Stdlib;
 
 interface RequestInterface extends MessageInterface
 {
+    public function getPost();
 }
