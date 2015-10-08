@@ -569,8 +569,8 @@ class ArrayUtilsTest extends TestCase
     /**
      * @dataProvider flattenArrays
      */
-    public function testFlattenArray ($input, $expected)
+    public function testFlattenArray($input, $expected)
     {
-        $this->assertEquals ($expected, ArrayUtils::flatten ($input));
+        $this->assertEquals($expected, ArrayUtils::flatten($input));
     }
 }
