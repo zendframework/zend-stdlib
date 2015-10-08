@@ -527,6 +527,28 @@ class ArrayUtilsTest extends TestCase
         ];
     }
 
+    public function flattenArrays()
+    {
+        return [
+            [
+                ['bar', 'buz'],
+                ['bar', 'buz']
+            ],
+            [
+                ['foo' => 'bar', 'fiz' => 'buz'],
+                ['bar', 'buz']
+            ],
+            [
+                ['foo' =>  ['bar', 'fiz' => 'buz']],
+                ['bar', 'buz']
+            ],
+            [
+                ['foo' =>  ['blah' => ['eh' => 'bar'], 'fiz' => 'buz']],
+                ['bar', 'buz']
+            ],
+        ];
+    }
+
     /**
      * @dataProvider filterArrays
      */
@@ -541,5 +563,14 @@ class ArrayUtilsTest extends TestCase
     public function testInvalidCallableRaiseInvalidArgumentException()
     {
         ArrayUtils::filter([], "INVALID");
+    }
+
+
+    /**
+     * @dataProvider flattenArrays
+     */
+    public function testFlattenArray ($input, $expected)
+    {
+        $this->assertEquals ($expected, ArrayUtils::flatten ($input));
     }
 }

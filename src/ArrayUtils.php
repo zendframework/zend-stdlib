@@ -341,8 +341,8 @@ abstract class ArrayUtils
      * @param array $data
      * @return array
      */
-    public static function (array $data)
+    public static function flatten (array $data)
     {
-        return iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($data), \RecursiveIteratorIterator::LEAVES_ONLY));
+        return array_values (iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($data), \RecursiveIteratorIterator::LEAVES_ONLY)));
     }
 }
