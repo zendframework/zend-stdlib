@@ -332,4 +332,17 @@ abstract class ArrayUtils
 
         return $output;
     }
+
+    /**
+     * Flatten an array.
+     *
+     * Keys will be removed. Values will be kept in a single dimension array.
+     *
+     * @param array $data
+     * @return array
+     */
+    public static function (array $data)
+    {
+        return iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($data), \RecursiveIteratorIterator::LEAVES_ONLY));
+    }
 }
