@@ -10,7 +10,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Deprecated
 
-- Nothing.
+- [#35](https://github.com/zendframework/zend-stdlib/pull/35) deprecates
+  `Zend\Stdlib\CallbackHandler`, as the one component that used it,
+  zend-eventmanager, will no longer depend on it starting in v3.
 
 ### Removed
 
