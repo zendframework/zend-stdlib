@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.0.0 - TBD
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- [#33](https://github.com/zendframework/zend-stdlib/pull/20) - removed
+  deprecated classes
+  - *All Hydrator classes* see #22.
+  - `Zend\Stdlib\CallbackHandler` see #35
+
+### Fixed
+
+- Nothing.
+
 ## 2.8.0 - TBD
 
 ### Added
