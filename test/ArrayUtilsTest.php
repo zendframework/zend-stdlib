@@ -12,9 +12,9 @@ namespace ZendTest\Stdlib;
 use ArrayObject;
 use PHPUnit_Framework_TestCase as TestCase;
 use stdClass;
-use Zend\Config\Config;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Stdlib\ArrayUtils\MergeRemoveKey;
+use Zend\Stdlib\Parameters;
 
 class ArrayUtilsTest extends TestCase
 {
@@ -316,46 +316,23 @@ class ArrayUtilsTest extends TestCase
 
     public static function validIterators()
     {
+        $array = [
+            'foo' => [
+                'bar' => [
+                    'baz' => [
+                        'baz' => 'bat',
+                    ],
+                ],
+            ],
+        ];
+        $arrayAccess = new ArrayObject($array);
+        $toArray = new Parameters($array);
+
         return [
-            [[
-                'foo' => 'bar',
-            ], [
-                'foo' => 'bar',
-            ]],
-            [new Config([
-                'foo' => [
-                    'bar' => [
-                        'baz' => [
-                            'baz' => 'bat',
-                        ],
-                    ],
-                ],
-            ]), [
-                'foo' => [
-                    'bar' => [
-                        'baz' => [
-                            'baz' => 'bat',
-                        ],
-                    ],
-                ],
-            ]],
-            [new ArrayObject([
-                'foo' => [
-                    'bar' => [
-                        'baz' => [
-                            'baz' => 'bat',
-                        ],
-                    ],
-                ],
-            ]), [
-                'foo' => [
-                    'bar' => [
-                        'baz' => [
-                            'baz' => 'bat',
-                        ],
-                    ],
-                ],
-            ]],
+            // Description => [input, expected array]
+            'array' => [$array, $array],
+            'Traversable' => [$arrayAccess, $array],
+            'Traversable and toArray' => [$toArray, $array],
         ];
     }
 
