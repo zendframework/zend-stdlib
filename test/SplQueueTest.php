@@ -36,14 +36,8 @@ class SplQueueTest extends \PHPUnit_Framework_TestCase
         $count = count($this->queue);
         $this->assertSame($count, count($unserialized));
 
-        $expected = [];
-        foreach ($this->queue as $item) {
-            $expected[] = $item;
-        }
-        $test = [];
-        foreach ($unserialized as $item) {
-            $test[] = $item;
-        }
+        $expected = iterator_to_array($this->queue);
+        $test = iterator_to_array($unserialized);
         $this->assertSame($expected, $test);
     }
 

@@ -128,17 +128,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 
     public function testIteratorFunctions()
     {
-        $this->queue->rewind();
-
-        $i = 0;
-        while ($this->queue->valid()) {
-            $key   = $this->queue->key();
-            $value = $this->queue->current();
-            $this->assertEquals($this->expected[$i], $value);
-            $this->queue->next();
-            ++$i;
-        }
-        $this->assertFalse($this->queue->valid());
+        $this->assertEquals($this->expected, iterator_to_array($this->queue));
     }
 
     public function testRewindOperation()
