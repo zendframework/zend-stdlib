@@ -116,7 +116,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('bar', new \stdClass(), 0);
         $this->list->insert('baz', new \stdClass(), 2);
 
-        $order = [];
+        $orders = [];
 
         foreach ($this->list as $key => $value) {
             $orders[] = $key;

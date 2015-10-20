@@ -16,6 +16,11 @@ use Zend\Stdlib\SplQueue;
  */
 class SplQueueTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var SplQueue
+     */
+    protected $queue;
+
     public function setUp()
     {
         $this->queue = new SplQueue();

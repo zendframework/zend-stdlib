@@ -16,6 +16,11 @@ use Zend\Stdlib\SplStack;
  */
 class SplStackTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var SplStack
+     */
+    protected $stack;
+
     public function setUp()
     {
         $this->stack = new SplStack();
