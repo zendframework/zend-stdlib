@@ -9,6 +9,7 @@
 
 namespace ZendTest\Stdlib;
 
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\FastPriorityQueue;
 
 /**
@@ -16,6 +17,16 @@ use Zend\Stdlib\FastPriorityQueue;
  */
 class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var FastPriorityQueue
+     */
+    protected $queue;
+
+    /**
+     * @var string[]
+     */
+    protected $expected;
+
     public function setUp()
     {
         $this->queue = new FastPriorityQueue();
@@ -42,7 +53,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    protected function insertDataQueue($queue)
+    protected function insertDataQueue(FastPriorityQueue $queue)
     {
         foreach ($this->getDataPriorityQueue() as $value => $priority) {
             $queue->insert($value, $priority);
@@ -154,11 +165,9 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->queue->extract());
     }
 
-    /**
-     * @expectedException Zend\Stdlib\Exception\InvalidArgumentException
-     */
     public function testSetInvalidExtractFlag()
     {
+        $this->setExpectedException(InvalidArgumentException::class, 'The extract flag specified is not valid');
         $this->queue->setExtractFlags('foo');
     }
 

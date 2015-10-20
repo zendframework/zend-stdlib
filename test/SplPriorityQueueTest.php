@@ -16,6 +16,11 @@ use Zend\Stdlib\SplPriorityQueue;
  */
 class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var SplPriorityQueue
+     */
+    protected $queue;
+
     public function setUp()
     {
         $this->queue = new SplPriorityQueue();
