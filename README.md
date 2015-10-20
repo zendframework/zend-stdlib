@@ -8,7 +8,6 @@ class for different scopes like:
 
 - array utilities functions;
 - hydrators;
-- json serializable interfaces;
 - general messaging systems;
 - string wrappers;
 - etc.
