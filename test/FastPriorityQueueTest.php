@@ -232,11 +232,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue = new FastPriorityQueue();
         $this->assertTrue($queue->isEmpty());
 
-        set_error_handler(function ($errno, $errstr) {
-            $this->fail(sprintf('Error was raised by rewind() operation: %s', $errstr));
-        }, E_WARNING);
         $queue->rewind();
-        restore_error_handler();
     }
 
     public function testRemoveShouldFindItemEvenIfMultipleItemsAreInQueue()
