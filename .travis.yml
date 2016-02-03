@@ -36,7 +36,7 @@ before_install:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer require --dev --no-update satooshi/php-coveralls ; fi
 
 install:
-  -  COMPOSER_ROOT_VERSION=2.8.0 travis_retry composer install --no-interaction --ignore-platform-reqs
+  - travis_retry composer install --no-interaction --ignore-platform-reqs
 
 script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover clover.xml ; fi

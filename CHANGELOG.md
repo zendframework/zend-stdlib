@@ -14,10 +14,23 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#33](https://github.com/zendframework/zend-stdlib/pull/20) - removed
+- [#33](https://github.com/zendframework/zend-stdlib/pull/33) - removed
   deprecated classes
   - *All Hydrator classes* see #22.
   - `Zend\Stdlib\CallbackHandler` see #35
+- [#37](https://github.com/zendframework/zend-stdlib/pull/37) - removed
+  deprecated classes and polyfills:
+  - `Zend\Stdlib\DateTime`; this had been deprecated since 2.5, and only
+    existed as a polyfill for the `createFromISO8601()` support, now standard
+    in all PHP versions we support.
+  - `Zend\Stdlib\Exception\InvalidCallbackException`, which was unused since #33.
+  - `Zend\Stdlib\Guard\GuardUtils`, which duplicated `Zend\Stdlib\Guard\AllGuardsTrait`
+    to allow usage with pre-PHP 5.4 versions.
+  - `src/compatibility/autoload.php`, which has been dprecated since 2.5.
+- [#37](https://github.com/zendframework/zend-stdlib/pull/37) - removed
+  unneeded dependencies:
+  - zend-config (used only in testing ArrayUtils, and the test was redundant)
+  - zend-serializer (no longer used)
 
 ### Fixed
 
