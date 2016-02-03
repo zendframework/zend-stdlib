@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.0.0 - TBD
+## 3.0.0 - 2016-02-03
 
 ### Added
 
@@ -40,42 +40,6 @@ All notable changes to this project will be documented in this file, in reverse 
 - [#51](https://github.com/zendframework/zend-stdlib/pull/51) removes the
   documentation for hydrators, as those are part of the zend-hydrator
   component.
-
-### Fixed
-
-- Nothing.
-
-## 2.8.0 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 2.7.5 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
 
 ### Fixed
 
