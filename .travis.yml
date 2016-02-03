@@ -15,10 +15,10 @@ cache:
 
 env:
   global:
-    - SITE_URL: https://zendframework.github.io/zend-servicemanager
+    - SITE_URL: https://zendframework.github.io/zend-stdlib
     - GH_USER_NAME: "Matthew Weier O'Phinney"
     - GH_USER_EMAIL: matthew@weierophinney.net
-    - GH_REF: github.com/zendframework/zend-servicemanager.git
+    - GH_REF: github.com/zendframework/zend-stdlib.git
     - secure: "l+YU9Igd9IUA60PE+iC4AZt2hHY9hpsSB7S2jck9fjPm0+15UCGk2G1qg5hCi+FlPslXhk6wOLLDPc40BiCrwH+m5CP9cIdkGTuNc9rVF9S5IiRLkOVxeTcdE+JRm7hZ2NBgxEiTuBLs5RlN39o41zPDFllgnJv69UmmUIMHuG3NwJJiRE9NA2EMIhZwx3UT/Zqq94MzAbYXi2xspoQ53Z/rfvVSJK6tdARp31q4NWvlYsc2YVcEWv+j3VY5luMSCMVQVNBIuXdd0hYpGt2o3H6S9azzcKRQB7saoAT/tiAEj5121tv3j3cKNQQMzI4xv7RrtQEiAhumeU3AsVDyqBmqqUQNwpnWH0RZdRry4jUKJgx0TK0yZH8ewdz6DhktBqS+c2a/FzfO3yc+LeuIy3i73NezNwCgwviOBYbWPAo4LqKtJ7gdTbVVdJaUeCtKTZ1b1k4MtaxjZjz0IK5+rxJsZ1DQF5fhJIzkjXqEEON2mHQu/qE+I7ow4Jvfs0T+KYJW6Yf5qFzBkrTUNjV60rmawaEjgxgMvtwN+MvcQ/X2OWkdjdzqzQIDdjssdRu9IBPU/G2uqzS8POL9o1j8H3NE430Tsbg+jiENlqmU+ra5wuRrmTBToli1kpgl9LyhgvjGokxAB+mwwKv7FiIQtBmSgEvsD112eSYl3HVWpdE="
 
 matrix:
