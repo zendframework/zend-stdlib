@@ -6,7 +6,13 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#51](https://github.com/zendframework/zend-stdlib/pull/51) adds PHP 7 as a
+  supported PHP version.
+- [#51](https://github.com/zendframework/zend-stdlib/pull/51) adds a migration
+  document from v2 to v3. Hint: if you use hydrators, you need to be using
+  zend-hydrator instead!
+- [#51](https://github.com/zendframework/zend-stdlib/pull/51) adds automated
+  documentation builds to gh-pages.
 
 ### Deprecated
 
@@ -31,6 +37,9 @@ All notable changes to this project will be documented in this file, in reverse 
   unneeded dependencies:
   - zend-config (used only in testing ArrayUtils, and the test was redundant)
   - zend-serializer (no longer used)
+- [#51](https://github.com/zendframework/zend-stdlib/pull/51) removes the
+  documentation for hydrators, as those are part of the zend-hydrator
+  component.
 
 ### Fixed
 
