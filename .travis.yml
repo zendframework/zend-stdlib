@@ -23,7 +23,6 @@ matrix:
     - php: 7
     - php: hhvm 
   allow_failures:
-    - php: 7
     - php: hhvm
 
 notifications:
@@ -36,7 +35,7 @@ before_install:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer require --dev --no-update satooshi/php-coveralls ; fi
 
 install:
-  - travis_retry composer install --no-interaction --ignore-platform-reqs
+  - COMPOSER_ROOT_VERSION=2.7.99 travis_retry composer install --no-interaction --ignore-platform-reqs
 
 script:
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover clover.xml ; fi
