@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.7.5 - 2016-02-16
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#54](https://github.com/zendframework/zend-stdlib/pull/54) updates the
+  `HelperPluginManager` implementation to return zend-stdlib-specific instances
+  (instead of zend-hydrator instances), to ensure backwards compatibility when
+  typehinting against the zend-stdlib types.
+
 ## 2.7.4 - 2015-10-15
 
 ### Added
