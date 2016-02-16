@@ -48,5 +48,6 @@ class HydratorPluginManager extends BaseHydratorPluginManager
      */
     protected $factories = [
         'Zend\Stdlib\Hydrator\DelegatingHydrator' => 'Zend\Stdlib\Hydrator\DelegatingHydratorFactory',
+        'zendstdlibhydratordelegatinghydrator'    => 'Zend\Stdlib\Hydrator\DelegatingHydratorFactory',
     ];
 }
