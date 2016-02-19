@@ -9,17 +9,21 @@
 
 namespace ZendTest\Stdlib\Hydrator;
 
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\DelegatingHydratorFactory;
 
 class DelegatingHydratorFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testFactory()
     {
-        $hydratorManager = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
+        $hydratorManager = $this->prophesize(ServiceLocatorInterface::class);
+        $hydratorManager->willImplement(ContainerInterface::class);
+
         $factory = new DelegatingHydratorFactory();
         $this->assertInstanceOf(
             'Zend\Hydrator\DelegatingHydrator',
-            $factory->createService($hydratorManager)
+            $factory->createService($hydratorManager->reveal())
         );
     }
 }

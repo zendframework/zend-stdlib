@@ -9,8 +9,12 @@
 
 namespace ZendTest\Stdlib\Hydrator;
 
-use Zend\Stdlib\Hydrator\DelegatingHydrator;
 use ArrayObject;
+use Interop\Container\ContainerInterface;
+use Prophecy\Argument;
+use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Stdlib\Hydrator\DelegatingHydrator;
+use Zend\Stdlib\Hydrator\HydratorInterface;
 
 /**
  * Unit tests for {@see \Zend\Stdlib\Hydrator\DelegatingHydrator}
@@ -39,51 +43,31 @@ class DelegatingHydratorTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->hydrators = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
-        $this->hydrator = new DelegatingHydrator($this->hydrators);
+        $this->hydrators = $this->prophesize(ServiceLocatorInterface::class);
+        $this->hydrators->willImplement(ContainerInterface::class);
+        $this->hydrator = new DelegatingHydrator($this->hydrators->reveal());
         $this->object = new ArrayObject;
     }
 
     public function testExtract()
     {
-        $this->hydrators->expects($this->any())
-            ->method('has')
-            ->with('ArrayObject')
-            ->will($this->returnValue(true));
+        $hydrator = $this->prophesize(HydratorInterface::class);
+        $hydrator->extract($this->object)->willReturn(['foo' => 'bar']);
 
-        $hydrator = $this->getMock('Zend\Stdlib\Hydrator\HydratorInterface');
+        $this->hydrators->has(ArrayObject::class)->willReturn(true);
+        $this->hydrators->get(ArrayObject::class)->willReturn($hydrator->reveal());
 
-        $this->hydrators->expects($this->any())
-            ->method('get')
-            ->with('ArrayObject')
-            ->will($this->returnValue($hydrator));
-
-        $hydrator->expects($this->any())
-            ->method('extract')
-            ->with($this->object)
-            ->will($this->returnValue(['foo' => 'bar']));
-
-        $this->assertEquals(['foo' => 'bar'], $hydrator->extract($this->object));
+        $this->assertEquals(['foo' => 'bar'], $this->hydrator->extract($this->object));
     }
 
     public function testHydrate()
     {
-        $this->hydrators->expects($this->any())
-            ->method('has')
-            ->with('ArrayObject')
-            ->will($this->returnValue(true));
+        $hydrator = $this->prophesize(HydratorInterface::class);
+        $hydrator->hydrate(['foo' => 'bar'], $this->object)->willReturn($this->object);
 
-        $hydrator = $this->getMock('Zend\Stdlib\Hydrator\HydratorInterface');
+        $this->hydrators->has(ArrayObject::class)->willReturn(true);
+        $this->hydrators->get(ArrayObject::class)->willReturn($hydrator->reveal());
 
-        $this->hydrators->expects($this->any())
-            ->method('get')
-            ->with('ArrayObject')
-            ->will($this->returnValue($hydrator));
-
-        $hydrator->expects($this->any())
-            ->method('hydrate')
-            ->with(['foo' => 'bar'], $this->object)
-            ->will($this->returnValue($this->object));
-        $this->assertEquals($this->object, $hydrator->hydrate(['foo' => 'bar'], $this->object));
+        $this->assertEquals($this->object, $this->hydrator->hydrate(['foo' => 'bar'], $this->object));
     }
 }
