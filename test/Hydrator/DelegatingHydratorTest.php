@@ -11,7 +11,6 @@ namespace ZendTest\Stdlib\Hydrator;
 
 use ArrayObject;
 use Interop\Container\ContainerInterface;
-use Prophecy\Argument;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\DelegatingHydrator;
 use Zend\Stdlib\Hydrator\HydratorInterface;
