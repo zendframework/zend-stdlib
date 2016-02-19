@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 2.7.6 - 2016-02-19
+
+### Added
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- [#56](https://github.com/zendframework/zend-stdlib/pull/56) updates the
+  `AggregateHydrator` implementation to add overrides for the `hydrate()` and
+  `extract()` methods; this was done to ensure they trigger zend-stdlib-specific
+  event classes (vs the zend-hydrator base classes), in order to ensure
+  backwards compatibility.
+
 ## 2.7.5 - 2016-02-16
 
 ### Added
