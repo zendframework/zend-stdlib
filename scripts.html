@@ -1,48 +1,90 @@
 <script language="javascript" type="text/javascript">
   // Prepare the component list dropdown for display
   $(function () {
-    var navbar = $(".navbar-fixed-top");
-    var logoLink = $(".logo-link");
-    var components = $(".zf-components");
-    var rollUpLink = $(".zf-components-rollup a");
-    var hidden = true;
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        hidden,
+        logoLink = $(".logo-link"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
 
     // Initial setup on document load
-    navbar.before(components);
+    components.insertBefore(navbar);
     $(".zf-logo a").tooltip();
-    logoLink.attr({
-      href: "#",
-      title: "Show component list"
-    }).tooltip();
-    rollUpLink.attr({
-      href: "#",
-      alt: "Hide component list"
-    });
+    logoLink.attr({ href: "#", title: "Show component list" }).tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
 
     // Setup onclick events to toggle list
     logoLink.click(toggleComponentList);
     rollUpLink.click(toggleComponentList);
 
-    // Function for toggling list
-    function toggleComponentList () {
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
       if (hidden) {
-        navbar.css({position: "relative"});
-        components.slideDown({duration: 600, done: function () {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, { complete: function () {
           logoLink
             .data("placement", "top")
             .attr("data-original-title", "Hide component list");
           hidden = false;
         }});
-        return;
-      }
+    }
 
-      components.slideUp({duration: 600, done: function () {
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, { complete: function () {
         navbar.css({position: "fixed"});
         logoLink
           .data("placement", "bottom")
           .attr("data-original-title", "Show component list");
+        components.hide();
         hidden = true;
       }});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
     }
   });
 </script>

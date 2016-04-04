@@ -28,31 +28,29 @@
     }
 
     .zf-logo {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
+        width: 100%;
     }
 
-    /* This value needs to increase by 100px for each new entry in the grid */
-    .components-list {
-      height: 2800px;
+    .component-list {
+        width: 100%;
     }
 
-    .components-list .component {
-      padding-left: 1em;
-      padding-right: 1em;
-      width: 100%;
+    .component-list .component {
+        width: 100%;
     }
 }
 
-@media (min-width: 1024px) {
-   /* This value needs to increase by 100px for each two new entries in the grid */
-  .components-list {
-    height: 1400px;
+@media (min-width: 1025px) {
+  .zf-logo {
+      width: 20%;
   }
 
-  .components-list .component {
-    width: 48%;
+  .component-list {
+      width: 75%;
+  }
+
+  .component-list .component {
+      width: 49%;
   }
 }
 
@@ -207,62 +205,64 @@ pre {
 }
 
 .zf-components {
-  display: none;
+    display: none;
 }
 
-.component-grid, .components-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.component-grid {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  align-content: space-between;
-}
-
-.components-list {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  align-content: space-between;
+.zf-components-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: space-between;
+    justify-content: space-between;
 }
 
 .zf-logo {
-  width: 275px;
-  text-align: center;
-  vertical-align: top;
-}
-
-.components-list .component {
-  border-top: 1px dotted #018D74;
-  padding-top: 5px;
-  padding-right: 1em;
-  margin-bottom: 1em;
-  height: 4em;
-}
-
-.components-list .component h4 {
-  display: inline;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.components-list .component h4 a {
-  color: #018D74;
-}
-
-.components-list .component p {
-  font-size: 0.8em;
-  line-height: 1.2em;
+    order: -1;
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .zf-components-rollup {
-  border-top: 1px dotted #018D74;
-  padding-top: 1em;
-  padding-bottom 1em;
-  margin-left: auto;
-  margin-right auto;
-  text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px dotted #018D74;
+    padding-top: 1em;
+    padding-bottom 1em;
+    text-align: center;
+}
+
+.component-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: space-between;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.component {
+    border-top: 1px dotted #018D74;
+    padding-top: 5px;
+    margin-bottom: 1em;
+}
+
+.component h4 {
+    display: inline;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.component h4 a {
+    color: #018D74;
+}
+
+.component p {
+    font-size: 0.8em;
+    line-height: 1.2em;
 }
