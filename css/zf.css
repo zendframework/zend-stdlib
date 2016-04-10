@@ -206,6 +206,7 @@ pre {
 
 .zf-components {
     display: none;
+    transform: translateZ(0);
 }
 
 .zf-components-grid {
@@ -265,4 +266,10 @@ pre {
 .component p {
     font-size: 0.8em;
     line-height: 1.2em;
+}
+
+.bs-sidebar .pager {
+    margin-top: 10px;
+    margin-bottom: 0;
+    border-top: 1px solid #E8E8E8;
 }

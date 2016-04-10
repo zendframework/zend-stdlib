@@ -1,21 +1,28 @@
-<script language="javascript" type="text/javascript">
+<script>
   // Prepare the component list dropdown for display
   $(function () {
     var components = $(".zf-components"),
         componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
         hidden,
-        logoLink = $(".logo-link"),
+        componentToggle = $(".component-toggle"),
         navbar = $(".navbar-fixed-top"),
         rollUpLink = $(".zf-components-rollup a");
 
     // Initial setup on document load
     components.insertBefore(navbar);
     $(".zf-logo a").tooltip();
-    logoLink.attr({ href: "#", title: "Show component list" }).tooltip();
+    componentToggle.tooltip();
     rollUpLink.attr({ href: "#", alt: "Hide component list" });
 
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
     // Setup onclick events to toggle list
-    logoLink.click(toggleComponentList);
+    componentToggle.click(toggleComponentList);
     rollUpLink.click(toggleComponentList);
 
     // Toggle the component list display
@@ -41,27 +48,36 @@
     // Show the component list
     function showComponentList() {
       navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
       components
         .css({"margin-top": "-" + components.outerHeight() + "px"})
         .show()
-        .animate({"margin-top": 0}, { complete: function () {
-          logoLink
-            .data("placement", "top")
-            .attr("data-original-title", "Hide component list");
-          hidden = false;
-        }});
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
     }
 
     // Hide the component list
     function hideComponentList() {
-      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, { complete: function () {
-        navbar.css({position: "fixed"});
-        logoLink
-          .data("placement", "bottom")
-          .attr("data-original-title", "Show component list");
-        components.hide();
-        hidden = true;
-      }});
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
     }
 
     // Inject a component into the componet list DOM.
