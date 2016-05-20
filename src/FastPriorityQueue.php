@@ -132,31 +132,31 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     public function remove($datum)
     {
-    	$currentIndex    = $this->index;
-    	$currentSubIndex = $this->subIndex;
-    	$currentPriority = $this->maxPriority;
-    	
+        $currentIndex    = $this->index;
+        $currentSubIndex = $this->subIndex;
+        $currentPriority = $this->maxPriority;
+
         $this->rewind();
         while ($this->valid()) {
             if (current($this->values[$this->maxPriority]) === $datum) {
                 $index = key($this->values[$this->maxPriority]);
                 unset($this->values[$this->maxPriority][$index]);
-                
+
                 // The `next()` method advances the internal array pointer, so we need to use the `reset()` function,
                 // otherwise we would lose all elements before the place the pointer points.
                 reset($this->values[$this->maxPriority]);
-                
+
                 $this->index    = $currentIndex;
                 $this->subIndex = $currentSubIndex;
-                
+
                 // If the array is empty we need to destroy the unnecessary priority,
                 // otherwise we would end up with an incorrect value of `$this->count` {@see \Zend\Stdlib\FastPriorityQueue::nextAndRemove()}.
                 if (empty($this->values[$this->maxPriority])) {
-                	unset($this->values[$this->maxPriority]);
-                	unset($this->priorities[$this->maxPriority]);
-                	if ($this->maxPriority === $currentPriority) {
-                		$this->subIndex = 0;
-                	}
+                    unset($this->values[$this->maxPriority]);
+                    unset($this->priorities[$this->maxPriority]);
+                    if ($this->maxPriority === $currentPriority) {
+                        $this->subIndex = 0;
+                    }
                 }
 
                 $this->maxPriority = empty($this->priorities) ? null : max($this->priorities);
@@ -214,15 +214,15 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      */
     protected function nextAndRemove()
     {
-    	$key = key($this->values[$this->maxPriority]);
-    	
+        $key = key($this->values[$this->maxPriority]);
+
         if (false === next($this->values[$this->maxPriority])) {
             unset($this->priorities[$this->maxPriority]);
             unset($this->values[$this->maxPriority]);
             $this->maxPriority = empty($this->priorities) ? null : max($this->priorities);
             $this->subIndex    = -1;
         } else {
-        	unset($this->values[$this->maxPriority][$key]);
+            unset($this->values[$this->maxPriority][$key]);
         }
         ++$this->index;
         ++$this->subIndex;
