@@ -57,9 +57,9 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
     /**
      * Max priority
      *
-     * @var integer
+     * @var integer|null
      */
-    protected $maxPriority = 0;
+    protected $maxPriority = null;
 
     /**
      * Total number of elements in the queue
@@ -86,7 +86,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
      * Insert an element in the queue with a specified priority
      *
      * @param mixed $value
-     * @param integer $priority a positive integer
+     * @param integer $priority
      */
     public function insert($value, $priority)
     {
@@ -96,7 +96,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         $this->values[$priority][] = $value;
         if (! isset($this->priorities[$priority])) {
             $this->priorities[$priority] = $priority;
-            $this->maxPriority           = max($priority, $this->maxPriority);
+            $this->maxPriority           = $this->maxPriority === null ? $priority : max($priority, $this->maxPriority);
         }
         ++$this->count;
     }
@@ -194,7 +194,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         if (false === next($this->values[$this->maxPriority])) {
             unset($this->priorities[$this->maxPriority]);
             unset($this->values[$this->maxPriority]);
-            $this->maxPriority = empty($this->priorities) ? 0 : max($this->priorities);
+            $this->maxPriority = empty($this->priorities) ? null : max($this->priorities);
             $this->subIndex    = -1;
         }
         ++$this->index;
@@ -211,7 +211,7 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
         if (false === next($this->values[$this->maxPriority])) {
             unset($this->subPriorities[$this->maxPriority]);
             reset($this->values[$this->maxPriority]);
-            $this->maxPriority = empty($this->subPriorities) ? 0 : max($this->subPriorities);
+            $this->maxPriority = empty($this->subPriorities) ? null : max($this->subPriorities);
             $this->subIndex    = -1;
         }
         ++$this->index;
