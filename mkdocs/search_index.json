@@ -1,43 +1,43 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "zend-stdlib\n\n\n\n\n\n\nZend\\Stdlib\n is a set of components that implements general purpose utility\nclass for different scopes like:\n\n\n\n\narray utilities functions;\n\n\njson serializable interfaces;\n\n\ngeneral messaging systems;\n\n\nstring wrappers;\n\n\netc.\n\n\n\n\n\n\n\n\nFile issues at https://github.com/zendframework/zend-stdlib/issues\n\n\nDocumentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib", 
+            "location": "/",
+            "text": "zend-stdlib\n\n\n\n\n\n\nZend\\Stdlib\n is a set of components that implements general purpose utility\nclass for different scopes like:\n\n\n\n\narray utilities functions;\n\n\njson serializable interfaces;\n\n\ngeneral messaging systems;\n\n\nstring wrappers;\n\n\netc.\n\n\n\n\n\n\n\n\nFile issues at https://github.com/zendframework/zend-stdlib/issues\n\n\nDocumentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib",
             "title": "Home"
-        }, 
+        },
         {
-            "location": "/#zend-stdlib", 
-            "text": "Zend\\Stdlib  is a set of components that implements general purpose utility\nclass for different scopes like:   array utilities functions;  json serializable interfaces;  general messaging systems;  string wrappers;  etc.     File issues at https://github.com/zendframework/zend-stdlib/issues  Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib", 
+            "location": "/#zend-stdlib",
+            "text": "Zend\\Stdlib  is a set of components that implements general purpose utility\nclass for different scopes like:   array utilities functions;  json serializable interfaces;  general messaging systems;  string wrappers;  etc.     File issues at https://github.com/zendframework/zend-stdlib/issues  Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib",
             "title": "zend-stdlib"
-        }, 
+        },
         {
-            "location": "/migration/", 
-            "text": "Migration Guide\n\n\nFrom v2 to v3\n\n\nThe changes made going from v2 to v3 were:\n\n\n\n\nRemoval of the Hydrator subcomponent.\n\n\nRemoval of the \nCallbackHandler\n class.\n\n\nRemoval of \nZend\\Stdlib\\Guard\\GuardUtils\n.\n\n\n\n\nHydrators\n\n\nThe biggest single change from version 2 to version 3 is that the hydrator\nsubcomponent, which was deprecated in v2.7.0, is now removed. This means that if\nyou were using zend-stdlib principally for the hydrators, you need to convert\nyour code to use \nzend-hydrator\n.\n\n\nThis will also mean a multi-step migration. zend-stdlib v3 pre-dates\nzend-hydrator v2.1, which will be the first version that supports zend-stdlib v3\nand zend-servicemanager v3. If you are using Composer, the migration should be\nseamless:\n\n\n\n\nRemove your zend-stdlib dependency:\n\n\n\n\n$ composer remove zendframework/zend-stdlib\n\n\n\n\n\n\nUpdate to use zend-hydrator:\n\n\n\n\n$ composer require zendframework/zend-hydrator\n\n\n\n\nWhen zend-hydrator updates to newer versions of zend-stdlib and\nzend-servicemanager, you will either automatically get those versions, or you\ncan tell composer to use those specific versions:\n\n\n$ composer require \nzendframework/zend-stdlib:^3.0\n\n\n\n\nCallbackHandler\n\n\nZend\\Stdlib\\CallbackHandler\n primarily existed for legacy purposes; it was\ncreated before the \ncallable\n typehint existed, so that we could typehint PHP\ncallables. It also provided some minimal features around lazy-loading callables\nfrom instantiable classes, but these features were rarely used, and better\napproaches already exist for handling such functinality in zend-servicemanager\nand zend-expressive.\n\n\nAs such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.\n\n\nGuardUtils\n\n\nVersion 3 removes \nZend\\Stdlib\\Guard\\GuardUtils\n. This abstract class existed to\nprovide the functionality of the various traits also present in that\nsubcomponent, for consumers on versions of PHP earlier than 5.4. Since the\nminimum required version is now PHP 5.5, the class is unnecessary. If you were\nusing it previously, compose the related traits instead.", 
+            "location": "/migration/",
+            "text": "Migration Guide\n\n\nFrom v2 to v3\n\n\nThe changes made going from v2 to v3 were:\n\n\n\n\nRemoval of the Hydrator subcomponent.\n\n\nRemoval of the \nCallbackHandler\n class.\n\n\nRemoval of \nZend\\Stdlib\\Guard\\GuardUtils\n.\n\n\n\n\nHydrators\n\n\nThe biggest single change from version 2 to version 3 is that the hydrator\nsubcomponent, which was deprecated in v2.7.0, is now removed. This means that if\nyou were using zend-stdlib principally for the hydrators, you need to convert\nyour code to use \nzend-hydrator\n.\n\n\nThis will also mean a multi-step migration. zend-stdlib v3 pre-dates\nzend-hydrator v2.1, which will be the first version that supports zend-stdlib v3\nand zend-servicemanager v3. If you are using Composer, the migration should be\nseamless:\n\n\n\n\nRemove your zend-stdlib dependency:\n\n\n\n\n$ composer remove zendframework/zend-stdlib\n\n\n\n\n\n\nUpdate to use zend-hydrator:\n\n\n\n\n$ composer require zendframework/zend-hydrator\n\n\n\n\nWhen zend-hydrator updates to newer versions of zend-stdlib and\nzend-servicemanager, you will either automatically get those versions, or you\ncan tell composer to use those specific versions:\n\n\n$ composer require \"zendframework/zend-stdlib:^3.0\"\n\n\n\n\nCallbackHandler\n\n\nZend\\Stdlib\\CallbackHandler\n primarily existed for legacy purposes; it was\ncreated before the \ncallable\n typehint existed, so that we could typehint PHP\ncallables. It also provided some minimal features around lazy-loading callables\nfrom instantiable classes, but these features were rarely used, and better\napproaches already exist for handling such functinality in zend-servicemanager\nand zend-expressive.\n\n\nAs such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.\n\n\nGuardUtils\n\n\nVersion 3 removes \nZend\\Stdlib\\Guard\\GuardUtils\n. This abstract class existed to\nprovide the functionality of the various traits also present in that\nsubcomponent, for consumers on versions of PHP earlier than 5.4. Since the\nminimum required version is now PHP 5.5, the class is unnecessary. If you were\nusing it previously, compose the related traits instead.",
             "title": "Migration"
-        }, 
+        },
         {
-            "location": "/migration/#migration-guide", 
-            "text": "", 
+            "location": "/migration/#migration-guide",
+            "text": "",
             "title": "Migration Guide"
-        }, 
+        },
         {
-            "location": "/migration/#from-v2-to-v3", 
-            "text": "The changes made going from v2 to v3 were:   Removal of the Hydrator subcomponent.  Removal of the  CallbackHandler  class.  Removal of  Zend\\Stdlib\\Guard\\GuardUtils .", 
+            "location": "/migration/#from-v2-to-v3",
+            "text": "The changes made going from v2 to v3 were:   Removal of the Hydrator subcomponent.  Removal of the  CallbackHandler  class.  Removal of  Zend\\Stdlib\\Guard\\GuardUtils .",
             "title": "From v2 to v3"
-        }, 
+        },
         {
-            "location": "/migration/#hydrators", 
-            "text": "The biggest single change from version 2 to version 3 is that the hydrator\nsubcomponent, which was deprecated in v2.7.0, is now removed. This means that if\nyou were using zend-stdlib principally for the hydrators, you need to convert\nyour code to use  zend-hydrator .  This will also mean a multi-step migration. zend-stdlib v3 pre-dates\nzend-hydrator v2.1, which will be the first version that supports zend-stdlib v3\nand zend-servicemanager v3. If you are using Composer, the migration should be\nseamless:   Remove your zend-stdlib dependency:   $ composer remove zendframework/zend-stdlib   Update to use zend-hydrator:   $ composer require zendframework/zend-hydrator  When zend-hydrator updates to newer versions of zend-stdlib and\nzend-servicemanager, you will either automatically get those versions, or you\ncan tell composer to use those specific versions:  $ composer require  zendframework/zend-stdlib:^3.0", 
+            "location": "/migration/#hydrators",
+            "text": "The biggest single change from version 2 to version 3 is that the hydrator\nsubcomponent, which was deprecated in v2.7.0, is now removed. This means that if\nyou were using zend-stdlib principally for the hydrators, you need to convert\nyour code to use  zend-hydrator .  This will also mean a multi-step migration. zend-stdlib v3 pre-dates\nzend-hydrator v2.1, which will be the first version that supports zend-stdlib v3\nand zend-servicemanager v3. If you are using Composer, the migration should be\nseamless:   Remove your zend-stdlib dependency:   $ composer remove zendframework/zend-stdlib   Update to use zend-hydrator:   $ composer require zendframework/zend-hydrator  When zend-hydrator updates to newer versions of zend-stdlib and\nzend-servicemanager, you will either automatically get those versions, or you\ncan tell composer to use those specific versions:  $ composer require \"zendframework/zend-stdlib:^3.0\"",
             "title": "Hydrators"
-        }, 
+        },
         {
-            "location": "/migration/#callbackhandler", 
-            "text": "Zend\\Stdlib\\CallbackHandler  primarily existed for legacy purposes; it was\ncreated before the  callable  typehint existed, so that we could typehint PHP\ncallables. It also provided some minimal features around lazy-loading callables\nfrom instantiable classes, but these features were rarely used, and better\napproaches already exist for handling such functinality in zend-servicemanager\nand zend-expressive.  As such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.", 
+            "location": "/migration/#callbackhandler",
+            "text": "Zend\\Stdlib\\CallbackHandler  primarily existed for legacy purposes; it was\ncreated before the  callable  typehint existed, so that we could typehint PHP\ncallables. It also provided some minimal features around lazy-loading callables\nfrom instantiable classes, but these features were rarely used, and better\napproaches already exist for handling such functinality in zend-servicemanager\nand zend-expressive.  As such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.",
             "title": "CallbackHandler"
-        }, 
+        },
         {
-            "location": "/migration/#guardutils", 
-            "text": "Version 3 removes  Zend\\Stdlib\\Guard\\GuardUtils . This abstract class existed to\nprovide the functionality of the various traits also present in that\nsubcomponent, for consumers on versions of PHP earlier than 5.4. Since the\nminimum required version is now PHP 5.5, the class is unnecessary. If you were\nusing it previously, compose the related traits instead.", 
+            "location": "/migration/#guardutils",
+            "text": "Version 3 removes  Zend\\Stdlib\\Guard\\GuardUtils . This abstract class existed to\nprovide the functionality of the various traits also present in that\nsubcomponent, for consumers on versions of PHP earlier than 5.4. Since the\nminimum required version is now PHP 5.5, the class is unnecessary. If you were\nusing it previously, compose the related traits instead.",
             "title": "GuardUtils"
         }
     ]
