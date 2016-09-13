@@ -4,21 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zend\Stdlib">  
-    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
 
-    <title>zend-stdlib</title>
+    <title>Console Helper - zend-stdlib</title>
 
-    <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="./css/base.css" rel="stylesheet">
-    <link href="./css/zf.css" rel="stylesheet">
-    <link href="./css/prism-zf.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -57,8 +56,8 @@
 
             <!-- Main title -->
             <span class="navbar-brand">
-              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="./img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
-              <a href=".">zend-stdlib</a>
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-stdlib</a>
             </span>
         </div>
 
@@ -70,18 +69,18 @@
                 
                 
                     <li >
-                        <a href=".">Home</a>
+                        <a href="..">Home</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="console-helper/">Console Helper</a>
+<li class="active">
+    <a href="./">Console Helper</a>
 </li>
 
                         
@@ -91,7 +90,7 @@
                 
                 
                     <li >
-                        <a href="migration/">Migration</a>
+                        <a href="../migration/">Migration</a>
                     </li>
                 
                 
@@ -128,16 +127,173 @@
     <!-- content:begin -->
     <div class="container">
         
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#console-helper">Console Helper</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#available-methods">Available methods</a></li>
+        
+            <li><a href="#example">Example</a></li>
+        
+            <li><a href="#when-to-upgrade">When to upgrade</a></li>
+        
+    
+    </ul>
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-        <p style="text-align: center"><a href=".">Home</a></p>
-      </div>
-    </div>
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../migration/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Reference &raquo;</li>
+      
+    
+  
+  <li class="active">Console Helper</li>
+</ol>
+
+<h1 id="console-helper">Console Helper</h1>
+<p>Writing one-off scripts or vendor binaries for a package is often problematic:</p>
+<ul>
+<li>You need to parse arguments manually.</li>
+<li>You need to send output to the console in a meaningful fashion:<ul>
+<li>Using <code>STDOUT</code> for meaningful, expected output</li>
+<li>Using <code>STDERR</code> for error messages</li>
+<li>Ensuring any line breaks are converted to <code>PHP_EOL</code></li>
+<li>Optionally, using console colors to provide context, which means:<ul>
+<li>Detecting whether or not the console supports colors in the first place</li>
+<li>Providing appropriate escape sequences to produce color</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>Zend\Stdlib\ConsoleHelper</code> helps to address the second major bullet point and
+all beneath it in a minimal fashion.</p>
+<h2 id="usage">Usage</h2>
+<p>Typical usage is to instantiate a <code>ConsoleHelper</code>, and call one of its methods:</p>
+<pre class="codehilite"><code class="language-php">use Zend\Stdlib\ConsoleHelper;
+
+$helper = new ConsoleHelper();
+$helper-&gt;writeLine('This is output');</code></pre>
 
 
+<p>You can optionally pass a PHP stream resource to the constructor, which will be
+used to determine whether or not color support is available:</p>
+<pre class="codehilite"><code class="language-php">$helper = new ConsoleHelper($stream);</code></pre>
+
+
+<p>By default, it assumes <code>STDOUT</code>, and tests against that.</p>
+<h2 id="available-methods">Available methods</h2>
+<p><code>ConsoleHelper</code> provides the following methods.</p>
+<h3 id="colorize">colorize</h3>
+<ul>
+<li><code>colorize(string $string) : string</code></li>
+</ul>
+<p><code>colorize()</code> accepts a formatted string, and will then apply ANSI color
+sequences to them, if color support is detected.</p>
+<p>The following sequences are currently supported:</p>
+<ul>
+<li><code>&lt;info&gt;...&lt;/info&gt;</code> will apply a green color sequence around the provided text.</li>
+<li><code>&lt;error&gt;...&lt;/error&gt;</code> will apply a red color sequence around the provided text.</li>
+</ul>
+<p>You may mix multiple sequences within the same stream.</p>
+<h3 id="write">write</h3>
+<ul>
+<li><code>write(string $string, bool $colorize = true, resource $stream = STDOUT) : void</code></li>
+</ul>
+<p>Emits the provided <code>$string</code> to the provided <code>$stream</code> (which defaults to
+<code>STDOUT</code> if not provided). Any EOL sequences are convered to <code>PHP_EOL</code>. If
+<code>$colorize</code> is <code>true</code>, the string is first passed to <code>colorize()</code> as well.</p>
+<h3 id="writeline">writeline</h3>
+<ul>
+<li><code>writeLine(string $string, bool $colorize = true, resource $stream = STDOUT) : void</code></li>
+</ul>
+<p>Same as <code>write()</code>, except it also appends a <code>PHP_EOL</code> sequence to the <code>$string</code>.</p>
+<h3 id="writeerrormessage">writeErrorMessage</h3>
+<ul>
+<li><code>writeErrorMessage(string $message)</code></li>
+</ul>
+<p>Wraps <code>$message</code> in an <code>&lt;error&gt;&lt;/error&gt;</code> sequence, and passes it to
+<code>writeLine()</code>, using <code>STDERR</code> as the <code>$stream</code>.</p>
+<h2 id="example">Example</h2>
+<p>Below is an example class that accepts an argument list, and determines how and
+what to emit.</p>
+<pre class="codehilite"><code class="language-php">namespace Foo;
+
+use Zend\Stdlib\ConsoleHelper;
+
+class HelloWorld
+{
+    private $helper;
+
+    public function __construct(ConsoleHelper $helper = null)
+    {
+        $this-&gt;helper = $helper ?: new ConsoleHelper();
+    }
+
+    public function __invoke(array $args)
+    {
+        if (! count($args)) {
+            $this-&gt;helper-&gt;writeErrorMessage('Missing arguments!');
+            return;
+        }
+
+        if (count($args) &gt; 1) {
+            $this-&gt;helper-&gt;writeErrorMessage('Too many arguments!');
+            return;
+        }
+
+        $target = array_shift($args);
+
+        $this-&gt;helper-&gt;writeLine(sprintf(
+            '&lt;info&gt;Hello&lt;/info&gt; %s',
+            $target
+        ));
+    }
+}</code></pre>
+
+
+<h2 id="when-to-upgrade">When to upgrade</h2>
+<p><code>ConsoleHelper</code> is deliberately simple, and assumes that your primary need for
+console tooling is for output considerations.</p>
+<p>If you need to parse complex argument strings, we recommend using
+<a href="https://docs.zendframework.com/zend-console/">zend-console</a>/<a href="https://github.com/zfcampus/zf-console">zf-console</a>
+or <a href="http://symfony.com/doc/current/components/console.html">symfony/console</a>,
+as these packages provide those capabilities, as well as far more colorization
+and console feature detection facilities.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../migration/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
     </div>
     <!-- content:end -->
 
@@ -149,13 +305,13 @@
         <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
     </footer>
 
-    <script src="./js/jquery-1.10.2.min.js"></script>
-    <script src="./js/bootstrap-3.0.3.min.js"></script>
-    <script src="./js/prism-zf.js"></script>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
 
-    <script>var base_url = '.';</script>
-    <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-    <script src="./js/base.js"></script>
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">

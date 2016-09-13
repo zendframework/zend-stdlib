@@ -2,13 +2,63 @@
     "docs": [
         {
             "location": "/", 
-            "text": "zend-stdlib\n\n\n\n\n\n\nZend\\Stdlib\n is a set of components that implements general purpose utility\nclass for different scopes like:\n\n\n\n\narray utilities functions;\n\n\njson serializable interfaces;\n\n\ngeneral messaging systems;\n\n\nstring wrappers;\n\n\netc.\n\n\n\n\n\n\n\n\nFile issues at https://github.com/zendframework/zend-stdlib/issues\n\n\nDocumentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib", 
+            "text": "zend-stdlib\n\n\n\n\n\n\nZend\\Stdlib\n is a set of components that implements general purpose utility\nclass for different scopes like:\n\n\n\n\narray utilities functions;\n\n\ngeneral messaging systems;\n\n\nstring wrappers;\n\n\netc.\n\n\n\n\n\n\n\n\nFile issues at https://github.com/zendframework/zend-stdlib/issues\n\n\nDocumentation is at https://docs.zendframework.com/zend-stdlib/", 
             "title": "Home"
         }, 
         {
             "location": "/#zend-stdlib", 
-            "text": "Zend\\Stdlib  is a set of components that implements general purpose utility\nclass for different scopes like:   array utilities functions;  json serializable interfaces;  general messaging systems;  string wrappers;  etc.     File issues at https://github.com/zendframework/zend-stdlib/issues  Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib", 
+            "text": "Zend\\Stdlib  is a set of components that implements general purpose utility\nclass for different scopes like:   array utilities functions;  general messaging systems;  string wrappers;  etc.     File issues at https://github.com/zendframework/zend-stdlib/issues  Documentation is at https://docs.zendframework.com/zend-stdlib/", 
             "title": "zend-stdlib"
+        }, 
+        {
+            "location": "/console-helper/", 
+            "text": "Console Helper\n\n\nWriting one-off scripts or vendor binaries for a package is often problematic:\n\n\n\n\nYou need to parse arguments manually.\n\n\nYou need to send output to the console in a meaningful fashion:\n\n\nUsing \nSTDOUT\n for meaningful, expected output\n\n\nUsing \nSTDERR\n for error messages\n\n\nEnsuring any line breaks are converted to \nPHP_EOL\n\n\nOptionally, using console colors to provide context, which means:\n\n\nDetecting whether or not the console supports colors in the first place\n\n\nProviding appropriate escape sequences to produce color\n\n\n\n\n\n\n\n\n\n\n\n\nZend\\Stdlib\\ConsoleHelper\n helps to address the second major bullet point and\nall beneath it in a minimal fashion.\n\n\nUsage\n\n\nTypical usage is to instantiate a \nConsoleHelper\n, and call one of its methods:\n\n\nuse Zend\\Stdlib\\ConsoleHelper;\n\n$helper = new ConsoleHelper();\n$helper-\nwriteLine('This is output');\n\n\n\n\nYou can optionally pass a PHP stream resource to the constructor, which will be\nused to determine whether or not color support is available:\n\n\n$helper = new ConsoleHelper($stream);\n\n\n\n\nBy default, it assumes \nSTDOUT\n, and tests against that.\n\n\nAvailable methods\n\n\nConsoleHelper\n provides the following methods.\n\n\ncolorize\n\n\n\n\ncolorize(string $string) : string\n\n\n\n\ncolorize()\n accepts a formatted string, and will then apply ANSI color\nsequences to them, if color support is detected.\n\n\nThe following sequences are currently supported:\n\n\n\n\ninfo\n...\n/info\n will apply a green color sequence around the provided text.\n\n\nerror\n...\n/error\n will apply a red color sequence around the provided text.\n\n\n\n\nYou may mix multiple sequences within the same stream.\n\n\nwrite\n\n\n\n\nwrite(string $string, bool $colorize = true, resource $stream = STDOUT) : void\n\n\n\n\nEmits the provided \n$string\n to the provided \n$stream\n (which defaults to\n\nSTDOUT\n if not provided). Any EOL sequences are convered to \nPHP_EOL\n. If\n\n$colorize\n is \ntrue\n, the string is first passed to \ncolorize()\n as well.\n\n\nwriteline\n\n\n\n\nwriteLine(string $string, bool $colorize = true, resource $stream = STDOUT) : void\n\n\n\n\nSame as \nwrite()\n, except it also appends a \nPHP_EOL\n sequence to the \n$string\n.\n\n\nwriteErrorMessage\n\n\n\n\nwriteErrorMessage(string $message)\n\n\n\n\nWraps \n$message\n in an \nerror\n/error\n sequence, and passes it to\n\nwriteLine()\n, using \nSTDERR\n as the \n$stream\n.\n\n\nExample\n\n\nBelow is an example class that accepts an argument list, and determines how and\nwhat to emit.\n\n\nnamespace Foo;\n\nuse Zend\\Stdlib\\ConsoleHelper;\n\nclass HelloWorld\n{\n    private $helper;\n\n    public function __construct(ConsoleHelper $helper = null)\n    {\n        $this-\nhelper = $helper ?: new ConsoleHelper();\n    }\n\n    public function __invoke(array $args)\n    {\n        if (! count($args)) {\n            $this-\nhelper-\nwriteErrorMessage('Missing arguments!');\n            return;\n        }\n\n        if (count($args) \n 1) {\n            $this-\nhelper-\nwriteErrorMessage('Too many arguments!');\n            return;\n        }\n\n        $target = array_shift($args);\n\n        $this-\nhelper-\nwriteLine(sprintf(\n            '\ninfo\nHello\n/info\n %s',\n            $target\n        ));\n    }\n}\n\n\n\n\nWhen to upgrade\n\n\nConsoleHelper\n is deliberately simple, and assumes that your primary need for\nconsole tooling is for output considerations.\n\n\nIf you need to parse complex argument strings, we recommend using\n\nzend-console\n/\nzf-console\n\nor \nsymfony/console\n,\nas these packages provide those capabilities, as well as far more colorization\nand console feature detection facilities.", 
+            "title": "Console Helper"
+        }, 
+        {
+            "location": "/console-helper/#console-helper", 
+            "text": "Writing one-off scripts or vendor binaries for a package is often problematic:   You need to parse arguments manually.  You need to send output to the console in a meaningful fashion:  Using  STDOUT  for meaningful, expected output  Using  STDERR  for error messages  Ensuring any line breaks are converted to  PHP_EOL  Optionally, using console colors to provide context, which means:  Detecting whether or not the console supports colors in the first place  Providing appropriate escape sequences to produce color       Zend\\Stdlib\\ConsoleHelper  helps to address the second major bullet point and\nall beneath it in a minimal fashion.", 
+            "title": "Console Helper"
+        }, 
+        {
+            "location": "/console-helper/#usage", 
+            "text": "Typical usage is to instantiate a  ConsoleHelper , and call one of its methods:  use Zend\\Stdlib\\ConsoleHelper;\n\n$helper = new ConsoleHelper();\n$helper- writeLine('This is output');  You can optionally pass a PHP stream resource to the constructor, which will be\nused to determine whether or not color support is available:  $helper = new ConsoleHelper($stream);  By default, it assumes  STDOUT , and tests against that.", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/console-helper/#available-methods", 
+            "text": "ConsoleHelper  provides the following methods.", 
+            "title": "Available methods"
+        }, 
+        {
+            "location": "/console-helper/#colorize", 
+            "text": "colorize(string $string) : string   colorize()  accepts a formatted string, and will then apply ANSI color\nsequences to them, if color support is detected.  The following sequences are currently supported:   info ... /info  will apply a green color sequence around the provided text.  error ... /error  will apply a red color sequence around the provided text.   You may mix multiple sequences within the same stream.", 
+            "title": "colorize"
+        }, 
+        {
+            "location": "/console-helper/#write", 
+            "text": "write(string $string, bool $colorize = true, resource $stream = STDOUT) : void   Emits the provided  $string  to the provided  $stream  (which defaults to STDOUT  if not provided). Any EOL sequences are convered to  PHP_EOL . If $colorize  is  true , the string is first passed to  colorize()  as well.", 
+            "title": "write"
+        }, 
+        {
+            "location": "/console-helper/#writeline", 
+            "text": "writeLine(string $string, bool $colorize = true, resource $stream = STDOUT) : void   Same as  write() , except it also appends a  PHP_EOL  sequence to the  $string .", 
+            "title": "writeline"
+        }, 
+        {
+            "location": "/console-helper/#writeerrormessage", 
+            "text": "writeErrorMessage(string $message)   Wraps  $message  in an  error /error  sequence, and passes it to writeLine() , using  STDERR  as the  $stream .", 
+            "title": "writeErrorMessage"
+        }, 
+        {
+            "location": "/console-helper/#example", 
+            "text": "Below is an example class that accepts an argument list, and determines how and\nwhat to emit.  namespace Foo;\n\nuse Zend\\Stdlib\\ConsoleHelper;\n\nclass HelloWorld\n{\n    private $helper;\n\n    public function __construct(ConsoleHelper $helper = null)\n    {\n        $this- helper = $helper ?: new ConsoleHelper();\n    }\n\n    public function __invoke(array $args)\n    {\n        if (! count($args)) {\n            $this- helper- writeErrorMessage('Missing arguments!');\n            return;\n        }\n\n        if (count($args)   1) {\n            $this- helper- writeErrorMessage('Too many arguments!');\n            return;\n        }\n\n        $target = array_shift($args);\n\n        $this- helper- writeLine(sprintf(\n            ' info Hello /info  %s',\n            $target\n        ));\n    }\n}", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/console-helper/#when-to-upgrade", 
+            "text": "ConsoleHelper  is deliberately simple, and assumes that your primary need for\nconsole tooling is for output considerations.  If you need to parse complex argument strings, we recommend using zend-console / zf-console \nor  symfony/console ,\nas these packages provide those capabilities, as well as far more colorization\nand console feature detection facilities.", 
+            "title": "When to upgrade"
         }, 
         {
             "location": "/migration/", 
