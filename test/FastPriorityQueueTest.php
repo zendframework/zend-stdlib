@@ -107,7 +107,11 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $s = serialize($this->queue);
         $unserialized = unserialize($s);
         $count = count($this->queue);
-        $this->assertSame($count, count($unserialized), 'Expected count ' . $count . '; received ' . count($unserialized));
+        $this->assertSame(
+            $count,
+            count($unserialized),
+            'Expected count ' . $count . '; received ' . count($unserialized)
+        );
 
         $expected = [];
         foreach ($this->queue as $item) {
@@ -117,7 +121,11 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         foreach ($unserialized as $item) {
             $test[] = $item;
         }
-        $this->assertSame($expected, $test, 'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1));
+        $this->assertSame(
+            $expected,
+            $test,
+            'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1)
+        );
     }
 
     public function testCanRetrieveQueueAsArray()

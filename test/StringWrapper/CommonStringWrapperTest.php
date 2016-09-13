@@ -37,7 +37,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testStrlen($encoding, $str, $expected)
     {
         $wrapper = $this->getWrapper($encoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} not supported");
         }
 
@@ -65,7 +65,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testSubstr($encoding, $str, $offset, $length, $expected)
     {
         $wrapper = $this->getWrapper($encoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} not supported");
         }
 
@@ -93,7 +93,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testStrpos($encoding, $haystack, $needle, $offset, $expected)
     {
         $wrapper = $this->getWrapper($encoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} not supported");
         }
 
@@ -122,7 +122,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testConvert($encoding, $convertEncoding, $str, $expected)
     {
         $wrapper = $this->getWrapper($encoding, $convertEncoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} or {$convertEncoding} not supported");
         }
 
@@ -222,7 +222,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testWordWrap($encoding, $string, $width, $break, $cut, $expected)
     {
         $wrapper = $this->getWrapper($encoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} not supported");
         }
 
@@ -233,7 +233,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testWordWrapInvalidArgument()
     {
         $wrapper = $this->getWrapper();
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->fail("Can't instantiate wrapper");
         }
 
@@ -287,7 +287,7 @@ abstract class CommonStringWrapperTest extends TestCase
     public function testStrPad($encoding, $input, $padLength, $padString, $padType, $expected)
     {
         $wrapper = $this->getWrapper($encoding);
-        if (!$wrapper) {
+        if (! $wrapper) {
             $this->markTestSkipped("Encoding {$encoding} not supported");
         }
 

@@ -20,7 +20,7 @@ class NativeTest extends CommonStringWrapperTest
             $encoding = array_shift($supportedEncodings);
         }
 
-        if (!Native::isSupported($encoding, $convertEncoding)) {
+        if (! Native::isSupported($encoding, $convertEncoding)) {
             return false;
         }
 
