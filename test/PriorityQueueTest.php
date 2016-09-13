@@ -35,11 +35,19 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
         $s = serialize($this->queue);
         $unserialized = unserialize($s);
         $count = count($this->queue);
-        $this->assertSame($count, count($unserialized), 'Expected count ' . $count . '; received ' . count($unserialized));
+        $this->assertSame(
+            $count,
+            count($unserialized),
+            'Expected count ' . $count . '; received ' . count($unserialized)
+        );
 
         $expected = iterator_to_array($this->queue);
         $test = iterator_to_array($unserialized);
-        $this->assertSame($expected, $test, 'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1));
+        $this->assertSame(
+            $expected,
+            $test,
+            'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1)
+        );
     }
 
     public function testRetrievingQueueAsArrayReturnsDataOnlyByDefault()
@@ -122,7 +130,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
 
         $queueClone = clone $queue;
 
-        while (!$queue->isEmpty()) {
+        while (! $queue->isEmpty()) {
             $this->assertSame($foo, $queue->top());
             $queue->remove($queue->top());
         }
@@ -131,7 +139,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($queueClone->isEmpty());
         $this->assertEquals(2, $queueClone->count());
 
-        while (!$queueClone->isEmpty()) {
+        while (! $queueClone->isEmpty()) {
             $this->assertSame($foo, $queueClone->top());
             $queueClone->remove($queueClone->top());
         }
