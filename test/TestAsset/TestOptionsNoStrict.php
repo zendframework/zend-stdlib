@@ -16,7 +16,9 @@ use Zend\Stdlib\AbstractOptions;
  */
 class TestOptionsNoStrict extends AbstractOptions
 {
+    // @codingStandardsIgnoreStart
     protected $__strictMode__ = false;
+    // @codingStandardsIgnoreEnd
 
     protected $testField;
 

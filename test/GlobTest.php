@@ -16,7 +16,7 @@ class GlobTest extends TestCase
 {
     public function testFallback()
     {
-        if (!defined('GLOB_BRACE')) {
+        if (! defined('GLOB_BRACE')) {
             $this->markTestSkipped('GLOB_BRACE not available');
         }
 

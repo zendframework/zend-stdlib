@@ -16,7 +16,7 @@ class MbStringTest extends CommonStringWrapperTest
 {
     public function setUp()
     {
-        if (!extension_loaded('mbstring')) {
+        if (! extension_loaded('mbstring')) {
             try {
                 new MbString('utf-8');
                 $this->fail('Missing expected Zend\Stdlib\Exception\ExtensionNotLoadedException');
@@ -35,7 +35,7 @@ class MbStringTest extends CommonStringWrapperTest
             $encoding = array_shift($supportedEncodings);
         }
 
-        if (!MbString::isSupported($encoding, $convertEncoding)) {
+        if (! MbString::isSupported($encoding, $convertEncoding)) {
             return false;
         }
 

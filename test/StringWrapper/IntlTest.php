@@ -16,7 +16,7 @@ class IntlTest extends CommonStringWrapperTest
 {
     public function setUp()
     {
-        if (!extension_loaded('intl')) {
+        if (! extension_loaded('intl')) {
             try {
                 new Intl('utf-8');
                 $this->fail('Missing expected Zend\Stdlib\Exception\ExtensionNotLoadedException');
@@ -35,7 +35,7 @@ class IntlTest extends CommonStringWrapperTest
             $encoding = array_shift($supportedEncodings);
         }
 
-        if (!Intl::isSupported($encoding, $convertEncoding)) {
+        if (! Intl::isSupported($encoding, $convertEncoding)) {
             return false;
         }
 

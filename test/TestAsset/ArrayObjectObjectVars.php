@@ -8,6 +8,7 @@
  */
 
 namespace ZendTest\Stdlib\TestAsset;
+
 class ArrayObjectObjectVars
 {
     public $public = 'prop:public';
