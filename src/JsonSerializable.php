@@ -10,7 +10,7 @@
 namespace Zend\Stdlib;
 
 /**
- * @deprecated Use native JsonSerializable
+ * @deprecated Since 3.1.0; use the native JsonSerializable interface
  */
 interface JsonSerializable extends \JsonSerializable
 {
