@@ -101,11 +101,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('foobar', new \stdClass());
         $this->list->insert('barbaz', new \stdClass());
 
-        $orders = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['barbaz', 'foobar', 'baz', 'bar', 'foo'], $orders);
     }
@@ -116,11 +112,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('bar', new \stdClass(), 0);
         $this->list->insert('baz', new \stdClass(), 2);
 
-        $order = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['baz', 'foo', 'bar'], $orders);
     }
@@ -131,11 +123,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('bar', new \stdClass(), 0);
         $this->list->insert('baz', new \stdClass(), 1);
 
-        $orders = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['baz', 'bar', 'foo'], $orders);
     }
@@ -147,11 +135,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('bar', new \stdClass(), 0);
         $this->list->insert('baz', new \stdClass(), 1);
 
-        $orders = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['baz', 'foo', 'bar'], $orders);
     }
@@ -165,11 +149,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('foobar', new \stdClass());
         $this->list->insert('barbaz', new \stdClass());
 
-        $orders = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['foo', 'bar', 'baz', 'foobar', 'barbaz'], $orders);
     }
@@ -180,11 +160,7 @@ class PriorityListTest extends TestCase
         $this->list->insert('bar', new \stdClass(), 1);
         $this->list->insert('baz', new \stdClass(), -1);
 
-        $orders = [];
-
-        foreach ($this->list as $key => $value) {
-            $orders[] = $key;
-        }
+        $orders = array_keys(iterator_to_array($this->list));
 
         $this->assertEquals(['bar', 'foo', 'baz'], $orders);
     }

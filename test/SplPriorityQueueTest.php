@@ -16,6 +16,11 @@ use Zend\Stdlib\SplPriorityQueue;
  */
 class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var SplPriorityQueue
+     */
+    protected $queue;
+
     public function setUp()
     {
         $this->queue = new SplPriorityQueue();
@@ -34,10 +39,7 @@ class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue->insert('bat', 1000);
 
         $expected = ['foo', 'bar', 'baz', 'bat'];
-        $test     = [];
-        foreach ($queue as $datum) {
-            $test[] = $datum;
-        }
+        $test = array_values(iterator_to_array($queue));
         $this->assertEquals($expected, $test);
     }
 
@@ -48,14 +50,8 @@ class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $count = count($this->queue);
         $this->assertSame($count, count($unserialized), 'Expected count ' . $count . '; received ' . count($unserialized));
 
-        $expected = [];
-        foreach ($this->queue as $item) {
-            $expected[] = $item;
-        }
-        $test = [];
-        foreach ($unserialized as $item) {
-            $test[] = $item;
-        }
+        $expected = iterator_to_array($this->queue);
+        $test = iterator_to_array($unserialized);
         $this->assertSame($expected, $test, 'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1));
     }
 

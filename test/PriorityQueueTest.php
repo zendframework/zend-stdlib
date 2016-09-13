@@ -37,14 +37,8 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
         $count = count($this->queue);
         $this->assertSame($count, count($unserialized), 'Expected count ' . $count . '; received ' . count($unserialized));
 
-        $expected = [];
-        foreach ($this->queue as $item) {
-            $expected[] = $item;
-        }
-        $test = [];
-        foreach ($unserialized as $item) {
-            $test[] = $item;
-        }
+        $expected = iterator_to_array($this->queue);
+        $test = iterator_to_array($unserialized);
         $this->assertSame($expected, $test, 'Expected: ' . var_export($expected, 1) . "\nReceived:" . var_export($test, 1));
     }
 
@@ -101,10 +95,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
     {
         $this->queue->remove('baz');
         $expected = ['bar', 'foo', 'bat'];
-        $test = [];
-        foreach ($this->queue as $item) {
-            $test[] = $item;
-        }
+        $test = array_values(iterator_to_array($this->queue));
         $this->assertEquals($expected, $test);
     }
 
