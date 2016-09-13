@@ -10,7 +10,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Deprecated
 
-- Nothing.
+- [#38](https://github.com/zendframework/zend-stdlib/pull/38) deprecates
+  `Zend\Stdlib\JsonSerializable`, as all supported version of PHP now support
+  it.
 
 ### Removed
 
