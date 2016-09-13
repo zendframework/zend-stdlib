@@ -6,7 +6,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#63](https://github.com/zendframework/zend-stdlib/pull/63) adds a new
+  `Zend\Stdlib\ConsoleHelper` class, providing minimal support for writing
+  output to `STDOUT` and `STDERR`, with optional colorization, when the console
+  supports that feature.
 
 ### Deprecated
 
