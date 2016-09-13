@@ -16,6 +16,11 @@ use Zend\Stdlib\SplStack;
  */
 class SplStackTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var SplStack
+     */
+    protected $stack;
+
     public function setUp()
     {
         $this->stack = new SplStack();
@@ -32,14 +37,8 @@ class SplStackTest extends \PHPUnit_Framework_TestCase
         $count = count($this->stack);
         $this->assertSame($count, count($unserialized));
 
-        $expected = [];
-        foreach ($this->stack as $item) {
-            $expected[] = $item;
-        }
-        $test = [];
-        foreach ($unserialized as $item) {
-            $test[] = $item;
-        }
+        $expected = iterator_to_array($this->stack);
+        $test = iterator_to_array($unserialized);
         $this->assertSame($expected, $test);
     }
 

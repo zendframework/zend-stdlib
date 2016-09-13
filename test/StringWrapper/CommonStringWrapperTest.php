@@ -10,9 +10,13 @@
 namespace ZendTest\Stdlib\StringWrapper;
 
 use PHPUnit_Framework_TestCase as TestCase;
+use Zend\Stdlib\StringWrapper\StringWrapperInterface;
 
 abstract class CommonStringWrapperTest extends TestCase
 {
+    /**
+     * @return StringWrapperInterface
+     */
     abstract protected function getWrapper($encoding = null, $convertEncoding = null);
 
     public function strlenProvider()

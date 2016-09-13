@@ -9,6 +9,7 @@
 
 namespace ZendTest\Stdlib;
 
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\FastPriorityQueue;
 
 /**
@@ -16,6 +17,16 @@ use Zend\Stdlib\FastPriorityQueue;
  */
 class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var FastPriorityQueue
+     */
+    protected $queue;
+
+    /**
+     * @var string[]
+     */
+    protected $expected;
+
     public function setUp()
     {
         $this->queue = new FastPriorityQueue();
@@ -42,7 +53,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    protected function insertDataQueue($queue)
+    protected function insertDataQueue(FastPriorityQueue $queue)
     {
         foreach ($this->getDataPriorityQueue() as $value => $priority) {
             $queue->insert($value, $priority);
@@ -117,17 +128,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 
     public function testIteratorFunctions()
     {
-        $this->queue->rewind();
-
-        $i = 0;
-        while ($this->queue->valid()) {
-            $key   = $this->queue->key();
-            $value = $this->queue->current();
-            $this->assertEquals($this->expected[$i], $value);
-            $this->queue->next();
-            ++$i;
-        }
-        $this->assertFalse($this->queue->valid());
+        $this->assertEquals($this->expected, iterator_to_array($this->queue));
     }
 
     public function testRewindOperation()
@@ -154,11 +155,9 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->queue->extract());
     }
 
-    /**
-     * @expectedException Zend\Stdlib\Exception\InvalidArgumentException
-     */
     public function testSetInvalidExtractFlag()
     {
+        $this->setExpectedException(InvalidArgumentException::class, 'The extract flag specified is not valid');
         $this->queue->setExtractFlags('foo');
     }
 
@@ -232,11 +231,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue = new FastPriorityQueue();
         $this->assertTrue($queue->isEmpty());
 
-        set_error_handler(function ($errno, $errstr) {
-            $this->fail(sprintf('Error was raised by rewind() operation: %s', $errstr));
-        }, E_WARNING);
         $queue->rewind();
-        restore_error_handler();
     }
 
     public function testRemoveShouldFindItemEvenIfMultipleItemsAreInQueue()
