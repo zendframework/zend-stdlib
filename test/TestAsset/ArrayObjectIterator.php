@@ -8,10 +8,11 @@
  */
 
 namespace ZendTest\Stdlib\TestAsset;
+
 class ArrayObjectIterator implements \Iterator
 {
 
-    private $var = array();
+    private $var = [];
 
     public function __construct($array)
     {
@@ -43,7 +44,7 @@ class ArrayObjectIterator implements \Iterator
     public function valid()
     {
         $key = key($this->var);
-        $var = ($key !== NULL && $key !== FALSE);
+        $var = ($key !== null && $key !== false);
 
         return $var;
     }

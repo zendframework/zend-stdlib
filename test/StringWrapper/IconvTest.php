@@ -16,7 +16,7 @@ class IconvTest extends CommonStringWrapperTest
 {
     public function setUp()
     {
-        if (!extension_loaded('iconv')) {
+        if (! extension_loaded('iconv')) {
             try {
                 new Iconv('utf-8');
                 $this->fail('Missing expected Zend\Stdlib\Exception\ExtensionNotLoadedException');
@@ -35,7 +35,7 @@ class IconvTest extends CommonStringWrapperTest
             $encoding = array_shift($supportedEncodings);
         }
 
-        if (!Iconv::isSupported($encoding, $convertEncoding)) {
+        if (! Iconv::isSupported($encoding, $convertEncoding)) {
             return false;
         }
 
