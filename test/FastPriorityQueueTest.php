@@ -328,7 +328,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($queue->isEmpty());
     }
 
-    public testZeroPriority()
+    public function testZeroPriority()
     {
         $queue = new FastPriorityQueue();
         $queue->insert('a', 0);
