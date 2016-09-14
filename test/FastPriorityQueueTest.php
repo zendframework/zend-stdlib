@@ -293,7 +293,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue->insert('a1', 1);
         $queue->insert('a2', 1);
         $queue->insert('b', 2);
-        $equals->remove('a1');
+        $queue->remove('a1');
         $expected = ['b', 'a2'];
         $test = [];
         while ($value = $queue->extract()) {
@@ -306,7 +306,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         $queue->insert('a1', 1);
         $queue->insert('a2', 1);
         $queue->insert('a3', 1);
-        $equals->remove('a2');
+        $queue->remove('a2');
         $expected = ['a1', 'a3'];
         $test = [];
         while ($value = $queue->extract()) {
@@ -318,7 +318,7 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
         // Removing an element with high priority
         $queue->insert('a', 1);
         $queue->insert('b', 2);
-        $equals->remove('b');
+        $queue->remove('b');
         $expected = ['a'];
         $test = [];
         while ($value = $queue->extract()) {
