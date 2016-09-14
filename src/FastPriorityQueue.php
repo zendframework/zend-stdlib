@@ -150,7 +150,8 @@ class FastPriorityQueue implements Iterator, Countable, Serializable
                 $this->subIndex = $currentSubIndex;
 
                 // If the array is empty we need to destroy the unnecessary priority,
-                // otherwise we would end up with an incorrect value of `$this->count` {@see \Zend\Stdlib\FastPriorityQueue::nextAndRemove()}.
+                // otherwise we would end up with an incorrect value of `$this->count`
+                // {@see \Zend\Stdlib\FastPriorityQueue::nextAndRemove()}.
                 if (empty($this->values[$this->maxPriority])) {
                     unset($this->values[$this->maxPriority]);
                     unset($this->priorities[$this->maxPriority]);
