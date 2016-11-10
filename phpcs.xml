@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="Zend Framework coding standard">
-    <description>Zend Framework coding standard</description>
-
     <rule ref="./vendor/zendframework/zend-coding-standard/ruleset.xml"/>
 
     <!-- Paths to check -->
