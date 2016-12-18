@@ -199,7 +199,7 @@ abstract class ArrayUtils
                 }
             }
         }
-        return in_array($needle, $haystack, $strict);
+        return in_array($needle, $haystack, true);
     }
 
     /**

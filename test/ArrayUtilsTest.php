@@ -519,4 +519,15 @@ class ArrayUtilsTest extends TestCase
     {
         ArrayUtils::filter([], "INVALID");
     }
+
+    /**
+     * @see https://github.com/zendframework/zend-stdlib/issues/41
+     */
+    public function testInArrayFunctionCallShouldAlwaysBeStrictToPreventStringMatchingIssues()
+    {
+        $needle = '1.10';
+        $haystack = ['1.1'];
+
+        $this->assertFalse(ArrayUtils::inArray($needle, $haystack));
+    }
 }
