@@ -9,6 +9,8 @@
 
 namespace Zend\Stdlib;
 
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
 use Traversable;
 use Zend\Stdlib\ArrayUtils\MergeRemoveKey;
 use Zend\Stdlib\ArrayUtils\MergeReplaceKeyInterface;
@@ -331,5 +333,18 @@ abstract class ArrayUtils
         }
 
         return $output;
+    }
+
+    /**
+     * Flatten an array.
+     *
+     * Keys will be removed. Values will be kept in a single dimension array.
+     *
+     * @param array $data
+     * @return array
+     */
+    public static function flatten(array $data)
+    {
+        return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($data), RecursiveIteratorIterator::LEAVES_ONLY), false);
     }
 }
