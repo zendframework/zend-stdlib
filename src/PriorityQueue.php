@@ -83,14 +83,14 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
      * the same item has been added multiple times, it will not remove other
      * instances.
      *
-     * @param  mixed $datum
+     * @param  mixed $value
      * @return bool False if the item was not found, true otherwise.
      */
-    public function remove($datum)
+    public function remove($value)
     {
         $found = false;
         foreach ($this->items as $key => $item) {
-            if ($item['data'] === $datum) {
+            if ($item['data'] === $value) {
                 $found = true;
                 break;
             }
@@ -236,15 +236,15 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
     }
 
     /**
-     * Does the queue contain the given datum?
+     * Does the queue contain the given value?
      *
-     * @param  mixed $datum
+     * @param  mixed $value
      * @return bool
      */
-    public function contains($datum)
+    public function contains($value)
     {
         foreach ($this->items as $item) {
-            if ($item['data'] === $datum) {
+            if ($item['data'] === $value) {
                 return true;
             }
         }
