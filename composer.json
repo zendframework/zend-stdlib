@@ -13,7 +13,8 @@
         }
     },
     "require": {
-        "php": "^5.6 || ^7.0"
+        "php": "^5.6 || ^7.0",
+        "scriptfusion/static-class": "^1"
     },
     "require-dev": {
         "athletic/athletic": "~0.1",

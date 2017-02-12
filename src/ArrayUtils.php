@@ -9,17 +9,18 @@
 
 namespace Zend\Stdlib;
 
+use ScriptFUSION\StaticClass;
 use Traversable;
 use Zend\Stdlib\ArrayUtils\MergeRemoveKey;
 use Zend\Stdlib\ArrayUtils\MergeReplaceKeyInterface;
 
 /**
  * Utility class for testing and manipulation of PHP arrays.
- *
- * Declared abstract, as we have no need for instantiation.
  */
-abstract class ArrayUtils
+final class ArrayUtils
 {
+    use StaticClass;
+
     /**
      * Compatibility Flag for ArrayUtils::filter
      */
