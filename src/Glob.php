@@ -9,11 +9,15 @@
 
 namespace Zend\Stdlib;
 
+use ScriptFUSION\StaticClass;
+
 /**
  * Wrapper for glob with fallback if GLOB_BRACE is not available.
  */
-abstract class Glob
+final class Glob
 {
+    use StaticClass;
+
     /**#@+
      * Glob constants.
      */
@@ -53,7 +57,7 @@ abstract class Glob
      * @return array
      * @throws Exception\RuntimeException
      */
-    protected static function systemGlob($pattern, $flags)
+    private static function systemGlob($pattern, $flags)
     {
         if ($flags) {
             $flagMap = [
@@ -94,7 +98,7 @@ abstract class Glob
      * @return array
      * @throws Exception\RuntimeException
      */
-    protected static function fallbackGlob($pattern, $flags)
+    private static function fallbackGlob($pattern, $flags)
     {
         if (! $flags & self::GLOB_BRACE) {
             return static::systemGlob($pattern, $flags);
@@ -175,7 +179,7 @@ abstract class Glob
      * @param  int $flags
      * @return int|null
      */
-    protected static function nextBraceSub($pattern, $begin, $flags)
+    private static function nextBraceSub($pattern, $begin, $flags)
     {
         $length  = strlen($pattern);
         $depth   = 0;

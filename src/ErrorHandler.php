@@ -10,13 +10,16 @@
 namespace Zend\Stdlib;
 
 use ErrorException;
+use ScriptFUSION\StaticClass;
 
 /**
  * ErrorHandler that can be used to catch internal PHP errors
  * and convert to an ErrorException instance.
  */
-abstract class ErrorHandler
+final class ErrorHandler
 {
+    use StaticClass;
+
     /**
      * Active stack
      *
