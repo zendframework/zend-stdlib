@@ -10,6 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use PHPUnit\Framework\TestCase;
+use Zend\Stdlib\Exception\RuntimeException;
 use Zend\Stdlib\Glob;
 
 class GlobTest extends TestCase
@@ -34,7 +35,7 @@ class GlobTest extends TestCase
 
     public function testThrowExceptionOnError()
     {
-        $this->setExpectedException('Zend\Stdlib\Exception\RuntimeException');
+        $this->expectException(RuntimeException::class);
 
         // run into a max path lengh error
         $path = '/' . str_repeat('a', 10000);

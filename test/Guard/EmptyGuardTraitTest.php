@@ -10,6 +10,7 @@
 namespace ZendTest\Stdlib\Guard;
 
 use PHPUnit\Framework\TestCase;
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use ZendTest\Stdlib\TestAsset\GuardedObject;
 
 /**
@@ -28,10 +29,8 @@ class EmptyGuardTraitTest extends TestCase
     public function testGuardAgainstEmptyThrowsException()
     {
         $object = new GuardedObject;
-        $this->setExpectedException(
-            'Zend\Stdlib\Exception\InvalidArgumentException',
-            'Argument cannot be empty'
-        );
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Argument cannot be empty');
         $object->setNotEmpty('');
     }
 

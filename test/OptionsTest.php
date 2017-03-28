@@ -10,6 +10,8 @@
 namespace ZendTest\Stdlib;
 
 use ArrayObject;
+use BadMethodCallException;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Exception;
 use ZendTest\Stdlib\TestAsset\TestOptions;
@@ -43,7 +45,7 @@ class OptionsTest extends TestCase
 
     public function testInvalidFieldThrowsException()
     {
-        $this->setExpectedException('BadMethodCallException');
+        $this->expectException(BadMethodCallException::class);
 
         new TestOptions(['foo' => 'bar']);
     }
@@ -74,7 +76,7 @@ class OptionsTest extends TestCase
     {
         $options = new TestOptions;
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
 
         unset($options->foobarField);
     }
@@ -83,7 +85,7 @@ class OptionsTest extends TestCase
     {
         $options = new TestOptions();
 
-        $this->setExpectedException('BadMethodCallException');
+        $this->expectException(BadMethodCallException::class);
 
         $options->fieldFoobar;
     }
@@ -99,7 +101,7 @@ class OptionsTest extends TestCase
 
     public function testSetFromArrayThrowsInvalidArgumentException()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $options = new TestOptions;
         $options->setFromArray('asd');
     }
@@ -120,8 +122,8 @@ class OptionsTest extends TestCase
 
     public function testParentPrivateProperty()
     {
-        $this->setExpectedException(
-            'Zend\Stdlib\Exception\BadMethodCallException',
+        $this->expectException(Exception\BadMethodCallException::class);
+        $this->expectExceptionMessage(
             'The option "parent_private" does not have a callable "setParentPrivate" ("setparentprivate")'
             . ' setter method which must be defined'
         );
@@ -145,8 +147,8 @@ class OptionsTest extends TestCase
 
     public function testDerivedPrivateProperty()
     {
-        $this->setExpectedException(
-            'Zend\Stdlib\Exception\BadMethodCallException',
+        $this->expectException(Exception\BadMethodCallException::class);
+        $this->expectExceptionMessage(
             'The option "derived_private" does not have a callable "setDerivedPrivate" ("setderivedprivate")'
             .' setter method which must be defined'
         );
@@ -156,8 +158,8 @@ class OptionsTest extends TestCase
 
     public function testExceptionMessageContainsActualUsedSetter()
     {
-        $this->setExpectedException(
-            'BadMethodCallException',
+        $this->expectException(BadMethodCallException::class);
+        $this->expectExceptionMessage(
             'The option "foo bar" does not have a callable "setFooBar" ("setfoo bar")'
             . ' setter method which must be defined'
         );

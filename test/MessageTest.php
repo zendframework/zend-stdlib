@@ -10,6 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use PHPUnit\Framework\TestCase;
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\Message;
 
 class MessageTest extends TestCase
@@ -49,7 +50,7 @@ class MessageTest extends TestCase
     {
         $message = new Message();
 
-        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $message->setMetadata(new \stdClass());
     }
 
@@ -57,7 +58,7 @@ class MessageTest extends TestCase
     {
         $message = new Message();
 
-        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $message->getMetadata(new \stdClass());
     }
 

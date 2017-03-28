@@ -9,6 +9,7 @@
 
 namespace ZendTest\Stdlib;
 
+use ErrorException;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ErrorHandler;
 
@@ -75,7 +76,7 @@ class ErrorHandlerTest extends TestCase
         ErrorHandler::start();
         strpos(); // Invalid argument list
 
-        $this->setExpectedException('ErrorException');
+        $this->expectException(ErrorException::class);
         ErrorHandler::stop(true);
     }
 

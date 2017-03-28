@@ -166,7 +166,8 @@ class FastPriorityQueueTest extends TestCase
 
     public function testSetInvalidExtractFlag()
     {
-        $this->setExpectedException(InvalidArgumentException::class, 'The extract flag specified is not valid');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The extract flag specified is not valid');
         $this->queue->setExtractFlags('foo');
     }
 

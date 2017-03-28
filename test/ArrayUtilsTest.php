@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Stdlib\ArrayUtils\MergeRemoveKey;
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\Parameters;
 
 class ArrayUtilsTest extends TestCase
@@ -456,7 +457,7 @@ class ArrayUtilsTest extends TestCase
      */
     public function testInvalidIteratorsRaiseInvalidArgumentException($test)
     {
-        $this->setExpectedException('Zend\Stdlib\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->assertFalse(ArrayUtils::iteratorToArray($test));
     }
 
@@ -513,7 +514,7 @@ class ArrayUtilsTest extends TestCase
     }
 
     /**
-     * @expectedException \Zend\Stdlib\Exception\InvalidArgumentException
+     * @expectedException InvalidArgumentException
      */
     public function testInvalidCallableRaiseInvalidArgumentException()
     {
