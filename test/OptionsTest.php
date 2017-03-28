@@ -187,11 +187,9 @@ class OptionsTest extends TestCase
     {
         $options   = new TestOptionsWithoutGetter();
 
-        try {
-            isset($options->foo);
-        } catch (Exception\BadMethodCallException $exception) {
-            $this->fail("Unexpected BadMethodCallException raised");
-        }
+        isset($options->foo);
+
+        $this->addToAssertionCount(1);
     }
 
     /**

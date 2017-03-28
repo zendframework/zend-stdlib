@@ -296,6 +296,8 @@ class ArrayObjectTest extends TestCase
         $ar = new ArrayObject();
         $ar['foo'] = ['bar' => ['baz' => 'boo']];
         unset($ar['foo']['bar']['baz']);
+
+        $this->assertArrayNotHasKey('baz', $ar['foo']['bar']);
     }
 
     public function testOffsetUnsetThrowsExceptionOnProtectedProperty()

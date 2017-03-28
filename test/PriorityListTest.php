@@ -68,6 +68,8 @@ class PriorityListTest extends TestCase
     public function testRemovingNonExistentRouteDoesNotYieldError()
     {
         $this->list->remove('foo');
+
+        $this->assertEmpty($this->list);
     }
 
     public function testClear()
