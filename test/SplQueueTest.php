@@ -9,12 +9,13 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\SplQueue;
 
 /**
  * @group      Zend_Stdlib
  */
-class SplQueueTest extends \PHPUnit_Framework_TestCase
+class SplQueueTest extends TestCase
 {
     /**
      * @var SplQueue

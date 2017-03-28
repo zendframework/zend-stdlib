@@ -9,9 +9,10 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Message;
 
-class MessageTest extends \PHPUnit_Framework_TestCase
+class MessageTest extends TestCase
 {
     public function testMessageCanSetAndGetContent()
     {

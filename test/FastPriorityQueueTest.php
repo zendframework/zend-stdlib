@@ -9,13 +9,14 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\FastPriorityQueue;
 
 /**
  * @group      Zend_Stdlib
  */
-class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
+class FastPriorityQueueTest extends TestCase
 {
     /**
      * @var FastPriorityQueue

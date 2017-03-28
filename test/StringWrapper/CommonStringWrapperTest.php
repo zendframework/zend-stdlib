@@ -9,7 +9,7 @@
 
 namespace ZendTest\Stdlib\StringWrapper;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\StringWrapper\StringWrapperInterface;
 
 abstract class CommonStringWrapperTest extends TestCase

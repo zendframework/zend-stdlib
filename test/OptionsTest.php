@@ -10,13 +10,14 @@
 namespace ZendTest\Stdlib;
 
 use ArrayObject;
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Exception;
 use ZendTest\Stdlib\TestAsset\TestOptions;
 use ZendTest\Stdlib\TestAsset\TestOptionsDerived;
 use ZendTest\Stdlib\TestAsset\TestOptionsNoStrict;
 use ZendTest\Stdlib\TestAsset\TestOptionsWithoutGetter;
 
-class OptionsTest extends \PHPUnit_Framework_TestCase
+class OptionsTest extends TestCase
 {
     public function testConstructionWithArray()
     {
