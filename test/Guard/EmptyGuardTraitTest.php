@@ -14,18 +14,10 @@ use Zend\Stdlib\Exception\InvalidArgumentException;
 use ZendTest\Stdlib\TestAsset\GuardedObject;
 
 /**
- * @requires PHP 5.4
  * @covers   Zend\Stdlib\Guard\EmptyGuardTrait
  */
 class EmptyGuardTraitTest extends TestCase
 {
-    public function setUp()
-    {
-        if (version_compare(PHP_VERSION, '5.4.0', '<')) {
-            $this->markTestSkipped('Only valid for php >= 5.4');
-        }
-    }
-
     public function testGuardAgainstEmptyThrowsException()
     {
         $object = new GuardedObject;
