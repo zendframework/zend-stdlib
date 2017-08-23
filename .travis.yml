@@ -10,8 +10,7 @@ env:
   global:
     - COMPOSER_ARGS="--no-interaction"
     - COVERAGE_DEPS="satooshi/php-coveralls"
-    - LEGACY_DEPS_PHP_56="phpunit/phpunit"
-    - LEGACY_DEPS_PHP_70="doctrine/instantiator"
+    - LEGACY_DEPS="phpunit/phpunit"
 
 matrix:
   fast_finish: true
@@ -63,8 +62,7 @@ before_install:
 
 install:
   - travis_retry composer install $COMPOSER_ARGS --ignore-platform-reqs
-  - if [[ $TRAVIS_PHP_VERSION =~ ^5.6 ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS_PHP_56 ; fi
-  - if [[ "$TRAVIS_PHP_VERSION" = "7.0" ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS_PHP_70 ; fi
+  - if [[ $TRAVIS_PHP_VERSION =~ ^5.6 ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS ; fi
   - if [[ $DEPS == 'latest' ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
   - if [[ $DEPS == 'lowest' ]]; then travis_retry composer update --prefer-lowest --prefer-stable $COMPOSER_ARGS ; fi
   - if [[ $TEST_COVERAGE == 'true' ]]; then travis_retry composer require --dev $COMPOSER_ARGS $COVERAGE_DEPS ; fi
