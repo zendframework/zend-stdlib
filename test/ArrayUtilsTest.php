@@ -513,11 +513,9 @@ class ArrayUtilsTest extends TestCase
         $this->assertEquals($result, ArrayUtils::filter($data, $callback, $flag));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testInvalidCallableRaiseInvalidArgumentException()
     {
+        $this->expectException(InvalidArgumentException::class);
         ArrayUtils::filter([], "INVALID");
     }
 }
