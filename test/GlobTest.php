@@ -37,7 +37,7 @@ class GlobTest extends TestCase
     {
         $this->expectException(RuntimeException::class);
 
-        // run into a max path lengh error
+        // run into a max path length error
         $path = '/' . str_repeat('a', 10000);
         Glob::glob($path);
     }
