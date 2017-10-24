@@ -105,10 +105,8 @@ class ArrayObjectTest extends TestCase
     public function testCount()
     {
         if (version_compare(PHP_VERSION, '7.2', '>=')) {
-            $this->setExpectedException(
-                'PHPUnit_Framework_Error_Warning',
-                'Parameter must be an array or an object that implements Countable'
-            );
+            $this->expectException(\PHPUnit_Framework_Error_Warning::class);
+            $this->expectExceptionMessage('Parameter must be an array or an object that implements Countable');
         }
         $ar = new ArrayObject(new TestAsset\ArrayObjectObjectVars());
         $this->assertCount(1, $ar);
