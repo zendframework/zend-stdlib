@@ -9,7 +9,8 @@
 
 namespace ZendTest\Stdlib;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ArrayObject;
 
 class ArrayObjectTest extends TestCase
@@ -51,7 +52,7 @@ class ArrayObjectTest extends TestCase
 
     public function testStdPropListCannotAccessObjectVars()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject();
         $ar->flag;
     }
@@ -168,7 +169,7 @@ class ArrayObjectTest extends TestCase
 
     public function testExchangeArrayStringArgumentFail()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar     = new ArrayObject(['foo' => 'bar']);
         $old    = $ar->exchangeArray('Bacon');
     }
@@ -214,7 +215,7 @@ class ArrayObjectTest extends TestCase
 
     public function testInvalidIteratorClassThrowsInvalidArgumentException()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject([], ArrayObject::STD_PROP_LIST, 'InvalidArrayIterator');
     }
 
@@ -259,7 +260,7 @@ class ArrayObjectTest extends TestCase
 
     public function testOffsetExistsThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject();
         isset($ar->protectedProperties);
     }
@@ -278,14 +279,14 @@ class ArrayObjectTest extends TestCase
 
     public function testOffsetGetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject();
         $ar->protectedProperties;
     }
 
     public function testOffsetSetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject();
         $ar->protectedProperties = null;
     }
@@ -307,11 +308,13 @@ class ArrayObjectTest extends TestCase
         $ar = new ArrayObject();
         $ar['foo'] = ['bar' => ['baz' => 'boo']];
         unset($ar['foo']['bar']['baz']);
+
+        $this->assertArrayNotHasKey('baz', $ar['foo']['bar']);
     }
 
     public function testOffsetUnsetThrowsExceptionOnProtectedProperty()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $ar = new ArrayObject();
         unset($ar->protectedProperties);
     }

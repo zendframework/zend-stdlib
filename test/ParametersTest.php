@@ -9,9 +9,10 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Parameters;
 
-class ParametersTest extends \PHPUnit_Framework_TestCase
+class ParametersTest extends TestCase
 {
     public function testParametersConstructionAndClassStructure()
     {

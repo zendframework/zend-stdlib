@@ -9,13 +9,14 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\Exception\InvalidArgumentException;
 use Zend\Stdlib\FastPriorityQueue;
 
 /**
  * @group      Zend_Stdlib
  */
-class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
+class FastPriorityQueueTest extends TestCase
 {
     /**
      * @var FastPriorityQueue
@@ -165,7 +166,8 @@ class FastPriorityQueueTest extends \PHPUnit_Framework_TestCase
 
     public function testSetInvalidExtractFlag()
     {
-        $this->setExpectedException(InvalidArgumentException::class, 'The extract flag specified is not valid');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The extract flag specified is not valid');
         $this->queue->setExtractFlags('foo');
     }
 

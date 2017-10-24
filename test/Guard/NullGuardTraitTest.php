@@ -9,29 +9,21 @@
 
 namespace ZendTest\Stdlib\Guard;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
+use Zend\Stdlib\Exception\InvalidArgumentException;
 use ZendTest\Stdlib\TestAsset\GuardedObject;
 
 /**
- * @requires PHP 5.4
  * @covers   Zend\Stdlib\Guard\NullGuardTrait
  */
 class NullGuardTraitTest extends TestCase
 {
-    public function setUp()
-    {
-        if (version_compare(PHP_VERSION, '5.4.0', '<')) {
-            $this->markTestSkipped('Only valid for php >= 5.4');
-        }
-    }
-
     public function testGuardAgainstNullThrowsException()
     {
         $object = new GuardedObject;
-        $this->setExpectedException(
-            'Zend\Stdlib\Exception\InvalidArgumentException',
-            'Argument cannot be null'
-        );
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Argument cannot be null');
+
         $object->setNotNull(null);
     }
 
