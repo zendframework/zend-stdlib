@@ -116,7 +116,7 @@ class ArrayObjectTest extends TestCase
 
     public function testCount()
     {
-        if (version_compare(PHP_VERSION, '7.2', '>=')) {
+        if (PHP_VERSION_ID >= 70200) {
             $this->expectException($this->getExpectedWarningClass());
             $this->expectExceptionMessage('Parameter must be an array or an object that implements Countable');
         }
