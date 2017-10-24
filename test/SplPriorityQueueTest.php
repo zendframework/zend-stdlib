@@ -9,12 +9,13 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\SplPriorityQueue;
 
 /**
  * @group      Zend_Stdlib
  */
-class SplPriorityQueueTest extends \PHPUnit_Framework_TestCase
+class SplPriorityQueueTest extends TestCase
 {
     /**
      * @var SplPriorityQueue

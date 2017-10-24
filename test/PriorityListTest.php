@@ -10,7 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use Zend\Stdlib\PriorityList;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 class PriorityListTest extends TestCase
 {
@@ -68,6 +68,8 @@ class PriorityListTest extends TestCase
     public function testRemovingNonExistentRouteDoesNotYieldError()
     {
         $this->list->remove('foo');
+
+        $this->assertEmpty($this->list);
     }
 
     public function testClear()

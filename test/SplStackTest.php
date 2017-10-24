@@ -9,12 +9,13 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\SplStack;
 
 /**
  * @group      Zend_Stdlib
  */
-class SplStackTest extends \PHPUnit_Framework_TestCase
+class SplStackTest extends TestCase
 {
     /**
      * @var SplStack
