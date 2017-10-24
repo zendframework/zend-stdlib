@@ -10,7 +10,6 @@ env:
   global:
     - COMPOSER_ARGS="--no-interaction"
     - COVERAGE_DEPS="satooshi/php-coveralls"
-    - LEGACY_DEPS="phpbench/phpbench phpunit/phpunit"
 
 matrix:
   include:
@@ -20,6 +19,7 @@ matrix:
     - php: 5.6
       env:
         - DEPS=locked
+        - LEGACY_DEPS="phpbench/phpbench phpunit/phpunit"
     - php: 5.6
       env:
         - DEPS=latest
@@ -29,6 +29,7 @@ matrix:
     - php: 7
       env:
         - DEPS=locked
+        - LEGACY_DEPS="phpbench/phpbench phpunit/phpunit"
     - php: 7
       env:
         - DEPS=latest
@@ -60,7 +61,7 @@ before_install:
 
 install:
   - travis_retry composer install $COMPOSER_ARGS --ignore-platform-reqs
-  - if [[ $DEPS == 'locked' && $TRAVIS_PHP_VERSION =~ ^5.6 ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS ; fi
+  - if [[ $LEGACY_DEPS != '' ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS ; fi
   - if [[ $DEPS == 'latest' ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
   - if [[ $DEPS == 'lowest' ]]; then travis_retry composer update --prefer-lowest --prefer-stable $COMPOSER_ARGS ; fi
   - if [[ $TEST_COVERAGE == 'true' ]]; then travis_retry composer require --dev $COMPOSER_ARGS $COVERAGE_DEPS ; fi
