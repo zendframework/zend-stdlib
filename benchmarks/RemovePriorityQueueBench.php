@@ -9,13 +9,20 @@
 
 namespace ZendBench\Stdlib;
 
-use Athletic\AthleticEvent;
+use PhpBench\Benchmark\Metadata\Annotations\Iterations;
+use PhpBench\Benchmark\Metadata\Annotations\Revs;
+use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Zend\Stdlib\FastPriorityQueue;
 use Zend\Stdlib\PriorityQueue;
 
-class RemovePriorityQueue extends AthleticEvent
+/**
+ * @Revs(1000)
+ * @Iterations(10)
+ * @Warmup(2)
+ */
+class RemovePriorityQueueBench
 {
-    public function classSetUp()
+    public function __construct()
     {
         $this->fastPriorityQueue = new FastPriorityQueue();
         $this->priorityQueue     = new PriorityQueue();
@@ -27,18 +34,12 @@ class RemovePriorityQueue extends AthleticEvent
         }
     }
 
-    /**
-     * @iterations 1000
-     */
-    public function removePriorityQueue()
+    public function benchRemovePriorityQueue()
     {
         $this->priorityQueue->remove('foo');
     }
 
-    /**
-     * @iterations 1000
-     */
-    public function removeFastPriorityQueue()
+    public function benchRemoveFastPriorityQueue()
     {
         $this->fastPriorityQueue->remove('foo');
     }
