@@ -11,7 +11,8 @@ namespace ZendTest\Stdlib\TestAsset;
 
 class ArrayObjectObjectCount implements \Countable
 {
-   public function count() {
-       return 42;
-   }
+    public function count()
+    {
+        return 42;
+    }
 }
