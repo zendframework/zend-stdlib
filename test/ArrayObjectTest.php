@@ -110,13 +110,13 @@ class ArrayObjectTest extends TestCase
             );
         }
         $ar = new ArrayObject(new TestAsset\ArrayObjectObjectVars());
-        $this->assertEquals(1, $ar->count());
+        $this->assertCount(1, $ar);
     }
 
     public function testCountable()
     {
         $ar = new ArrayObject(new TestAsset\ArrayObjectObjectCount());
-        $this->assertEquals(42, $ar->count());
+        $this->assertCount(42, $ar);
     }
 
     public function testExchangeArray()
