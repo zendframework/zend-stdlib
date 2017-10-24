@@ -10,7 +10,7 @@ env:
   global:
     - COMPOSER_ARGS="--no-interaction"
     - COVERAGE_DEPS="satooshi/php-coveralls"
-    - LEGACY_DEPS="phpunit/phpunit"
+    - LEGACY_DEPS="phpbench/phpbench phpunit/phpunit"
 
 matrix:
   include:
