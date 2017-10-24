@@ -9,14 +9,21 @@
 
 namespace ZendBench\Stdlib;
 
-use Athletic\AthleticEvent;
+use PhpBench\Benchmark\Metadata\Annotations\Iterations;
+use PhpBench\Benchmark\Metadata\Annotations\Revs;
+use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Zend\Stdlib\FastPriorityQueue;
 use Zend\Stdlib\PriorityQueue;
 use Zend\Stdlib\SplPriorityQueue;
 
-class ExtractPriorityQueue extends AthleticEvent
+/**
+ * @Revs(1000)
+ * @Iterations(10)
+ * @Warmup(2)
+ */
+class ExtractPriorityQueueBench
 {
-    public function classSetUp()
+    public function __construct()
     {
         $this->splPriorityQueue  = new SplPriorityQueue();
         $this->fastPriorityQueue = new FastPriorityQueue();
@@ -30,26 +37,17 @@ class ExtractPriorityQueue extends AthleticEvent
         }
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function extractSplPriorityQueue()
+    public function benchExtractSplPriorityQueue()
     {
         $this->splPriorityQueue->extract();
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function extractPriorityQueue()
+    public function benchExtractPriorityQueue()
     {
         $this->priorityQueue->extract();
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function extractFastPriorityQueue()
+    public function benchExtractFastPriorityQueue()
     {
         $this->fastPriorityQueue->extract();
     }

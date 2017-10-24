@@ -16,7 +16,7 @@
         "php": "^5.6 || ^7.0"
     },
     "require-dev": {
-        "athletic/athletic": "~0.1",
+        "phpbench/phpbench": "^0.13",
         "phpunit/PHPUnit": "^5.7.21 || ^6.3",
         "zendframework/zend-coding-standard": "~1.0.0"
     },

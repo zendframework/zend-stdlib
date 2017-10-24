@@ -15,3 +15,15 @@ class for different scopes like:
 
 - File issues at https://github.com/zendframework/zend-stdlib/issues
 - Documentation is at https://docs.zendframework.com/zend-stdlib/
+
+## Benchmarks
+
+We provide scripts for benchmarking zend-stdlib using the
+[PHPBench](https://github.com/phpbench/phpbench) framework; these can be
+found in the `benchmarks/` directory.
+
+To execute the benchmarks you can run the following command:
+
+```bash
+$ vendor/bin/phpbench run --report=aggregate
+```

@@ -9,40 +9,38 @@
 
 namespace ZendBench\Stdlib;
 
-use Athletic\AthleticEvent;
+use PhpBench\Benchmark\Metadata\Annotations\Iterations;
+use PhpBench\Benchmark\Metadata\Annotations\Revs;
+use PhpBench\Benchmark\Metadata\Annotations\Warmup;
 use Zend\Stdlib\FastPriorityQueue;
 use Zend\Stdlib\PriorityQueue;
 use Zend\Stdlib\SplPriorityQueue;
 
-class InsertPriorityQueue extends AthleticEvent
+/**
+ * @Revs(1000)
+ * @Iterations(10)
+ * @Warmup(2)
+ */
+class InsertPriorityQueueBench
 {
-    public function classSetUp()
+    public function __construct()
     {
         $this->splPriorityQueue  = new SplPriorityQueue();
         $this->fastPriorityQueue = new FastPriorityQueue();
         $this->priorityQueue     = new PriorityQueue();
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function insertSplPriorityQueue()
+    public function benchInsertSplPriorityQueue()
     {
         $this->splPriorityQueue->insert('foo', rand(1, 100));
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function insertPriorityQueue()
+    public function benchInsertPriorityQueue()
     {
         $this->priorityQueue->insert('foo', rand(1, 100));
     }
 
-    /**
-     * @iterations 5000
-     */
-    public function insertFastPriorityQueue()
+    public function benchInsertFastPriorityQueue()
     {
         $this->fastPriorityQueue->insert('foo', rand(1, 100));
     }
