@@ -29,7 +29,7 @@ matrix:
     - php: 7
       env:
         - DEPS=locked
-        - CHECK_CS=true
+        - CS_CHECK=true
         - TEST_COVERAGE=true
     - php: 7
       env:
