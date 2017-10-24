@@ -10,6 +10,7 @@
 namespace ZendTest\Stdlib;
 
 use InvalidArgumentException;
+use PHPUnit\Framework\Error\Warning;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ArrayObject;
 
@@ -102,13 +103,22 @@ class ArrayObjectTest extends TestCase
         $this->assertSame($sorted, $ar->getArrayCopy());
     }
 
+    /**
+     * PHPUnit 5.7 does not namespace error classes; retrieve appropriate one
+     * based on what is available.
+     *
+     * @return string
+     */
+    protected function getExpectedWarningClass()
+    {
+        return class_exists(Warning::class) ? Warning::class : \PHPUnit_Framework_Error_Warning::class;
+    }
+
     public function testCount()
     {
-        if (version_compare(PHP_VERSION, '7.2', '>=')) {
-            $this->setExpectedException(
-                'PHPUnit_Framework_Error_Warning',
-                'Parameter must be an array or an object that implements Countable'
-            );
+        if (PHP_VERSION_ID >= 70200) {
+            $this->expectException($this->getExpectedWarningClass());
+            $this->expectExceptionMessage('Parameter must be an array or an object that implements Countable');
         }
         $ar = new ArrayObject(new TestAsset\ArrayObjectObjectVars());
         $this->assertCount(1, $ar);
