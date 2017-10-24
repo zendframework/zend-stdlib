@@ -31,8 +31,9 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider strlenProvider
+     *
      * @param string $encoding
-     * @param string $string
+     * @param string $str
      * @param mixed  $expected
      */
     public function testStrlen($encoding, $str, $expected)
@@ -57,6 +58,7 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider substrProvider
+     *
      * @param string   $encoding
      * @param string   $str
      * @param int      $offset
@@ -85,6 +87,7 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider strposProvider
+     *
      * @param string $encoding
      * @param string $haystack
      * @param string $needle
@@ -115,6 +118,7 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider convertProvider
+     *
      * @param string $str
      * @param string $encoding
      * @param string $convertEncoding
@@ -183,12 +187,13 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider wordWrapProvider
-     * @param string  $encoding
-     * @param string  $str
-     * @param integer $width
-     * @param string  $break
-     * @param bool $cut
-     * @param mixed   $expected
+     *
+     * @param string $encoding
+     * @param string $string
+     * @param int    $width
+     * @param string $break
+     * @param bool   $cut
+     * @param mixed  $expected
      */
     public function testWordWrap($encoding, $string, $width, $break, $cut, $expected)
     {
@@ -245,12 +250,13 @@ abstract class CommonStringWrapperTest extends TestCase
 
     /**
      * @dataProvider strPadProvider
-     * @param  string  $encoding
-     * @param  string  $input
-     * @param  integer $padLength
-     * @param  string  $padString
-     * @param  integer $padType
-     * @param mixed   $expected
+     *
+     * @param string $encoding
+     * @param string $input
+     * @param int    $padLength
+     * @param string $padString
+     * @param int    $padType
+     * @param mixed  $expected
      *
      * @group ZF-12186
      */
