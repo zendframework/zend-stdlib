@@ -1,4 +1,4 @@
-/benchmarks export-ignore
+/benchmark export-ignore
 /docs export-ignore
 /test export-ignore
 /.coveralls.yml export-ignore
