@@ -12,6 +12,7 @@
         "docs": "https://docs.zendframework.com/zend-stdlib/",
         "issues": "https://github.com/zendframework/zend-stdlib/issues",
         "source": "https://github.com/zendframework/zend-stdlib",
+        "rss": "https://github.com/zendframework/zend-stdlib/releases.atom",
         "slack": "https://zendframework-slack.herokuapp.com",
         "forum": "https://discourse.zendframework.com/c/questions/components"
     },
