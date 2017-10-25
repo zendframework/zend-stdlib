@@ -20,7 +20,7 @@ class for different scopes like:
 
 We provide scripts for benchmarking zend-stdlib using the
 [PHPBench](https://github.com/phpbench/phpbench) framework; these can be
-found in the `benchmarks/` directory.
+found in the `benchmark/` directory.
 
 To execute the benchmarks you can run the following command:
 
