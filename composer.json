@@ -1,35 +1,46 @@
 {
     "name": "zendframework/zend-stdlib",
-    "description": " ",
+    "description": "SPL extensions, array utilities, error handlers, and more",
+    "type": "library",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "zf",
+        "zendframework",
         "stdlib"
     ],
-    "homepage": "https://github.com/zendframework/zend-stdlib",
-    "autoload": {
-        "psr-4": {
-            "Zend\\Stdlib\\": "src/"
-        }
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-stdlib/",
+        "issues": "https://github.com/zendframework/zend-stdlib/issues",
+        "source": "https://github.com/zendframework/zend-stdlib",
+        "slack": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
     },
     "require": {
         "php": "^5.6 || ^7.0"
     },
     "require-dev": {
         "phpbench/phpbench": "^0.13",
-        "phpunit/PHPUnit": "^5.7.21 || ^6.3",
+        "phpunit/phpunit": "^5.7.23 || ^6.4.3",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.1-dev",
-            "dev-develop": "3.2-dev"
+    "autoload": {
+        "psr-4": {
+            "Zend\\Stdlib\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "ZendTest\\Stdlib\\": "test/",
             "ZendBench\\Stdlib\\": "benchmark/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1-dev",
+            "dev-develop": "3.2-dev"
         }
     },
     "scripts": {
