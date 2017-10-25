@@ -1,7 +1,6 @@
 {
     "name": "zendframework/zend-stdlib",
     "description": "SPL extensions, array utilities, error handlers, and more",
-    "type": "library",
     "license": "BSD-3-Clause",
     "keywords": [
         "zf",
