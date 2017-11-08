@@ -7,5 +7,6 @@
 /.travis.yml export-ignore
 /composer.lock export-ignore
 /mkdocs.yml export-ignore
+/phpbench.json export-ignore
 /phpcs.xml export-ignore
 /phpunit.xml.dist export-ignore
