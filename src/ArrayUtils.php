@@ -12,6 +12,7 @@ namespace Zend\Stdlib;
 use Traversable;
 use Zend\Stdlib\ArrayUtils\MergeRemoveKey;
 use Zend\Stdlib\ArrayUtils\MergeReplaceKeyInterface;
+use Zend\Stdlib\Exception\InvalidArgumentException;
 
 /**
  * Utility class for testing and manipulation of PHP arrays.
@@ -210,13 +211,13 @@ abstract class ArrayUtils
      *
      * @param  array|Traversable  $iterator     The array or Traversable object to convert
      * @param  bool               $recursive    Recursively check all nested structures
-     * @throws Exception\InvalidArgumentException if $iterator is not an array or a Traversable object
+     * @throws InvalidArgumentException if $iterator is not an array or a Traversable object
      * @return array
      */
     public static function iteratorToArray($iterator, $recursive = true)
     {
         if (! is_array($iterator) && ! $iterator instanceof Traversable) {
-            throw new Exception\InvalidArgumentException(__METHOD__ . ' expects an array or Traversable object');
+            throw new InvalidArgumentException(__METHOD__ . ' expects an array or Traversable object');
         }
 
         if (! $recursive) {
@@ -261,13 +262,19 @@ abstract class ArrayUtils
      * from the second array will be appended to the first array. If both values are arrays, they
      * are merged together, else the value of the second array overwrites the one of the first array.
      *
-     * @param  array $a
-     * @param  array $b
-     * @param  bool  $preserveNumericKeys
+     * @param  iterable $a
+     * @param  iterable $b
+     * @param  bool     $preserveNumericKeys
+     * @throws InvalidArgumentException if $a (or $b) is not an array, nor a Traversable object
      * @return array
      */
-    public static function merge(array $a, array $b, $preserveNumericKeys = false)
+    public static function merge($a, $b, $preserveNumericKeys = false)
     {
+        if ((! is_array($a) && ! $a instanceof Traversable)
+            || (! is_array($b) && ! $b instanceof Traversable)) {
+            throw new InvalidArgumentException(__METHOD__ . ' expects $a to be an array or Traversable object');
+        }
+
         foreach ($b as $key => $value) {
             if ($value instanceof MergeReplaceKeyInterface) {
                 $a[$key] = $value->getData();
@@ -302,7 +309,7 @@ abstract class ArrayUtils
     public static function filter(array $data, $callback, $flag = null)
     {
         if (! is_callable($callback)) {
-            throw new Exception\InvalidArgumentException(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Second parameter of %s must be callable',
                 __METHOD__
             ));
