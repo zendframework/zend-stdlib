@@ -2,11 +2,17 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.1.1 - TBD
+## 3.1.1 - 2018-04-12
 
 ### Added
 
 - Nothing.
+
+### Changed
+
+- [#67](https://github.com/zendframework/zend-stdlib/pull/67) changes the typehint of the `$content` property
+  of the `Message` class to indicate it is a string. All known implementations
+  already assumed this.
 
 ### Deprecated
 
