@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "phpbench/phpbench": "^0.13",
-        "phpunit/phpunit": "^5.7.23 || ^6.4.3",
+        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
     "autoload": {
@@ -39,8 +39,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.1-dev",
-            "dev-develop": "3.2-dev"
+            "dev-master": "3.1.x-dev",
+            "dev-develop": "3.2.x-dev"
         }
     },
     "scripts": {
