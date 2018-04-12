@@ -1,7 +1,7 @@
 # zend-stdlib
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-stdlib.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-stdlib)
-[![Coverage Status](https://coveralls.io/repos/zendframework/zend-stdlib/badge.svg?branch=master)](https://coveralls.io/r/zendframework/zend-stdlib?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-stdlib/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-stdlib?branch=master)
 
 `Zend\Stdlib` is a set of components that implements general purpose utility
 class for different scopes like:
@@ -20,7 +20,7 @@ class for different scopes like:
 
 We provide scripts for benchmarking zend-stdlib using the
 [PHPBench](https://github.com/phpbench/phpbench) framework; these can be
-found in the `benchmarks/` directory.
+found in the `benchmark/` directory.
 
 To execute the benchmarks you can run the following command:
 
