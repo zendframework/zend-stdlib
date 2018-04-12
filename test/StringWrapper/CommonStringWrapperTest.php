@@ -223,28 +223,19 @@ abstract class CommonStringWrapperTest extends TestCase
     {
         return [
             // single-byte
-            'left-padding_single-byte' =>
-                ['ascii', 'aaa', 5, 'o', STR_PAD_LEFT, 'ooaaa'],
-            'center-padding_single-byte' =>
-                ['ascii', 'aaa', 6, 'o', STR_PAD_BOTH, 'oaaaoo'],
-            'right-padding_single-byte' =>
-                ['ascii', 'aaa', 5, 'o', STR_PAD_RIGHT, 'aaaoo'],
+            'left-padding_single-byte' => ['ascii', 'aaa', 5, 'o', STR_PAD_LEFT, 'ooaaa'],
+            'center-padding_single-byte' => ['ascii', 'aaa', 6, 'o', STR_PAD_BOTH, 'oaaaoo'],
+            'right-padding_single-byte' => ['ascii', 'aaa', 5, 'o', STR_PAD_RIGHT, 'aaaoo'],
 
             // multi-byte
-            'left-padding_multi-byte' =>
-                ['utf-8', 'äää', 5, 'ö', STR_PAD_LEFT, 'ööäää'],
-            'center-padding_multi-byte' =>
-                ['utf-8', 'äää', 6, 'ö', STR_PAD_BOTH, 'öäääöö'],
-            'right-padding_multi-byte' =>
-                ['utf-8', 'äää', 5, 'ö', STR_PAD_RIGHT, 'äääöö'],
+            'left-padding_multi-byte' => ['utf-8', 'äää', 5, 'ö', STR_PAD_LEFT, 'ööäää'],
+            'center-padding_multi-byte' => ['utf-8', 'äää', 6, 'ö', STR_PAD_BOTH, 'öäääöö'],
+            'right-padding_multi-byte' => ['utf-8', 'äää', 5, 'ö', STR_PAD_RIGHT, 'äääöö'],
 
             // ZF-12186
-            'input-longer-than-pad-length' =>
-                ['utf-8', 'äääöö', 2, 'ö', STR_PAD_RIGHT, 'äääöö'],
-            'input-same-as-pad-length' =>
-                ['utf-8', 'äääöö', 5, 'ö', STR_PAD_RIGHT, 'äääöö'],
-            'negative-pad-length' =>
-                ['utf-8', 'äääöö', -2, 'ö', STR_PAD_RIGHT, 'äääöö'],
+            'input-longer-than-pad-length' => ['utf-8', 'äääöö', 2, 'ö', STR_PAD_RIGHT, 'äääöö'],
+            'input-same-as-pad-length' => ['utf-8', 'äääöö', 5, 'ö', STR_PAD_RIGHT, 'äääöö'],
+            'negative-pad-length' => ['utf-8', 'äääöö', -2, 'ö', STR_PAD_RIGHT, 'äääöö'],
         ];
     }
 
