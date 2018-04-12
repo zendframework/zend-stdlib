@@ -18,7 +18,11 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#60](https://github.com/zendframework/zend-stdlib/pull/60) fixes an issue whereby calling `remove()` would
+  incorrectly re-calculate the maximum priority stored in the queue.
+
+- [#60](https://github.com/zendframework/zend-stdlib/pull/60) fixes an infinite loop condition that can occur when
+  inserting an item at 0 priority.
 
 ## 3.1.0 - 2016-09-13
 
