@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "athletic/athletic": "~0.1",
-        "phpunit/PHPUnit": "~4.0",
+        "phpunit/phpunit": "~5.0",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
     "extra": {
@@ -39,8 +39,8 @@
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "test": "./vendor/bin/phpunit --colors=always",
+        "test-coverage": "./vendor/bin/phpunit --colors=always --coverage-clover clover.xml",
         "upload-coverage": "coveralls -v"
     }
 }

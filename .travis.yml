@@ -31,9 +31,8 @@ matrix:
     - php: 7
       env:
         - CS_CHECK=true
-    - php: hhvm 
-  allow_failures:
-    - php: hhvm
+    - php: 7.1
+    - php: 7.2
 
 notifications:
   irc: "irc.freenode.org#zftalk.dev"
