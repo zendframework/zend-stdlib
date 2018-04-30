@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#87](https://github.com/zendframework/zend-stdlib/pull/87) adds support for PHP 7.2.
 
 ### Changed
 
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- Nothing.
+- [#87](https://github.com/zendframework/zend-stdlib/pull/87) removes support for HHVM.
 
 ### Fixed
 
