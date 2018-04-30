@@ -9,12 +9,13 @@
 
 namespace ZendTest\Stdlib;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\PriorityQueue;
 
 /**
  * @group      Zend_Stdlib
  */
-class PriorityQueueTest extends \PHPUnit_Framework_TestCase
+class PriorityQueueTest extends TestCase
 {
     /**
      * @var PriorityQueue

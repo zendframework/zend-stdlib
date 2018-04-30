@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 3.2.0 - TBD
+
+### Added
+
+- [#87](https://github.com/zendframework/zend-stdlib/pull/87) adds support for PHP 7.2.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- [#87](https://github.com/zendframework/zend-stdlib/pull/87) removes support for HHVM.
+
+### Fixed
+
+- Nothing.
+
 ## 3.1.1 - 2018-04-12
 
 ### Added
