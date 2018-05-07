@@ -47,7 +47,7 @@ abstract class ArrayUtils
             return $allowEmpty;
         }
 
-        return count(array_filter(array_keys($value), 'is_string')) > 0;
+        return ! empty(array_filter(array_keys($value), 'is_string'));
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class ArrayUtils
             return $allowEmpty;
         }
 
-        return count(array_filter(array_keys($value), 'is_int')) > 0;
+        return ! empty(array_filter(array_keys($value), 'is_int'));
     }
 
     /**
@@ -94,7 +94,7 @@ abstract class ArrayUtils
             return $allowEmpty;
         }
 
-        return count(array_filter(array_keys($value), 'is_numeric')) > 0;
+        return ! empty(array_filter(array_keys($value), 'is_numeric'));
     }
 
     /**
