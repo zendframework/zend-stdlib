@@ -1,164 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zend\Stdlib">  
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Migration - zend-stdlib</title>
 
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/zf.css" rel="stylesheet">
-    <link href="../css/prism-zf.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
+    <link rel="stylesheet" href="../css/styles-e3f3751b65.css">
+</head>
+<body id="page-top">
 
     
-</head>
-
-<body>
-
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
     <div class="container">
-
-        <!-- Collapsed navigation -->
         <div class="navbar-header">
+
             
-            <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
-            <!-- Main title -->
+            
             <span class="navbar-brand">
-              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
-              <a href="..">zend-stdlib</a>
+                <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
+                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                </a>
             </span>
         </div>
 
-        <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../console-helper/">Console Helper</a>
-</li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href="./">Migration</a>
-                    </li>
-                
-                
-                </ul>
             
-
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
-                        <i class="fa fa-book"></i> Components
-                    </a>
+                    <a href="https://framework.zend.com/about">About</a>
                 </li>
-
                 <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
+                    <a href="https://framework.zend.com/downloads">Install</a>
                 </li>
-                
-                    <li>
-                        <a href="https://github.com/zendframework/zend-stdlib">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            GitHub
-                        </a>
-                    </li>
-                
+                <li class="active">
+                    <a href="https://docs.zendframework.com">Documentation</a>
+                </li>
+                <li>
+                    <a href="https://www.zend.com/en/services/training">Training</a>
+                </li>
+                <li>
+                    <a href="https://framework.zend.com/blog">Blog</a>
+                </li>
+                <li>
+                    <a href="https://framework.zend.com/participate">Participate</a>
+                </li>
             </ul>
+
+            
+            
+                <div class="nav navbar-nav navbar-collapse visible-xs-block ">
+                    <div class="subnavigation hidden-print">
+    <h4 class="subnavigation__title">
+        <a href="..">zend-stdlib</a>
+    </h4>
+
+    <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+    <ul class="subnavigation__list">
+        
+            
+                <li class="subnavigation__list-item ">
+                    <a href=".." class="subnavigation__link">zend-stdlib</a>
+                </li>
+            
+        
+            
+                <li class="subnavigation__list-item">
+                    <span class="subnavigation__headline">Reference</span>
+                    <ul class="subnavigation__list">
+                        
+                            
+    <li class="subnavigation__list-item ">
+        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+    </li>
+
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li class="subnavigation__list-item subnavigation__list-item--active">
+                    <a href="./" class="subnavigation__link">Migration</a>
+                </li>
+            
+        
+    </ul>
+</div>
+                </div>
+            
+
+            
+            <div class="nav navbar-nav navbar-collapse visible-xs-block">
+                <div class="component-selector">
+    <h4 class="component-selector__title">Components</h4>
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+            </div>
         </div>
     </div>
 </div>
 
-    <!-- content:begin -->
+    
+    <header class="header">
     <div class="container">
-        
-        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#migration-guide">Migration Guide</a></li>
-        
-            <li><a href="#from-v2-to-v3">From v2 to v3</a></li>
-        
-    
-    </ul>
+        <div class="row">
+
+            
+            <div class="col-xs-8">
+                <h1 class="header__title">
+                    Documentation
+
+                    
+                        <small class="header__subtitle">zend-stdlib</small>
+                    
+                </h1>
+            </div>
+
+            
+            <div class="col-xs-4 text-right">
+                
+                    <a href="#" class="header__link header__link--search" data-toggle="modal" data-target="#mkdocs_search_modal" title="Open search">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                    <a href="https://github.com/zendframework/zend-stdlib/" class="header__link header__link--github" title="Go to repository of zend-stdlib">
+                        <i class="fa fa-github"></i> GitHub
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</header>
 
     
-    <ul class="pager hidden-print">
-      <li class="previous">
-        <a rel="prev" href="../console-helper/"><i class="fa fa-arrow-left"></i> Previous</a>
-      </li>
-      <li class="next disabled ">
-        <a rel="next" >Next <i class="fa fa-arrow-right"></i></a>
-      </li>
-    </ul>
-    
-</div></div>
-        <div class="col-md-9" role="main">
-
-<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="..">Docs</a> &raquo;</li>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12 content" role="main">
+                
+                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="https://framework.zend.com/">Home</a></li>
+  <li><a href="https://docs.zendframework.com/">Docs</a></li>
+  <li><a href="..">zend-stdlib</a></li>
   
     
   
   <li class="active">Migration</li>
 </ol>
 
-<h1 id="migration-guide">Migration Guide</h1>
+
+    
+    
+
+    
+    
+        <div class="toc">
+            <h6 class="toc__headline">In This Article</h6>
+            <ul class="toc__list">
+                
+                    <li class="toc__entry">
+                        <a href="#from-v2-to-v3" class="toc__link">From v2 to v3</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+    <h1 id="migration-guide">Migration Guide</h1>
 <h2 id="from-v2-to-v3">From v2 to v3</h2>
 <p>The changes made going from v2 to v3 were:</p>
 <ul>
@@ -180,18 +206,15 @@ seamless:</p>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ composer remove zendframework/zend-stdlib</code></pre>
 
-
 <ul>
 <li>Update to use zend-hydrator:</li>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ composer require zendframework/zend-hydrator</code></pre>
 
-
 <p>When zend-hydrator updates to newer versions of zend-stdlib and
 zend-servicemanager, you will either automatically get those versions, or you
 can tell composer to use those specific versions:</p>
 <pre class="codehilite"><code class="language-bash">$ composer require &quot;zendframework/zend-stdlib:^3.0&quot;</code></pre>
-
 
 <h3 id="callbackhandler">CallbackHandler</h3>
 <p><code>Zend\Stdlib\CallbackHandler</code> primarily existed for legacy purposes; it was
@@ -208,40 +231,153 @@ subcomponent, for consumers on versions of PHP earlier than 5.4. Since the
 minimum required version is now PHP 5.5, the class is unnecessary. If you were
 using it previously, compose the related traits instead.</p>
 
-<hr />
 
 
-<nav>
-  <ul class="pager hidden-print">
-    <li class="previous">
-      <a rel="prev" href="../console-helper/"><i class="fa fa-arrow-left"></i> Previous</a>
-    </li>
-    <li class="next disabled ">
-      <a rel="next" >Next <i class="fa fa-arrow-right"></i></a>
-    </li>
-  </ul>
-</nav>
-</div>
+    <nav>
+    <ul class="page-nav hidden-print">
+
         
+        <li class="page-nav__item">
+            
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../console-helper/">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            
+        </li>
+
+        
+        <li class="page-nav__item">
+            
+        </li>
+    </ul>
+</nav>
+
+
+<div class="help-wanted">
+    <p>
+        Found a mistake or want to contribute to the documentation?
+        <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/migration.md" target="_blank" class="help-wanted__link">
+            Edit this page on GitHub!
+        </a>
+    </p>
+</div>
+                
+            </div>
+            <div class="col-md-3 col-xs-12 sidebar">
+                
+                    <div class="component-selector">
+    <h4 class="component-selector__title">Components</h4>
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+                    <div class="subnavigation hidden-print">
+    <h4 class="subnavigation__title">
+        <a href="..">zend-stdlib</a>
+    </h4>
+
+    <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+    <ul class="subnavigation__list">
+        
+            
+                <li class="subnavigation__list-item ">
+                    <a href=".." class="subnavigation__link">zend-stdlib</a>
+                </li>
+            
+        
+            
+                <li class="subnavigation__list-item">
+                    <span class="subnavigation__headline">Reference</span>
+                    <ul class="subnavigation__list">
+                        
+                            
+    <li class="subnavigation__list-item ">
+        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+    </li>
+
+                        
+                    </ul>
+                </li>
+            
+        
+            
+                <li class="subnavigation__list-item subnavigation__list-item--active">
+                    <a href="./" class="subnavigation__link">Migration</a>
+                </li>
+            
+        
+    </ul>
+</div>
+                
+            </div>
+        </div>
     </div>
-    <!-- content:end -->
 
-    <footer class="col-md-12 text-center">
-        <hr>
-        <p>
-        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
-        </p>
-        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
-    </footer>
+    
+    <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h5>Zend Framework</h5>
+                <ul>
+                    <li><a href="https://framework.zend.com/">framework.zend.com</a></li>
+                    <li><a href="https://docs.zendframework.com">docs.zendframework.com</a></li>
+                    <li><a href="https://packages.zendframework.com">packages.zendframework.com</a></li>
+                    <li><a href="https://apigility.org">apigility.org</a></li>
+                    <li><a href="https://getexpressive.org/">getexpressive.org</a></li>
+                </ul>
+            </div>
+        </div>
 
-    <script src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../js/prism-zf.js"></script>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="footer__button" href="#page-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
 
-    <script>var base_url = '..';</script>
-    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-    <script src="../js/base.js"></script>
+        <div class="row">
 
+            
+            <div class="col-md-9">
+                <h4 class="footer__headline">Copyright</h4>
+                <p>&copy; 2006-2018 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">Support</h4>
+                <ul class="support__list">
+                    <li class="support__list-item">
+                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        var base_url = '..',
+            siteName = 'zend-stdlib';
+    </script>
+    <script src="../js/scripts-dcbafde59f.js"></script>
+        <script src="../search/require.js"></script>
+        <script src="../search/search.js"></script>
+
+    
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -269,124 +405,9 @@ using it previously, compose the related traits instead.</p>
         </div>
     </div>
 
-    <div class="zf-components">
-  <div class="zf-components-grid">
-    <div class="zf-logo">
-      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="http://framework.zend.com/images/logos/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
-    </div>
 
-    <div class="component-list"></div>
 
-    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
-  </div>
-</div>
+</body>
 
-    <script>
-  // Prepare the component list dropdown for display
-  $(function () {
-    var components = $(".zf-components"),
-        componentList = components.find(".component-list"),
-        sidebar = $(".bs-sidebar.affix"),
-        sidebarInitialPos = sidebar.css("position"),
-        hidden,
-        componentToggle = $(".component-toggle"),
-        navbar = $(".navbar-fixed-top"),
-        rollUpLink = $(".zf-components-rollup a");
-
-    // Initial setup on document load
-    components.insertBefore(navbar);
-    $(".zf-logo a").tooltip();
-    componentToggle.tooltip();
-    rollUpLink.attr({ href: "#", alt: "Hide component list" });
-
-    // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
-      sidebarInitialPos = "fixed";
-    }
-
-    // Setup onclick events to toggle list
-    componentToggle.click(toggleComponentList);
-    rollUpLink.click(toggleComponentList);
-
-    // Toggle the component list display
-    function toggleComponentList(event) {
-      event.preventDefault();
-
-      if (hidden === undefined) {
-        // Not loaded yet; load and display.
-        loadComponentList();
-        return;
-      }
-
-      if (hidden) {
-        // Hidden; display.
-        showComponentList();
-        return;
-      }
-
-      // Currently visible; hide
-      hideComponentList();
-    }
-
-    // Show the component list
-    function showComponentList() {
-      navbar.css({position: "relative"});
-      sidebar.css({position: "relative"});
-      components
-        .css({"margin-top": "-" + components.outerHeight() + "px"})
-        .show()
-        .animate({"margin-top": 0}, {
-          complete: function () {
-            componentToggle
-              .data("placement", "top")
-              .attr("data-original-title", "Hide component list");
-            hidden = false;
-          },
-          queue: false
-        });
-    }
-
-    // Hide the component list
-    function hideComponentList() {
-      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
-        complete: function () {
-          navbar.css({position: "fixed"});
-          sidebar.css({position: sidebarInitialPos});
-          componentToggle
-            .data("placement", "bottom")
-            .attr("data-original-title", "Show component list");
-          components.hide();
-          hidden = true;
-        },
-        queue: false
-      });
-      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
-    }
-
-    // Inject a component into the componet list DOM.
-    function injectComponent(index, component) {
-      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
-    }
-
-    // Parse the component list, build the DOM, and display it.
-    function parseComponentList(components) {
-      $.each(components, injectComponent);
-      showComponentList();
-    }
-
-    // Fetch the component list and display it.
-    function loadComponentList () {
-      $.ajax({
-        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
-        dataType: "text json",
-        success: parseComponentList,
-        error: function (e) {
-          console.log("Error occurred with XHR call", e);
-        }
-      });
-    }
-  });
-</script>
-    </body>
 
 </html>
