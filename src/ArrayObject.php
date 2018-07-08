@@ -425,7 +425,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
                     $this->setIteratorClass($v);
                     break;
                 case 'protectedProperties':
-                    continue;
+                    continue 2;
                 default:
                     $this->__set($k, $v);
             }
