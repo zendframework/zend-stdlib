@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#91](https://github.com/zendframework/zend-stdlib/pull/91) php 7.3 compatible which the behaviour of continue targeting switch equaivalent to break.
 
 ## 3.2.0 - 2018-04-30
 
