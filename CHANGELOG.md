@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#92](https://github.com/zendframework/zend-stdlib/pull/92) Fix SplPriorityQueue::$serial not being reset after serialization.
 
 ## 3.2.0 - 2018-04-30
 
