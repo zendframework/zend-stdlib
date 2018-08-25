@@ -48,8 +48,6 @@ class SplPriorityQueueTest extends TestCase
     {
         $s = serialize($this->queue);
         $unserialized = unserialize($s);
-       
-        $this->assertSame
             
         // assert same size
         $this->assertSameSize($this->queue, $unserialized);
