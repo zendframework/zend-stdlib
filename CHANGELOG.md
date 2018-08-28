@@ -22,6 +22,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
+- [#92](https://github.com/zendframework/zend-stdlib/pull/92) fixes serialization of `SplPriorityQueue` by ensuring its `$serial`
+  property is also serialized.
+
 - [#91](https://github.com/zendframework/zend-stdlib/pull/91) fixes behavior in the `ArrayObject` implementation that was not
   compatible with PHP 7.3.
 
