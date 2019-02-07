@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#96](https://github.com/zendframework/zend-stdlib/pull/96) Added PHP 7.3 support
 
 ### Changed
 
