@@ -417,15 +417,15 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
             switch ($k) {
                 case 'flag':
                     $this->setFlags($v);
-                    break;
+                    continue 2;
                 case 'storage':
                     $this->exchangeArray($v);
-                    break;
+                    continue 2;
                 case 'iteratorClass':
                     $this->setIteratorClass($v);
-                    break;
+                    continue 2;
                 case 'protectedProperties':
-                    break;
+                    continue 2;
                 default:
                     $this->__set($k, $v);
             }
