@@ -22,7 +22,7 @@ class SplPriorityQueueTest extends TestCase
      */
     protected $queue;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->queue = new SplPriorityQueue();
         $this->queue->insert('foo', 3);

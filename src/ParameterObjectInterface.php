@@ -16,23 +16,23 @@ interface ParameterObjectInterface
      * @param mixed $value
      * @return void
      */
-    public function __set($key, $value);
+    public function __set(string $key, $value): void;
 
     /**
      * @param string $key
      * @return mixed
      */
-    public function __get($key);
+    public function __get(string $key);
 
     /**
      * @param string $key
      * @return bool
      */
-    public function __isset($key);
+    public function __isset(string $key): bool;
 
     /**
      * @param string $key
      * @return void
      */
-    public function __unset($key);
+    public function __unset(string $key): void;
 }

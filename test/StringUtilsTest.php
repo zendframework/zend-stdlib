@@ -16,7 +16,7 @@ use Zend\Stdlib\StringUtils;
 
 class StringUtilsTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         StringUtils::resetRegisteredWrappers();
     }

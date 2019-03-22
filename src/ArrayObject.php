@@ -7,10 +7,13 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
+declare(strict_types=1);
+
 namespace Zend\Stdlib;
 
 use ArrayAccess;
 use Countable;
+use Iterator;
 use IteratorAggregate;
 use Serializable;
 
@@ -55,11 +58,11 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Constructor
      *
-     * @param array  $input
+     * @param array|Countable  $input
      * @param int    $flags
      * @param string $iteratorClass
      */
-    public function __construct($input = [], $flags = self::STD_PROP_LIST, $iteratorClass = 'ArrayIterator')
+    public function __construct($input = [], int $flags = self::STD_PROP_LIST, string $iteratorClass = 'ArrayIterator')
     {
         $this->setFlags($flags);
         $this->storage = $input;
@@ -72,8 +75,9 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      *
      * @param  mixed $key
      * @return bool
+     * @throws Exception\InvalidArgumentException
      */
-    public function __isset($key)
+    public function __isset($key): bool
     {
         if ($this->flag == self::ARRAY_AS_PROPS) {
             return $this->offsetExists($key);
@@ -90,12 +94,13 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      *
      * @param  mixed $key
      * @param  mixed $value
-     * @return void
+     * @throws Exception\InvalidArgumentException
      */
-    public function __set($key, $value)
+    public function __set($key, $value): void
     {
         if ($this->flag == self::ARRAY_AS_PROPS) {
-            return $this->offsetSet($key, $value);
+            $this->offsetSet($key, $value);
+            return;
         }
         if (in_array($key, $this->protectedProperties)) {
             throw new Exception\InvalidArgumentException('$key is a protected property, use a different key');
@@ -104,15 +109,16 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     }
 
     /**
-     * Unsets the value at the specified key
+     * Unset the value at the specified key
      *
      * @param  mixed $key
-     * @return void
+     * @throws Exception\InvalidArgumentException
      */
-    public function __unset($key)
+    public function __unset($key): void
     {
         if ($this->flag == self::ARRAY_AS_PROPS) {
-            return $this->offsetUnset($key);
+            $this->offsetUnset($key);
+            return;
         }
         if (in_array($key, $this->protectedProperties)) {
             throw new Exception\InvalidArgumentException('$key is a protected property, use a different key');
@@ -145,29 +151,24 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * Appends the value
      *
      * @param  mixed $value
-     * @return void
      */
-    public function append($value)
+    public function append($value): void
     {
         $this->storage[] = $value;
     }
 
     /**
      * Sort the entries by value
-     *
-     * @return void
      */
-    public function asort()
+    public function asort(): void
     {
         asort($this->storage);
     }
 
     /**
      * Get the number of public properties in the ArrayObject
-     *
-     * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->storage);
     }
@@ -177,8 +178,9 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      *
      * @param  array|ArrayObject $data
      * @return array
+     * @throws Exception\InvalidArgumentException;
      */
-    public function exchangeArray($data)
+    public function exchangeArray($data): array
     {
         if (! is_array($data) && ! is_object($data)) {
             throw new Exception\InvalidArgumentException(
@@ -223,7 +225,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Create a new iterator from an ArrayObject instance
      *
-     * @return \Iterator
+     * @return Iterator
      */
     public function getIterator()
     {

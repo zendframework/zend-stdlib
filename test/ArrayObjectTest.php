@@ -103,27 +103,6 @@ class ArrayObjectTest extends TestCase
         $this->assertSame($sorted, $ar->getArrayCopy());
     }
 
-    /**
-     * PHPUnit 5.7 does not namespace error classes; retrieve appropriate one
-     * based on what is available.
-     *
-     * @return string
-     */
-    protected function getExpectedWarningClass()
-    {
-        return class_exists(Warning::class) ? Warning::class : \PHPUnit_Framework_Error_Warning::class;
-    }
-
-    public function testCount()
-    {
-        if (PHP_VERSION_ID >= 70200) {
-            $this->expectException($this->getExpectedWarningClass());
-            $this->expectExceptionMessage('Parameter must be an array or an object that implements Countable');
-        }
-        $ar = new ArrayObject(new TestAsset\ArrayObjectObjectVars());
-        $this->assertCount(1, $ar);
-    }
-
     public function testCountable()
     {
         $ar = new ArrayObject(new TestAsset\ArrayObjectObjectCount());

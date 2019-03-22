@@ -22,7 +22,7 @@ class SplQueueTest extends TestCase
      */
     protected $queue;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->queue = new SplQueue();
         $this->queue->push('foo');

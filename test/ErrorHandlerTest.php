@@ -15,7 +15,7 @@ use Zend\Stdlib\ErrorHandler;
 
 class ErrorHandlerTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         if (ErrorHandler::getNestedLevel()) {
             ErrorHandler::clean();

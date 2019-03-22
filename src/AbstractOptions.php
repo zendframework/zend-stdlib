@@ -7,6 +7,8 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
+declare(strict_types=1);
+
 namespace Zend\Stdlib;
 
 use Traversable;
@@ -42,7 +44,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @throws Exception\InvalidArgumentException
      * @return AbstractOptions Provides fluent interface
      */
-    public function setFromArray($options)
+    public function setFromArray($options): AbstractOptions
     {
         if ($options instanceof self) {
             $options = $options->toArray();
@@ -72,7 +74,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $array = [];
         $transform = function ($letters) {
@@ -98,7 +100,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @throws Exception\BadMethodCallException
      * @return void
      */
-    public function __set($key, $value)
+    public function __set(string $key, $value): void
     {
         $setter = 'set' . str_replace('_', '', $key);
 
@@ -126,7 +128,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @throws Exception\BadMethodCallException
      * @return mixed
      */
-    public function __get($key)
+    public function __get(string $key)
     {
         $getter = 'get' . str_replace('_', '', $key);
 
@@ -147,7 +149,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @param string $key
      * @return bool
      */
-    public function __isset($key)
+    public function __isset(string $key): bool
     {
         $getter = 'get' . str_replace('_', '', $key);
 
@@ -162,7 +164,7 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @throws Exception\InvalidArgumentException
      * @return void
      */
-    public function __unset($key)
+    public function __unset(string $key): void
     {
         try {
             $this->__set($key, null);

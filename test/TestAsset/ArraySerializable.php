@@ -32,7 +32,7 @@ class ArraySerializable implements \Zend\Stdlib\ArraySerializableInterface
      * @param  array $array
      * @return void
      */
-    public function exchangeArray(array $array)
+    public function exchangeArray(array $array): void
     {
         $this->data = $array;
     }
@@ -42,7 +42,7 @@ class ArraySerializable implements \Zend\Stdlib\ArraySerializableInterface
      *
      * @return array
      */
-    public function getArrayCopy()
+    public function getArrayCopy(): array
     {
         return $this->data;
     }

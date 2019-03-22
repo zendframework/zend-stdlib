@@ -17,12 +17,12 @@ interface ArraySerializableInterface
      * @param  array $array
      * @return void
      */
-    public function exchangeArray(array $array);
+    public function exchangeArray(array $array): void;
 
     /**
      * Return an array representation of the object
      *
      * @return array
      */
-    public function getArrayCopy();
+    public function getArrayCopy(): array;
 }
