@@ -16,11 +16,11 @@
         "forum": "https://discourse.zendframework.com/c/questions/components"
     },
     "require": {
-        "php": "^7.1"
+        "php": "^7.2"
     },
     "require-dev": {
         "phpbench/phpbench": "^0.13",
-        "phpunit/phpunit": "^7.1.2 || ^8.0.0",
+        "phpunit/phpunit": "^8.0.5",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
     "autoload": {
