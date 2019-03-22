@@ -80,8 +80,8 @@ class ConsoleHelperTest extends TestCase
         $string = "<error>NOT OK</error>\n\n<info>Usage:</info> foo";
         $colorized = $this->helper->colorize($string);
 
-        $this->assertStringContainsString("\033[31mNOT OK\033[0m", $colorized, 'Colorized error string not found');
-        $this->assertStringContainsString("\033[32mUsage:\033[0m", $colorized, 'Colorized info string not found');
+        $this->assertContains("\033[31mNOT OK\033[0m", $colorized, 'Colorized error string not found');
+        $this->assertContains("\033[32mUsage:\033[0m", $colorized, 'Colorized info string not found');
     }
 
     public function testColorizationWillReplaceTagsWithEmptyStringsWhenColorSupportIsNotDetected()
@@ -90,9 +90,9 @@ class ConsoleHelperTest extends TestCase
         $string = "<error>NOT OK</error>\n\n<info>Usage:</info> foo";
         $colorized = $this->helper->colorize($string);
 
-        $this->assertStringNotContainsString("\033[31m", $colorized, 'Colorized error string discovered');
-        $this->assertStringNotContainsString("\033[32m", $colorized, 'Colorized info string discovered');
-        $this->assertStringNotContainsString("\033[0m", $colorized, 'Color reset sequence discovered');
+        $this->assertNotContains("\033[31m", $colorized, 'Colorized error string discovered');
+        $this->assertNotContains("\033[32m", $colorized, 'Colorized info string discovered');
+        $this->assertNotContains("\033[0m", $colorized, 'Color reset sequence discovered');
         $this->assertNotRegexp("/<\/?error>/", $colorized, 'Error template string discovered');
         $this->assertNotRegexp("/<\/?info>/", $colorized, 'Info template string discovered');
     }
@@ -106,7 +106,7 @@ class ConsoleHelperTest extends TestCase
         $this->helper->write($string, false, $stream);
 
         $contents = $this->retrieveStreamContents($stream);
-        $this->assertStringContainsString("\r\n", $contents);
+        $this->assertContains("\r\n", $contents);
     }
 
     public function testWriteWillColorizeOutputIfRequested()
@@ -118,7 +118,7 @@ class ConsoleHelperTest extends TestCase
         $this->helper->write($string, true, $stream);
 
         $contents = $this->retrieveStreamContents($stream);
-        $this->assertStringContainsString("\033[32mbar\033[0m", $contents);
+        $this->assertContains("\033[32mbar\033[0m", $contents);
     }
 
     public function testWriteLineAppendsPhpEolSequenceToString()
