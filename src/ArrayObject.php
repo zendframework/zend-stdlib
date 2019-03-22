@@ -180,7 +180,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return array
      * @throws Exception\InvalidArgumentException;
      */
-    public function exchangeArray($data): array
+    public function exchangeArray($data)
     {
         if (! is_array($data) && ! is_object($data)) {
             throw new Exception\InvalidArgumentException(
