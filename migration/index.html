@@ -11,7 +11,8 @@
 
     <title>Migration - zend-stdlib</title>
 
-    <link rel="stylesheet" href="../css/styles-e95dab66f8.css">
+    <link rel="stylesheet" href="../css/styles-18b942728f.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 </head>
 <body id="page-top">
 
@@ -66,7 +67,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-stdlib</a>
+            <a href="">zend-stdlib</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,7 +76,7 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-stdlib</a>
+                        <a href="" class="subnavigation__link">zend-stdlib</a>
                     </li>
                 
             
@@ -86,7 +87,7 @@
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+        <a href="console-helper/" class="subnavigation__link">Console Helper</a>
     </li>
 
                             
@@ -96,7 +97,7 @@
             
                 
                     <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Migration</a>
+                        <a href="migration/" class="subnavigation__link">Migration</a>
                     </li>
                 
             
@@ -153,6 +154,17 @@
 </header>
 
     
+    <div class="laminas-announcement">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-xs-12 content" role="main">
@@ -165,7 +177,7 @@
         <li><a href="https://docs.zendframework.com/">Documentation</a></li>
 
         
-            <li><a href="..">zend-stdlib</a></li>
+            <li><a href="">zend-stdlib</a></li>
 
             
 
@@ -223,7 +235,7 @@ seamless:</p>
 <p>When zend-hydrator updates to newer versions of zend-stdlib and
 zend-servicemanager, you will either automatically get those versions, or you
 can tell composer to use those specific versions:</p>
-<pre class="codehilite"><code class="language-bash">$ composer require &quot;zendframework/zend-stdlib:^3.0&quot;</code></pre>
+<pre class="codehilite"><code class="language-bash">$ composer require "zendframework/zend-stdlib:^3.0"</code></pre>
 
 <h3 id="callbackhandler">CallbackHandler</h3>
 <p><code>Zend\Stdlib\CallbackHandler</code> primarily existed for legacy purposes; it was
@@ -248,7 +260,7 @@ using it previously, compose the related traits instead.</p>
         
         <li class="page-nav__item">
             
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../console-helper/">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="console-helper/">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             
@@ -288,7 +300,7 @@ using it previously, compose the related traits instead.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-stdlib</a>
+            <a href="">zend-stdlib</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -297,7 +309,7 @@ using it previously, compose the related traits instead.</p>
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-stdlib</a>
+                        <a href="" class="subnavigation__link">zend-stdlib</a>
                     </li>
                 
             
@@ -308,7 +320,7 @@ using it previously, compose the related traits instead.</p>
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+        <a href="console-helper/" class="subnavigation__link">Console Helper</a>
     </li>
 
                             
@@ -318,7 +330,7 @@ using it previously, compose the related traits instead.</p>
             
                 
                     <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Migration</a>
+                        <a href="migration/" class="subnavigation__link">Migration</a>
                     </li>
                 
             
@@ -396,9 +408,8 @@ using it previously, compose the related traits instead.</p>
         var base_url = '..',
             siteName = 'zend-stdlib';
     </script>
-    <script src="../js/scripts-a978f1ec1a.js"></script>
-        <script src="../search/require.js"></script>
-        <script src="../search/search.js"></script>
+    <script src="../js/scripts-edc4cfa790.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -427,6 +438,14 @@ using it previously, compose the related traits instead.</p>
             </div>
         </div>
     </div>
+
+<script>
+// Anchors
+anchors.options.placement = 'left';
+anchors.add(
+    '.content h1:not(.content__title), .content h2, .content > h3, .content h4, .content h5'
+);
+</script>
 
 
 
