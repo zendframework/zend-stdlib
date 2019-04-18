@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zend\Stdlib">  
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="//img/favicon.ico">
 
-    <title>Migration - zend-stdlib - Zend Framework Docs</title>
+    <title>zend-stdlib - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-f3b53f5ceb.css">
+    <link rel="stylesheet" href="//css/styles-f3b53f5ceb.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="//img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-stdlib</a>
+            <a href="/.">zend-stdlib</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,7 +75,7 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-stdlib</a>
+                        <a href="/." class="subnavigation__link">zend-stdlib</a>
                     </li>
                 
             
@@ -86,7 +86,7 @@
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+        <a href="/console-helper/" class="subnavigation__link">Console Helper</a>
     </li>
 
                             
@@ -95,8 +95,8 @@
                 
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Migration</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/migration/" class="subnavigation__link">Migration</a>
                     </li>
                 
             
@@ -169,123 +169,18 @@
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
-                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-    <li><a href="https://framework.zend.com/">Home</a></li>
 
-    
-        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-        
-            <li><a href="..">zend-stdlib</a></li>
-
-            
-
-            <li class="active">Migration</li>
-        
-    
-</ol>
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 
-    
-
-    
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">In This Article</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#from-v2-to-v3" class="toc__link">From v2 to v3</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
-
-    <h1 id="migration-guide">Migration Guide</h1>
-<h2 id="from-v2-to-v3">From v2 to v3</h2>
-<p>The changes made going from v2 to v3 were:</p>
-<ul>
-<li>Removal of the Hydrator subcomponent.</li>
-<li>Removal of the <code>CallbackHandler</code> class.</li>
-<li>Removal of <code>Zend\Stdlib\Guard\GuardUtils</code>.</li>
-</ul>
-<h3 id="hydrators">Hydrators</h3>
-<p>The biggest single change from version 2 to version 3 is that the hydrator
-subcomponent, which was deprecated in v2.7.0, is now removed. This means that if
-you were using zend-stdlib principally for the hydrators, you need to convert
-your code to use <a href="https://github.com/zendframework/zend-hydrator">zend-hydrator</a>.</p>
-<p>This will also mean a multi-step migration. zend-stdlib v3 pre-dates
-zend-hydrator v2.1, which will be the first version that supports zend-stdlib v3
-and zend-servicemanager v3. If you are using Composer, the migration should be
-seamless:</p>
-<ul>
-<li>Remove your zend-stdlib dependency:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ composer remove zendframework/zend-stdlib</code></pre>
-
-<ul>
-<li>Update to use zend-hydrator:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ composer require zendframework/zend-hydrator</code></pre>
-
-<p>When zend-hydrator updates to newer versions of zend-stdlib and
-zend-servicemanager, you will either automatically get those versions, or you
-can tell composer to use those specific versions:</p>
-<pre class="codehilite"><code class="language-bash">$ composer require "zendframework/zend-stdlib:^3.0"</code></pre>
-
-<h3 id="callbackhandler">CallbackHandler</h3>
-<p><code>Zend\Stdlib\CallbackHandler</code> primarily existed for legacy purposes; it was
-created before the <code>callable</code> typehint existed, so that we could typehint PHP
-callables. It also provided some minimal features around lazy-loading callables
-from instantiable classes, but these features were rarely used, and better
-approaches already exist for handling such functinality in zend-servicemanager
-and zend-expressive.</p>
-<p>As such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.</p>
-<h3 id="guardutils">GuardUtils</h3>
-<p>Version 3 removes <code>Zend\Stdlib\Guard\GuardUtils</code>. This abstract class existed to
-provide the functionality of the various traits also present in that
-subcomponent, for consumers on versions of PHP earlier than 5.4. Since the
-minimum required version is now PHP 5.5, the class is unnecessary. If you were
-using it previously, compose the related traits instead.</p>
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../console-helper/">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/book/migration.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             <!-- content:end -->
             </div>
             <div class="col-md-3 col-xs-12 sidebar">
@@ -301,7 +196,7 @@ using it previously, compose the related traits instead.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-stdlib</a>
+            <a href="/.">zend-stdlib</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -310,7 +205,7 @@ using it previously, compose the related traits instead.</p>
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href=".." class="subnavigation__link">zend-stdlib</a>
+                        <a href="/." class="subnavigation__link">zend-stdlib</a>
                     </li>
                 
             
@@ -321,7 +216,7 @@ using it previously, compose the related traits instead.</p>
                             
                                 
     <li class="subnavigation__list-item ">
-        <a href="../console-helper/" class="subnavigation__link">Console Helper</a>
+        <a href="/console-helper/" class="subnavigation__link">Console Helper</a>
     </li>
 
                             
@@ -330,8 +225,8 @@ using it previously, compose the related traits instead.</p>
                 
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Migration</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/migration/" class="subnavigation__link">Migration</a>
                     </li>
                 
             
@@ -406,11 +301,11 @@ using it previously, compose the related traits instead.</p>
 </footer>
 
     <script>
-        var base_url = '..',
+        var base_url = '/',
             siteName = 'zend-stdlib';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="//js/scripts-8d7ae56abf.js"></script>
+        <script src="/search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
