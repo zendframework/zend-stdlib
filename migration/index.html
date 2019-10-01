@@ -248,7 +248,7 @@
 <li>Removal of the <code>CallbackHandler</code> class.</li>
 <li>Removal of <code>Zend\Stdlib\Guard\GuardUtils</code>.</li>
 </ul>
-<h3 id="hydrators">Hydrators</h3>
+<h3>Hydrators</h3>
 <p>The biggest single change from version 2 to version 3 is that the hydrator
 subcomponent, which was deprecated in v2.7.0, is now removed. This means that if
 you were using zend-stdlib principally for the hydrators, you need to convert
@@ -260,19 +260,18 @@ seamless:</p>
 <ul>
 <li>Remove your zend-stdlib dependency:</li>
 </ul>
-<pre class="codehilite"><code class="language-bash">$ composer remove zendframework/zend-stdlib</code></pre>
-
+<p><code>bash
+  $ composer remove zendframework/zend-stdlib</code></p>
 <ul>
 <li>Update to use zend-hydrator:</li>
 </ul>
-<pre class="codehilite"><code class="language-bash">$ composer require zendframework/zend-hydrator</code></pre>
-
+<p><code>bash
+  $ composer require zendframework/zend-hydrator</code></p>
 <p>When zend-hydrator updates to newer versions of zend-stdlib and
 zend-servicemanager, you will either automatically get those versions, or you
 can tell composer to use those specific versions:</p>
-<pre class="codehilite"><code class="language-bash">$ composer require "zendframework/zend-stdlib:^3.0"</code></pre>
-
-<h3 id="callbackhandler">CallbackHandler</h3>
+<p> <pre class=codehilite><code class=language-bash>$ composer require &quot;zendframework/zend-stdlib:^3.0&quot;</code></pre></p>
+<h3>CallbackHandler</h3>
 <p><code>Zend\Stdlib\CallbackHandler</code> primarily existed for legacy purposes; it was
 created before the <code>callable</code> typehint existed, so that we could typehint PHP
 callables. It also provided some minimal features around lazy-loading callables
@@ -280,7 +279,7 @@ from instantiable classes, but these features were rarely used, and better
 approaches already exist for handling such functinality in zend-servicemanager
 and zend-expressive.</p>
 <p>As such, the class was marked deprecated in v2.7.0, and removed for v3.0.0.</p>
-<h3 id="guardutils">GuardUtils</h3>
+<h3>GuardUtils</h3>
 <p>Version 3 removes <code>Zend\Stdlib\Guard\GuardUtils</code>. This abstract class existed to
 provide the functionality of the various traits also present in that
 subcomponent, for consumers on versions of PHP earlier than 5.4. Since the
@@ -315,7 +314,7 @@ using it previously, compose the related traits instead.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/migration.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/book/migration.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

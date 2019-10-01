@@ -281,19 +281,17 @@
 all beneath it in a minimal fashion.</p>
 <h2 id="usage">Usage</h2>
 <p>Typical usage is to instantiate a <code>ConsoleHelper</code>, and call one of its methods:</p>
-<pre class="codehilite"><code class="language-php">use Zend\Stdlib\ConsoleHelper;
+<p> <pre class=codehilite><code class=language-php>use Zend\Stdlib\ConsoleHelper;
 
 $helper = new ConsoleHelper();
-$helper-&gt;writeLine('This is output');</code></pre>
-
+$helper-&gt;writeLine('This is output');</code></pre></p>
 <p>You can optionally pass a PHP stream resource to the constructor, which will be
 used to determine whether or not color support is available:</p>
-<pre class="codehilite"><code class="language-php">$helper = new ConsoleHelper($stream);</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>$helper = new ConsoleHelper($stream);</code></pre></p>
 <p>By default, it assumes <code>STDOUT</code>, and tests against that.</p>
 <h2 id="available-methods">Available methods</h2>
 <p><code>ConsoleHelper</code> provides the following methods.</p>
-<h3 id="colorize">colorize</h3>
+<h3>colorize</h3>
 <ul>
 <li><code>colorize(string $string) : string</code></li>
 </ul>
@@ -305,19 +303,19 @@ sequences to them, if color support is detected.</p>
 <li><code>&lt;error&gt;...&lt;/error&gt;</code> will apply a red color sequence around the provided text.</li>
 </ul>
 <p>You may mix multiple sequences within the same stream.</p>
-<h3 id="write">write</h3>
+<h3>write</h3>
 <ul>
 <li><code>write(string $string, bool $colorize = true, resource $stream = STDOUT) : void</code></li>
 </ul>
 <p>Emits the provided <code>$string</code> to the provided <code>$stream</code> (which defaults to
 <code>STDOUT</code> if not provided). Any EOL sequences are convered to <code>PHP_EOL</code>. If
 <code>$colorize</code> is <code>true</code>, the string is first passed to <code>colorize()</code> as well.</p>
-<h3 id="writeline">writeline</h3>
+<h3>writeline</h3>
 <ul>
 <li><code>writeLine(string $string, bool $colorize = true, resource $stream = STDOUT) : void</code></li>
 </ul>
 <p>Same as <code>write()</code>, except it also appends a <code>PHP_EOL</code> sequence to the <code>$string</code>.</p>
-<h3 id="writeerrormessage">writeErrorMessage</h3>
+<h3>writeErrorMessage</h3>
 <ul>
 <li><code>writeErrorMessage(string $message)</code></li>
 </ul>
@@ -326,7 +324,7 @@ sequences to them, if color support is detected.</p>
 <h2 id="example">Example</h2>
 <p>Below is an example class that accepts an argument list, and determines how and
 what to emit.</p>
-<pre class="codehilite"><code class="language-php">namespace Foo;
+<p> <pre class=codehilite><code class=language-php>namespace Foo;
 
 use Zend\Stdlib\ConsoleHelper;
 
@@ -358,8 +356,7 @@ class HelloWorld
             $target
         ));
     }
-}</code></pre>
-
+}</code></pre></p>
 <h2 id="when-to-upgrade">When to upgrade</h2>
 <p><code>ConsoleHelper</code> is deliberately simple, and assumes that your primary need for
 console tooling is for output considerations.</p>
@@ -401,7 +398,7 @@ and console feature detection facilities.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/console-helper.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-stdlib/edit/master/docs/book/console-helper.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
