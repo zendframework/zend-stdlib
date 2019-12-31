@@ -1,5 +1,9 @@
 # zend-stdlib
 
+> ## Repository abandoned 2019-12-31
+>
+> This repository has moved to laminas/laminas-stdlib.
+
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-stdlib.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-stdlib)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-stdlib/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-stdlib?branch=master)
 
